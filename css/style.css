@@ -1,0 +1,106 @@
+/* Police et couleurs */
+:root {
+    --primary-color: #6a0dad;
+    --secondary-color: #8a2be2;
+    --text-color: #f8f8f8;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --hover-color: #9b59b6;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+.site-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin: 0;
+    text-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 0.5rem;
+}
+
+/* Grille des jeux */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--secondary-color);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--hover-color);
+}
+
+.game-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.game-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.game-desc {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.game-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.game-button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Pied de page */
+footer {
+    margin-top: 2rem;
+    color: #888;
+    font-size: 0.9rem;
+}

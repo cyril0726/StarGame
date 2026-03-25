@@ -1,0 +1,135 @@
+/* Réutilisation des variables de style.css */
+:root {
+    --primary-color: #6a0dad;
+    --secondary-color: #8a2be2;
+    --text-color: #f8f8f8;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --hover-color: #9b59b6;
+    --error-color: #e74c3c;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 1.5rem;
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 0;
+    text-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+}
+
+.back-button {
+    display: inline-block;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: color 0.3s;
+}
+
+.back-button:hover {
+    color: var(--hover-color);
+}
+
+.game-container {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-info {
+    margin-bottom: 1.5rem;
+}
+
+.word-display {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    letter-spacing: 0.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    min-height: 2.5rem;
+}
+
+.errors {
+    color: var(--error-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hangman-drawing {
+    margin: 1.5rem auto;
+    color: var(--primary-color);
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+
+#hangman-art {
+    transition: all 0.5s;
+}
+
+.input-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.letter-input {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 60px;
+}
+
+.letter-input:focus {
+    outline: none;
+    border-color: var(--hover-color);
+}
+
+.guess-button {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.guess-button:hover {
+    background-color: var(--hover-color);
+}
+
+footer {
+    margin-top: 2rem;
+    color: #888;
+    font-size: 0.9rem;
+}
