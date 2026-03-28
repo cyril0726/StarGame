@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGame - Tables de Multiplication</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tables.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="game-title">Tables de Multiplication</h1>
+            <a href="../index.html" class="back-button">← Retour au portail</a>
+        </header>
+
+        <main class="game-container">
+            <div id="selection-tables" class="selection-section">
+                <h2>Quelles tables veux-tu tester ?</h2>
+                <div class="tables-buttons">
+                    <button class="table-button" data-table="1">1</button>
+                    <button class="table-button" data-table="2">2</button>
+                    <button class="table-button" data-table="3">3</button>
+                    <button class="table-button" data-table="4">4</button>
+                    <button class="table-button" data-table="5">5</button>
+                    <button class="table-button" data-table="6">6</button>
+                    <button class="table-button" data-table="7">7</button>
+                    <button class="table-button" data-table="8">8</button>
+                    <button class="table-button" data-table="9">9</button>
+                </div>
+                <button id="start-game" class="start-button" disabled>Commencer</button>
+            </div>
+
+            <div id="game-section" class="game-section" style="display: none;">
+                <div class="question-display">
+                    <p id="question">?</p>
+                </div>
+                <div class="answer-section">
+                    <input type="number" id="answer" placeholder="Ta réponse" autofocus inputmode="numeric">
+                    <button id="validate-answer">Valider</button>
+                </div>
+                <div class="feedback">
+                    <p id="feedback-message"></p>
+                    <p id="score-display">Score : <span id="score">0</span></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 StarGame - Un jeu par Cyril Gourdon</p>
+        </footer>
+    </div>
+
+    <script src="../js/tables.js"></script>
+</body>
+</html>
