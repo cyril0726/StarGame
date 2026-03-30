@@ -6,15 +6,17 @@
     <title>StarGame - Tables de Multiplication</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/tables.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <nav class="navbar">
+        <div class="navbar-container">
             <h1 class="game-title">Tables de Multiplication</h1>
-            <a href="../index.html" class="back-button">← Retour au portail</a>
-        </header>
+            <a href="../index.html" class="back-button">Retour au portail</a>
+        </div>
+    </nav>
 
+    <div class="container">
         <main class="game-container">
             <div id="selection-tables" class="selection-section">
                 <h2>Quelles tables veux-tu tester ?</h2>
@@ -37,20 +39,23 @@
                     <p id="question">?</p>
                 </div>
                 <div class="answer-section">
-                    <input type="number" id="answer" placeholder="Ta réponse" autofocus inputmode="numeric">
+                    <input type="number" id="answer" autofocus inputmode="numeric">
                     <button id="validate-answer">Valider</button>
                 </div>
                 <div class="feedback">
                     <p id="feedback-message"></p>
-                    <p id="score-display">Score : <span id="score">0</span></p>
+                    <div class="feedback-display">
+                        <p id="score-display">Score : <span id="score">0</span></p>
+                        <p id="error-display">Erreurs : <span id="errors">0</span>/5</p>
+                    </div>
                 </div>
             </div>
         </main>
-
-        <footer>
-            <p>© 2026 StarGame - Un jeu par Cyril Gourdon</p>
-        </footer>
     </div>
+
+    <footer>
+        <p>© 2026 StarGame - Un jeu par Cyril0726</p>
+    </footer>
 
     <script src="../js/tables.js"></script>
 </body>

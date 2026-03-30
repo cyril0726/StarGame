@@ -1,106 +1,183 @@
-/* Police et couleurs */
-:root {
-    --primary-color: #6a0dad;
-    --secondary-color: #8a2be2;
-    --text-color: #f8f8f8;
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --hover-color: #9b59b6;
-}
-
+/* Reset et base */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: #121212;
+    color: #f8f8f8;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
+/* En-tête de la page d'accueil */
+.home-header {
     text-align: center;
-}
-
-header {
+    padding: 2rem 0;
+    background-color: #1e1e1e;
     margin-bottom: 2rem;
 }
 
 .site-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3.5rem;
-    color: var(--primary-color);
+    font-size: 3rem;
+    color: #6a0dad;
     margin: 0;
-    text-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
 }
 
-.subtitle {
+.site-slogan {
     font-size: 1.2rem;
     color: #aaa;
     margin-top: 0.5rem;
 }
 
-/* Grille des jeux */
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Conteneur des jeux */
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
-    margin-bottom: 3rem;
+    padding: 1rem;
+    flex: 1;
 }
 
+/* Cartes des jeux */
 .game-card {
-    background-color: var(--card-bg);
+    background-color: #1e1e1e;
     border-radius: 10px;
     padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .game-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    border-color: var(--hover-color);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 .game-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
 }
 
-.game-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
+.game-card-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #6a0dad;
+    margin: 0 0 0.5rem 0;
 }
 
-.game-desc {
+.game-card-description {
     color: #ccc;
     margin-bottom: 1.5rem;
 }
 
-.game-button {
+.game-card-link {
     display: inline-block;
-    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    background-color: #6a0dad;
     color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
     text-decoration: none;
+    border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s;
 }
 
-.game-button:hover {
-    background-color: var(--hover-color);
+.game-card-link:hover {
+    background-color: #8a2be2;
 }
 
-/* Pied de page */
-footer {
-    margin-top: 2rem;
+/* Pied de page de la page d'accueil */
+.home-footer {
+    text-align: center;
     color: #888;
     font-size: 0.9rem;
+    padding: 1rem 0;
+    background-color: #1e1e1e;
+    margin-top: auto;
+}
+
+/* Bandeau supérieur commun pour les jeux */
+.navbar {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #6a0dad;
+    margin: 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #6a0dad;
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: #8a2be2;
+    color: white;
+}
+
+.back-button::before {
+    content: "← ";
+}
+
+/* Conteneur principal pour les jeux */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Conteneur du jeu */
+.game-container {
+    flex: 1;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Pied de page commun */
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    padding: 1rem 0;
+    background-color: #1e1e1e;
+    margin-top: auto;
 }

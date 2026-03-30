@@ -1,16 +1,8 @@
 // Variables du jeu
 let tablesSelectionnees = [];
 let score = 0;
-
-// Génère un code de session (optionnel, si tu veux le réutiliser)
-function genererCodeSession() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    let code = 'STAR-';
-    for (let i = 0; i < 4; i++) {
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return code;
-}
+let erreurs = 0; // Variable pour suivre le nombre d'erreurs
+const maxErreurs = 5; // Nombre maximum d'erreurs autorisées
 
 // Génère une question aléatoire
 function genererQuestion() {
@@ -25,7 +17,7 @@ function genererQuestion() {
     document.getElementById('question').textContent = question;
     document.getElementById('answer').value = '';
     document.getElementById('answer').focus();
-    document.getElementById('feedback-message').textContent = '';
+    document.getElementById('feedback-message').textContent = ''; // Réinitialise le message de feedback
 }
 
 // Vérifie la réponse de l'utilisateur
@@ -34,37 +26,45 @@ function verifierReponse() {
     const [table, multiplicateur] = questionText.split(' × ');
     const reponseCorrecte = parseInt(table) * parseInt(multiplicateur);
     const reponseUtilisateur = parseInt(document.getElementById('answer').value);
+    const feedbackMessage = document.getElementById('feedback-message');
 
     if (isNaN(reponseUtilisateur)) {
-        document.getElementById('feedback-message').textContent = "Saisis un nombre !";
+        feedbackMessage.textContent = "Saisis un nombre !";
+        feedbackMessage.style.color = "#e74c3c";
         return;
     }
 
     if (reponseUtilisateur === reponseCorrecte) {
-        document.getElementById('feedback-message').textContent = "Bonne réponse !";
-        document.getElementById('feedback-message').style.color = "#2ecc71";
+        feedbackMessage.textContent = "Bonne réponse !";
+        feedbackMessage.style.color = "#2ecc71";
         score++;
         document.getElementById('score').textContent = score;
     } else {
-        document.getElementById('feedback-message').textContent = `Mauvaise réponse. La bonne réponse était ${reponseCorrecte}.`;
-        document.getElementById('feedback-message').style.color = "#e74c3c";
+        feedbackMessage.textContent = `Mauvaise réponse.`;
+        feedbackMessage.style.color = "#e74c3c";
+        erreurs++;
+        document.getElementById('errors').textContent = erreurs;
+
+        if (erreurs >= maxErreurs) {
+            setTimeout(() => {
+                alert(`Game Over ! Tu as fait ${maxErreurs} erreurs. Ton score final est : ${score}.`);
+                reinitialiserJeu();
+            }, 100);
+            return;
+        }
     }
 
-    setTimeout(genererQuestion, 1500);
+    setTimeout(genererQuestion, 1000);
 }
 
-// Met à jour l'état du bouton "Commencer"
-function mettreAJourBoutonCommencer() {
-    const boutonCommencer = document.getElementById('start-game');
-    if (tablesSelectionnees.length === 0) {
-        boutonCommencer.disabled = true;
-        boutonCommencer.style.opacity = 0.5;
-        boutonCommencer.style.cursor = 'not-allowed';
-    } else {
-        boutonCommencer.disabled = false;
-        boutonCommencer.style.opacity = 1;
-        boutonCommencer.style.cursor = 'pointer';
-    }
+// Réinitialise le jeu
+function reinitialiserJeu() {
+    score = 0;
+    erreurs = 0; // Réinitialise le compteur d'erreurs
+    document.getElementById('score').textContent = score;
+    document.getElementById('errors').textContent = erreurs;
+    document.getElementById('selection-tables').style.display = 'block';
+    document.getElementById('game-section').style.display = 'none';
 }
 
 // Initialise le jeu
@@ -86,7 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Met à jour le bouton "Commencer"
-            mettreAJourBoutonCommencer();
+            const boutonCommencer = document.getElementById('start-game');
+            if (tablesSelectionnees.length === 0) {
+                boutonCommencer.disabled = true;
+                boutonCommencer.style.opacity = 0.5;
+                boutonCommencer.style.cursor = 'not-allowed';
+            } else {
+                boutonCommencer.disabled = false;
+                boutonCommencer.style.opacity = 1;
+                boutonCommencer.style.cursor = 'pointer';
+            }
         });
     });
 
@@ -98,7 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Désactive le bouton "Commencer" au départ
-    mettreAJourBoutonCommencer();
+    const boutonCommencer = document.getElementById('start-game');
+    boutonCommencer.disabled = true;
+    boutonCommencer.style.opacity = 0.5;
+    boutonCommencer.style.cursor = 'not-allowed';
 
     // Validation de la réponse (bouton ou touche Entrée)
     document.getElementById('validate-answer').addEventListener('click', verifierReponse);

@@ -2,17 +2,18 @@
 let motATrouver = "";
 let lettresTrouvees = [];
 let erreurs = 0;
-let mots = [
-    "POMME", "BANANE", "ORANGE", "FRAISE", "RAISIN", "CITRON", "MANGUE", "KIWI", "PECHE", "ABRICOT",
-    "VOITURE", "MAISON", "ORDINATEUR", "TELEPHONE", "CHAT", "CHIEN", "OISEAU", "ARBRE", "FLEUR", "SOLEIL",
+
+// Liste de mots possibles
+const mots = [
+    "MAISON", "VOITURE", "ORDINATEUR", "TELEPHONE", "CHAT", "CHIEN", "OISEAU", "ARBRE", "FLEUR", "SOLEIL",
     "LUNETTES", "LIVRE", "STYLO", "CAHIER", "TABLE", "CHAISE", "FENETRE", "PORTE", "MUR", "PLANCHER",
-    "JARDIN", "PARC", "RUE", "VILLE", "PAYS", "MONTAGNE", "RIVIERE", "MER", "OCAN", "ILE",
+    "JARDIN", "PARC", "RUE", "VILLE", "PAYS", "MONTAGNE", "RIVIERE", "MER", "OCEAN", "ILE",
     "AVION", "TRAIN", "BATEAU", "VELO", "MOTO", "BUS", "CAMION", "TRAMWAY", "METRO", "TAXI"
 ];
 
-// Tableau des étapes du pendu (en Unicode art)
+// Tableau des étapes du pendu
 const hangmanStages = [
-`
+    `
   +---+
   |   |
       |
@@ -20,26 +21,26 @@ const hangmanStages = [
       |
       |
 =========
-`,
-`
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-`,
-`
+    `,
+    `
   +---+
   |   |
   O   |
+      |
+      |
+      |
+=========
+    `,
+    `
+  +---+
+  |   |
+  O   |
   |   |
       |
       |
 =========
-`,
-`
+    `,
+    `
   +---+
   |   |
   O   |
@@ -47,8 +48,8 @@ const hangmanStages = [
       |
       |
 =========
-`,
-`
+    `,
+    `
   +---+
   |   |
   O   |
@@ -56,8 +57,8 @@ const hangmanStages = [
       |
       |
 =========
-`,
-`
+    `,
+    `
   +---+
   |   |
   O   |
@@ -65,8 +66,8 @@ const hangmanStages = [
  /    |
       |
 =========
-`,
-`
+    `,
+    `
   +---+
   |   |
   O   |
@@ -74,7 +75,7 @@ const hangmanStages = [
  / \\  |
       |
 =========
-`
+    `
 ];
 
 // Initialise le jeu
@@ -149,7 +150,6 @@ function devinerLettre() {
 }
 
 // Initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', () => {
+window.onload = function() {
     initialiserJeu();
-    document.getElementById("lettre").focus();
-});
+};

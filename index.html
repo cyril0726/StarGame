@@ -3,36 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarGame - Portail Mini-Jeux</title>
+    <title>StarGame</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="site-title">StarGame</h1>
-            <p class="subtitle">Joue avec tes amis en ligne</p>
-        </header>
+    <header class="home-header">
+        <h1 class="site-title">StarGame</h1>
+        <p class="site-slogan">Joue avec tes amis en ligne</p>
+    </header>
 
-        <main class="games-grid">
-            <div class="game-card">
-                <div class="game-icon">🖥️</div>
-                <h2 class="game-title">Pendu</h2>
-                <p class="game-desc">Devine le mot avant que le pendu ne soit complet !</p>
-                <a href="jeux/pendu.html" class="game-button">Jouer</a>
-            </div>
-			
-			<div class="game-card">
-				<div class="game-icon">✖️</div>
-				<h2 class="game-title">Tables de Multiplication</h2>
-				<p class="game-desc">Teste tes connaissances en calcul mental !</p>
-				<a href="jeux/tables.html" class="game-button">Jouer</a>
-			</div>
-        </main>
+    <main class="games-container">
+        <div class="game-card">
+			<div class="game-icon">🖥️</div>
+            <h2 class="game-card-title">Pendu</h2>
+            <p class="game-card-description">Devine le mot avant que le pendu ne soit complet !</p>
+            <a href="jeux/pendu.html" class="game-card-link">Jouer</a>
+        </div>
 
-        <footer>
-            <p>© 2026 StarGame - Créé par Cyril Gourdon</p>
-        </footer>
-    </div>
+        <div class="game-card">
+			<div class="game-icon">✖️</div>
+			<h2 class="game-card-title">Tables de Multiplication</h2>
+            <p class="game-card-description">Teste tes connaissances en calcul mental !</p>
+            <a href="jeux/tables.html" class="game-card-link">Jouer</a>
+        </div>
+    </main>
+
+    <footer class="home-footer">
+        <p>© 2026 StarGame - Créé par Cyril Gourdon</p>
+    </footer>
 </body>
 </html>

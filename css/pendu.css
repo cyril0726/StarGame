@@ -1,170 +1,114 @@
 /* Style spécifique au jeu du Pendu */
-:root {
-    --primary-color: #6a0dad;
-    --secondary-color: #8a2be2;
-    --text-color: #f8f8f8;
-    --bg-color: #121212;
-    --card-bg: #1e1e12;
-    --hover-color: #9b59b6;
+html, body {
+    height: 100%;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-header {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.game-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin: 0;
-}
-
-.back-button {
-    display: inline-block;
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 0.5rem;
-}
-
-.back-button:hover {
-    color: var(--hover-color);
+    flex: 1;
+    overflow: hidden;
 }
 
 .game-container {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    padding: 2rem;
-    border: 1px solid var(--secondary-color);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
 }
 
 .game-info {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
-.word-display {
+#mot {
     font-family: 'Orbitron', monospace;
     font-size: 1.8rem;
     letter-spacing: 0.5rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    min-height: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+    min-height: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #6a0dad;
 }
 
-.errors {
+#erreurs {
     color: #e74c3c;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-align: center;
+    font-size: 1rem;
 }
 
 .hangman-container {
     display: flex;
     justify-content: center;
-    margin: 1.5rem 0;
-}
-
-.hangman-drawing {
-    font-family: monospace;
-    font-size: 1.2rem;
-    line-height: 1.2;
-    color: var(--primary-color);
-    white-space: pre;
-    text-align: center;
-    border: 1px solid var(--secondary-color);
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0.5rem 0;
+    flex: 1;
+    min-height: 0;
 }
 
 #hangman-art {
-    display: inline-block;
-    font-size: 1.2rem;
+    font-family: monospace;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: #6a0dad;
+    white-space: pre;
+    text-align: center;
+    padding: 0.5rem;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #8a2be2;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 200px;
 }
 
 .input-section {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding: 0.5rem 0;
 }
 
-.letter-input {
-    padding: 0.5rem 1rem;
+#lettre {
+    padding: 0.4rem 0.8rem;
     border-radius: 5px;
-    border: 1px solid var(--secondary-color);
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    border: 1px solid #8a2be2;
+    background-color: #121212;
+    color: #f8f8f8;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    width: 60px;
+    width: 80px;
 }
 
-.letter-input:focus {
+#lettre:focus {
     outline: none;
-    border-color: var(--hover-color);
+    border-color: #9b59b6;
 }
 
-.guess-button {
-    padding: 0.5rem 1.5rem;
-    background-color: var(--primary-color);
+button {
+    padding: 0.4rem 1.2rem;
+    background-color: #6a0dad;
     color: white;
     border: none;
     border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.guess-button:hover {
-    background-color: var(--hover-color);
-}
-
-footer {
-    margin-top: 2rem;
-    text-align: center;
-    color: #888;
     font-size: 0.9rem;
 }
 
-/* Adaptation pour les petits écrans */
-@media (max-width: 600px) {
-    .game-container {
-        padding: 1.5rem;
-    }
-
-    .input-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-
-    .letter-input {
-        width: 100%;
-        max-width: 150px;
-    }
-
-    .guess-button {
-        width: 100%;
-        max-width: 200px;
-    }
+button:hover {
+    background-color: #9b59b6;
 }
