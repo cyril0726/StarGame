@@ -31,10 +31,16 @@
                     <button class="table-button" data-table="8">8</button>
                     <button class="table-button" data-table="9">9</button>
                 </div>
-                <button id="start-game" class="start-button" disabled>Commencer</button>
+                <div class="mode-selection">
+                    <button id="start-game" class="start-button" disabled>Commencer</button>
+                    <button id="start-chrono" class="chrono-button">Mode Chrono</button>
+                </div>
             </div>
 
             <div id="game-section" class="game-section" style="display: none;">
+                <div id="time-display" class="time-display" style="display: none;">
+                    Temps restant : <span id="time-left">60</span> secondes
+                </div>
                 <div class="question-display">
                     <p id="question">?</p>
                 </div>
