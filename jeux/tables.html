@@ -20,21 +20,21 @@
         <main class="game-container">
             <div id="selection-tables" class="selection-section">
                 <h2>Quelles tables veux-tu tester ?</h2>
-                <div class="tables-buttons">
-                    <button class="table-button" data-table="1">1</button>
-                    <button class="table-button" data-table="2">2</button>
-                    <button class="table-button" data-table="3">3</button>
-                    <button class="table-button" data-table="4">4</button>
-                    <button class="table-button" data-table="5">5</button>
-                    <button class="table-button" data-table="6">6</button>
-                    <button class="table-button" data-table="7">7</button>
-                    <button class="table-button" data-table="8">8</button>
-                    <button class="table-button" data-table="9">9</button>
-                </div>
-                <div class="mode-selection">
-                    <button id="start-game" class="start-button" disabled>Commencer</button>
-                    <button id="start-chrono" class="chrono-button">Mode Chrono</button>
-                </div>
+				<div class="tables-buttons">
+					<button class="table-button" data-table="1" onclick="JeuTables.selectionnerTable(1)">1</button>
+					<button class="table-button" data-table="2" onclick="JeuTables.selectionnerTable(2)">2</button>
+					<button class="table-button" data-table="3" onclick="JeuTables.selectionnerTable(3)">3</button>
+					<button class="table-button" data-table="4" onclick="JeuTables.selectionnerTable(4)">4</button>
+					<button class="table-button" data-table="5" onclick="JeuTables.selectionnerTable(5)">5</button>
+					<button class="table-button" data-table="6" onclick="JeuTables.selectionnerTable(6)">6</button>
+					<button class="table-button" data-table="7" onclick="JeuTables.selectionnerTable(7)">7</button>
+					<button class="table-button" data-table="8" onclick="JeuTables.selectionnerTable(8)">8</button>
+					<button class="table-button" data-table="9" onclick="JeuTables.selectionnerTable(9)">9</button>
+				</div>
+				<div class="mode-selection">
+					<button id="start-game" class="start-button" onclick="JeuTables.commencerJeu()">Commencer</button>
+					<button id="start-chrono" class="chrono-button" onclick="JeuTables.basculerModeChrono()">Mode Chrono</button>
+				</div>
             </div>
 
             <div id="game-section" class="game-section" style="display: none;">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="answer-section">
                     <input type="number" id="answer" autofocus inputmode="numeric">
-                    <button id="validate-answer">Valider</button>
+                    <button id="validate-answer" onclick="JeuTables.verifierReponse()">Valider</button>
                 </div>
                 <div class="feedback">
                     <p id="feedback-message"></p>

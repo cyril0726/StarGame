@@ -1,18 +1,16 @@
-// Variables du jeu
-let motATrouver = "";
-let lettresTrouvees = [];
-let erreurs = 0;
-
-// Liste de mots possibles
-const mots = [
+const JeuPendu = {
+  motATrouver: "",
+  lettresTrouvees: [],
+  erreurs: 0,
+  maxErreurs: 6,
+  mots: [
     "MAISON", "VOITURE", "ORDINATEUR", "TELEPHONE", "CHAT", "CHIEN", "OISEAU", "ARBRE", "FLEUR", "SOLEIL",
     "LUNETTES", "LIVRE", "STYLO", "CAHIER", "TABLE", "CHAISE", "FENETRE", "PORTE", "MUR", "PLANCHER",
     "JARDIN", "PARC", "RUE", "VILLE", "PAYS", "MONTAGNE", "RIVIERE", "MER", "OCEAN", "ILE",
-    "AVION", "TRAIN", "BATEAU", "VELO", "MOTO", "BUS", "CAMION", "TRAMWAY", "METRO", "TAXI"
-];
+    "AVION", "TRAIN", "BATEAU", "VELO", "MOTO", "BUS", "CAMION", "TRAMWAY"
+  ],
 
-// Tableau des étapes du pendu
-const hangmanStages = [
+  hangmanStages: [
     `
   +---+
   |   |
@@ -56,7 +54,7 @@ const hangmanStages = [
  /|\\  |
       |
       |
-=========
+========= 
     `,
     `
   +---+
@@ -76,80 +74,70 @@ const hangmanStages = [
       |
 =========
     `
-];
+  ],
 
-// Initialise le jeu
-function initialiserJeu() {
-    motATrouver = mots[Math.floor(Math.random() * mots.length)];
-    lettresTrouvees = [];
-    erreurs = 0;
-    document.getElementById("erreurs").textContent = "Erreurs : 0/6";
-    afficherMot();
-    afficherPendu();
-}
+  initialiserJeu: function() {
+    this.motATrouver = this.choisirMotAleatoire();
+    this.lettresTrouvees = [];
+    this.erreurs = 0;
+    this.afficherMotCache();
+    this.afficherPendu();
+  },
 
-// Affiche le mot avec les lettres trouvées
-function afficherMot() {
-    let motAffiche = "";
-    for (let lettre of motATrouver) {
-        if (lettresTrouvees.includes(lettre)) {
-            motAffiche += lettre + " ";
-        } else {
-            motAffiche += "_ ";
-        }
+  choisirMotAleatoire: function() {
+    const index = Math.floor(Math.random() * this.mots.length);
+    return this.mots[index];
+  },
+
+  afficherMotCache: function() {
+    let motCache = "";
+    for (const lettre of this.motATrouver) {
+      motCache += this.lettresTrouvees.includes(lettre) ? lettre + " " : "_ ";
     }
-    document.getElementById("mot").textContent = motAffiche.trim();
-}
+    document.getElementById("mot").textContent = motCache.trim();
+  },
 
-// Affiche le dessin du pendu
-function afficherPendu() {
-    document.getElementById("hangman-art").textContent = hangmanStages[erreurs];
-}
+  afficherPendu: function() {
+	document.getElementById("erreurs").textContent = `Erreurs : ${this.erreurs}/6`;
+    document.getElementById("hangman-art").textContent = this.hangmanStages[this.erreurs];
+  },
 
-// Devine une lettre
-function devinerLettre() {
-    const lettreInput = document.getElementById("lettre");
-    const lettre = lettreInput.value.toUpperCase();
-    lettreInput.value = "";
-
-    if (!lettre || lettre.length !== 1 || !/^[A-Z]$/.test(lettre)) {
-        alert("Saisis une lettre valide !");
-        lettreInput.focus();
-        return;
+  verifierLettre: function(lettre) {
+    if (!lettre || lettre.length !== 1 || !/[A-Z]/.test(lettre.toUpperCase())) {
+      alert("Veuillez entrer une lettre valide.");
+      return;
     }
 
-    if (lettresTrouvees.includes(lettre)) {
-        alert("Tu as déjà deviné cette lettre !");
-        lettreInput.focus();
-        return;
+    lettre = lettre.toUpperCase();
+
+    if (this.lettresTrouvees.includes(lettre)) {
+      alert("Vous avez déjà deviné cette lettre.");
+      return;
     }
 
-    lettresTrouvees.push(lettre);
+    this.lettresTrouvees.push(lettre);
 
-    if (!motATrouver.includes(lettre)) {
-        erreurs++;
-        document.getElementById("erreurs").textContent = `Erreurs : ${erreurs}/6`;
-        afficherPendu();
-
-        if (erreurs >= 6) {
-            setTimeout(() => {
-                alert(`Perdu ! Le mot était : ${motATrouver}`);
-                initialiserJeu();
-            }, 100);
-        }
+    if (!this.motATrouver.includes(lettre)) {
+      this.erreurs++;
+      document.getElementById("erreurs").textContent = `Erreurs : ${this.erreurs}/6`;
+      this.afficherPendu();
     }
 
-    afficherMot();
+    this.afficherMotCache();
 
-    if ([...motATrouver].every(l => lettresTrouvees.includes(l))) {
-        setTimeout(() => {
-            alert("Gagné !");
-            initialiserJeu();
-        }, 100);
+    if (this.erreurs >= this.maxErreurs) {
+      alert(`Perdu ! Le mot était : ${this.motATrouver}`);
+      this.initialiserJeu();
+    } else if ([...this.motATrouver].every(l => this.lettresTrouvees.includes(l))) {
+      alert("Félicitations, vous avez gagné !");
+      this.initialiserJeu();
     }
-}
+	// Vider la case de saisie
+    document.getElementById('lettre').value = '';
+  }
+};
 
-// Initialisation au chargement de la page
+// Initialisation du jeu au chargement de la page
 window.onload = function() {
-    initialiserJeu();
+  JeuPendu.initialiserJeu();
 };
