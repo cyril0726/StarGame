@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGame - Quiz Culture Générale</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <h1 class="game-title">Quiz Culture Générale</h1>
+            <a href="../index.html" class="back-button">Retour au portail</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="game-container">
+            <div class="welcome-screen" id="welcome">
+                <h2>Bienvenue au Quiz de Culture Générale</h2>
+                <div class="options">
+                    <label for="question-count">Nombre de questions :</label>
+                    <select id="question-count">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div class="options">
+                    <label for="category">Catégorie :</label>
+                    <select id="category">
+                        <option value="all">Toutes</option>
+                        <option value="Géographie">Géographie</option>
+                        <option value="Littérature">Littérature</option>
+                        <option value="Sciences">Sciences</option>
+                        <option value="Art">Art</option>
+                        <option value="Musique">Musique</option>
+                    </select>
+                </div>
+                <div class="options">
+                    <label for="difficulty">Niveau :</label>
+                    <select id="difficulty">
+                        <option value="all">Tous</option>
+                        <option value="Facile">Facile</option>
+                        <option value="Moyen">Moyen</option>
+                        <option value="Difficile">Difficile</option>
+                    </select>
+                </div>
+                <button id="start-quiz" class="start-button">Commencer</button>
+            </div>
+
+            <div class="quiz-screen" id="quiz" style="display: none;">
+                <div class="quiz-info">
+                    <div>Catégorie : <span id="selected-category">Toutes</span></div>
+                    <div>Difficulté : <span id="selected-difficulty">Tous</span></div>
+                </div>
+                <div class="progress">Question <span id="current-question">1</span>/<span id="total-questions">10</span></div>
+                <div id="question" class="question"></div>
+                <div id="answers" class="answers"></div>
+                <div class="score">Score : <span id="score">0</span></div>
+            </div>
+
+            <div class="end-screen" id="end" style="display: none;">
+                <h2>Quiz Terminé !</h2>
+                <p>Votre score : <span id="final-score"></span></p>
+                <button id="replay" class="start-button">Rejouer</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 StarGame - Un jeu par Cyril Gourdon</p>
+    </footer>
+
+    <script src="../js/quiz.js"></script>
+</body>
+</html>

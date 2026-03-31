@@ -1,0 +1,149 @@
+[
+    {
+        "question": "Quelle est la capitale de la France ?",
+        "reponses": ["Paris", "Lyon", "Marseille", "Toulouse"],
+        "bonneReponse": "Paris",
+        "categorie": "Géographie",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus grand océan du monde ?",
+        "reponses": ["Océan Atlantique", "Océan Indien", "Océan Pacifique", "Océan Arctique"],
+        "bonneReponse": "Océan Pacifique",
+        "categorie": "Géographie",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Qui a écrit 'Les Misérables' ?",
+        "reponses": ["Victor Hugo", "Gustave Flaubert", "Émile Zola", "Albert Camus"],
+        "bonneReponse": "Victor Hugo",
+        "categorie": "Littérature",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus grand mammifère terrestre ?",
+        "reponses": ["Éléphant d'Afrique", "Girafe", "Rhinocéros", "Hippopotame"],
+        "bonneReponse": "Éléphant d'Afrique",
+        "categorie": "Sciences",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus long fleuve du monde ?",
+        "reponses": ["Nil", "Amazone", "Yangtsé", "Mississippi"],
+        "bonneReponse": "Amazone",
+        "categorie": "Géographie",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Qui a peint la Joconde ?",
+        "reponses": ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michel-Ange"],
+        "bonneReponse": "Leonardo da Vinci",
+        "categorie": "Art",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus grand pays du monde ?",
+        "reponses": ["Canada", "Chine", "États-Unis", "Russie"],
+        "bonneReponse": "Russie",
+        "categorie": "Géographie",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est l'élément chimique avec le symbole 'O' ?",
+        "reponses": ["Or", "Oxygène", "Osmium", "Oganesson"],
+        "bonneReponse": "Oxygène",
+        "categorie": "Sciences",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Qui a écrit 'Roméo et Juliette' ?",
+        "reponses": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+        "bonneReponse": "William Shakespeare",
+        "categorie": "Littérature",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus grand désert du monde ?",
+        "reponses": ["Désert du Sahara", "Désert d'Arabie", "Désert de Gobi", "Antarctique"],
+        "bonneReponse": "Antarctique",
+        "categorie": "Géographie",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Quel est le plus haut sommet du monde ?",
+        "reponses": ["K2", "Mont Everest", "Kangchenjunga", "Lhotse"],
+        "bonneReponse": "Mont Everest",
+        "categorie": "Géographie",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus grand lac d'eau douce du monde ?",
+        "reponses": ["Lac Supérieur", "Lac Victoria", "Lac Baïkal", "Lac Huron"],
+        "bonneReponse": "Lac Supérieur",
+        "categorie": "Géographie",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Quel est le plus grand animal terrestre ?",
+        "reponses": ["Éléphant d'Afrique", "Girafe", "Rhinocéros", "Hippopotame"],
+        "bonneReponse": "Éléphant d'Afrique",
+        "categorie": "Sciences",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Qui a composé la 'Symphonie n°5' ?",
+        "reponses": ["Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Johann Sebastian Bach", "Pyotr Ilyich Tchaikovsky"],
+        "bonneReponse": "Ludwig van Beethoven",
+        "categorie": "Musique",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Quel est le plus grand continent du monde ?",
+        "reponses": ["Afrique", "Amérique", "Asie", "Europe"],
+        "bonneReponse": "Asie",
+        "categorie": "Géographie",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le gaz le plus abondant dans l'atmosphère terrestre ?",
+        "reponses": ["Oxygène", "Dioxyde de carbone", "Azote", "Hélium"],
+        "bonneReponse": "Azote",
+        "categorie": "Sciences",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Qui a découvert la pénicilline ?",
+        "reponses": ["Louis Pasteur", "Alexander Fleming", "Marie Curie", "Robert Koch"],
+        "bonneReponse": "Alexander Fleming",
+        "categorie": "Sciences",
+        "niveau": "Difficile"
+    },
+    {
+        "question": "Quel est le plus long fleuve d'Europe ?",
+        "reponses": ["Danube", "Volga", "Rhin", "Loire"],
+        "bonneReponse": "Volga",
+        "categorie": "Géographie",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Quel est le plus petit pays du monde ?",
+        "reponses": ["Monaco", "Vatican", "Saint-Marin", "Malte"],
+        "bonneReponse": "Vatican",
+        "categorie": "Géographie",
+        "niveau": "Moyen"
+    },
+    {
+        "question": "Qui a peint 'La Nuit étoilée' ?",
+        "reponses": ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        "bonneReponse": "Vincent Van Gogh",
+        "categorie": "Art",
+        "niveau": "Facile"
+    },
+    {
+        "question": "Quel est le plus grand mammifère marin ?",
+        "reponses": ["Dauphin", "Baleine bleue", "Orque", "Phoque"],
+        "bonneReponse": "Baleine bleue",
+        "categorie": "Sciences",
+        "niveau": "Facile"
+    }
+]
