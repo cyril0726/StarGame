@@ -1,8 +1,27 @@
+/* Variables CSS */
+:root {
+    --primary-color: #6a0dad;
+    --secondary-color: #8a2be2;
+    --background-color: #121212;
+    --container-color: #1e1e1e;
+    --text-color: #e0e0e0;
+}
+
+/* Style général */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
 /* Style pour le bandeau supérieur */
 .navbar {
-    background-color: #1e1e1e;
+    background-color: var(--container-color);
     padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-container {
@@ -15,10 +34,11 @@
 }
 
 .game-title {
-    color: #6a0dad;
+    color: var(--primary-color);
     font-family: 'Orbitron', sans-serif;
     font-size: 1.8em;
     margin: 0;
+    text-shadow: 0 0 8px rgba(106, 13, 173, 0.5);
 }
 
 .back-button {
@@ -27,53 +47,115 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1em;
     padding: 8px 15px;
-    background-color: #6a0dad;
+    background-color: var(--primary-color);
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .back-button:hover {
-    background-color: #8a2be2;
+    background-color: var(--secondary-color);
 }
 
 /* Style pour le contenu principal */
 .container {
     max-width: 1200px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 0;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-container {
-    background-color: #252525;
-    border-radius: 10px;
+    background-color: var(--container-color);
+    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+    width: 90%;
+    max-width: 600px;
+    height: calc(100vh - 180px);
+    max-height: 90vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
-.welcome-screen, .quiz-screen, .end-screen {
+/* Style pour le welcome-screen */
+.welcome-screen {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.welcome-screen h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(106, 13, 173, 0.7);
+}
+
+/* Style pour le container des options */
+.options-container {
+    background-color: rgba(30, 30, 30, 0.7);
     padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    box-sizing: border-box;
 }
 
 .options {
-    margin: 20px 0;
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.options label {
+    display: block;
+    font-size: 1em;
+    color: var(--text-color);
+    margin-bottom: 8px;
 }
 
 .options select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: rgba(45, 45, 45, 0.8);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    transition: all 0.3s;
+    box-sizing: border-box;
 }
 
+.options select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* Style pour le bouton Commencer */
 .start-button {
-    padding: 12px 24px;
-    background-color: #6a0dad;
+    padding: 12px 25px;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 8px;
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
@@ -82,71 +164,106 @@
 }
 
 .start-button:hover {
-    background-color: #8a2be2;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.question {
-    font-size: 1.5em;
-    margin: 20px 0;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-}
-
-.answer-button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
+/* Style pour le quiz-screen */
+.quiz-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
     padding: 10px;
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
+    box-sizing: border-box;
 }
 
-.answer-button:hover {
-    background-color: #8a2be2;
-}
-
-.progress {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-}
-
-.score {
-    font-size: 1.2em;
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-}
-
+/* Style pour la section d'informations du quiz */
 .quiz-info {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 15px;
-    font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
-    color: #ccc;
+    color: var(--text-color);
+    gap: 20px;
 }
 
 .quiz-info div {
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.7);
     padding: 8px 15px;
     border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+
+/* Style pour la progression */
+.progress {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Style pour la question */
+.question {
+    font-size: 1.5em;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--text-color);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style pour les réponses */
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes de même largeur */
+    gap: 15px; /* Espacement entre les boutons */
+    justify-content: center;
+    margin: 20px 0;
+    flex-grow: 1;
+}
+
+.answer-button {
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.answer-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Style pour le score */
+.score {
+    font-size: 1.2em;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--text-color);
+    padding: 10px;
+    background-color: rgba(51, 51, 51, 0.7);
+    border-radius: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Style pour le pied de page */
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #1e1e1e;
+    background-color: var(--container-color);
     font-family: 'Poppins', sans-serif;
     font-size: 0.9em;
-    color: #aaa;
+    color: var(--text-color);
 }
