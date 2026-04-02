@@ -258,6 +258,28 @@ html, body {
     margin-right: auto;
 }
 
+.end-screen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.end-screen h2 {
+    margin-bottom: 20px;
+}
+
+.end-screen p {
+    margin-bottom: 20px;
+}
+
+.end-screen button {
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
 /* Style pour le pied de page */
 footer {
     text-align: center;

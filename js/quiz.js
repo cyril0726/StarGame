@@ -4,11 +4,21 @@ let score = 0;
 let questionActuelle = 0;
 let nombreQuestions = 10;
 let selectedCategory = "Toutes";
+let usedQuestions = []; // Liste pour stocker les questions déjà posées
+
+// Fonction pour mélanger les éléments d'un tableau
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
     // Charger le fichier JSON
-    fetch('../data/questions.json')
+    fetch('../data/questions_fr.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erreur HTTP! statut: ${response.status}`);
@@ -17,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             questions = data;
-            console.log('Questions chargées :', questions);
             setupEventListeners();
         })
         .catch(error => {
@@ -63,6 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     selectedCategoryElement.textContent = selectedCategory;
                     questionActuelle = 0;
                     score = 0;
+                    usedQuestions = []; // Réinitialiser la liste des questions déjà posées
+
+                    // Sélectionner les premières 'nombreQuestions' questions mélangées
+                    usedQuestions = filteredQuestions.slice(0, nombreQuestions);
+
                     const scoreElement = document.getElementById("score");
                     if (scoreElement) {
                         scoreElement.textContent = score;
@@ -87,14 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Fonction pour mélanger les questions
-    function shuffleArray(array) {
-        return array.sort(() => Math.random() - 0.5);
-    }
-
     function afficherQuestion() {
-        if (questionActuelle < nombreQuestions && questionActuelle < filteredQuestions.length) {
-            const q = filteredQuestions[questionActuelle];
+        if (questionActuelle < nombreQuestions) {
+            const q = usedQuestions[questionActuelle];
             const questionElement = document.getElementById("question");
             const currentQuestionElement = document.getElementById("current-question");
             const answersDiv = document.getElementById("answers");
@@ -102,8 +111,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (questionElement && currentQuestionElement && answersDiv) {
                 questionElement.textContent = q.question;
                 currentQuestionElement.textContent = questionActuelle + 1;
+
+                // Mélanger les réponses
+                const shuffledAnswers = shuffleArray([...q.reponses]);
+
                 answersDiv.innerHTML = "";
-                q.reponses.forEach(reponse => {
+                shuffledAnswers.forEach(reponse => {
                     const bouton = document.createElement("button");
                     bouton.textContent = reponse;
                     bouton.className = "answer-button";
