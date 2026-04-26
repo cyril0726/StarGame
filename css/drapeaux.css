@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden; /* Désactive l'ascenseur vertical */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Conteneur principal */
+.container {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Conteneur de la carte */
+#map-container {
+    text-align: center;
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 100%;
+}
+
+/* Carte du monde */
+#map {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background-image: url('../images/world_map.jpg');
+    background-size: cover;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+/* Conteneur des boutons de continents */
+.continent-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto;
+    max-width: 600px;
+}
+
+/* Boutons des continents */
+.continent-buttons button {
+    padding: 0.75rem 1.5rem;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continent-buttons button:hover {
+    background-color: #8a2be2;
+}
+
+/* Conteneur du drapeau */
+#flag-container {
+    text-align: center;
+    margin: 1rem auto;
+}
+
+/* Image du drapeau */
+#flag {
+    max-width: 200px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Conteneur des options */
+#options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes de même largeur */
+    gap: 1rem; /* Espacement entre les boutons */
+    margin: 1rem auto;
+    max-width: 500px; /* Largeur maximale pour s'assurer que les boutons restent bien alignés */
+}
+
+
+/* Boutons des options */
+#options-container button {
+    width: auto; /* Laisser la largeur être gérée par la grille */
+    padding: 0.75rem;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center; /* Centrer le texte dans le bouton */
+}
+
+#options-container button:hover {
+    background-color: #8a2be2;
+}
+
+/* Feedback */
+#feedback {
+    margin: 1rem auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Conteneur de la question */
+#question-container {
+    text-align: center;
+    margin: 1rem auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Conteneur du quiz */
+#quiz-container {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 1rem;
+}

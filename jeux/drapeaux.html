@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGame - Quiz des Drapeaux</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/drapeaux.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <h1 class="game-title">Quiz des Drapeaux</h1>
+            <a href="../index.html" class="back-button">Retour au portail</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="map-container">
+            <h2>Choisis un continent</h2>
+            <div class="continent-buttons">
+                <button onclick="selectContinent('Europe')">Europe</button>
+                <button onclick="selectContinent('Afrique')">Afrique</button>
+                <button onclick="selectContinent('Asie')">Asie</button>
+                <button onclick="selectContinent('Amérique')">Amérique</button>
+                <button onclick="selectContinent('Océanie')">Océanie</button>
+            </div>
+        </div>
+		<div id="quiz-container" style="display: none;">
+			<div id="flag-container">
+				<img id="flag" src="../images/drapeaux/france.png" alt="Drapeau">
+			</div>
+			<div id="question-container"></div> <!-- Conteneur pour la question -->
+			<div id="options-container"></div>
+			<div id="feedback"></div>
+		</div>
+    </div>
+	
+	<footer>
+        <p>© 2026 StarGame - Un jeu par Cyril0726</p>
+    </footer>
+	
+    <script src="../js/drapeaux.js"></script>
+</body>
+</html>
