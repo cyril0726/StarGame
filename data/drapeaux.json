@@ -3,235 +3,235 @@
     "Europe": [
       {
         "pays": "France",
-        "drapeau": "/images/drapeaux/france.png",
+        "drapeau": "images/drapeaux/france.png",
         "capitale": "Paris"
       },
       {
         "pays": "Allemagne",
-        "drapeau": "/images/drapeaux/allemagne.png",
+        "drapeau": "images/drapeaux/allemagne.png",
         "capitale": "Berlin"
       },
       {
         "pays": "Italie",
-        "drapeau": "/images/drapeaux/italie.png",
+        "drapeau": "images/drapeaux/italie.png",
         "capitale": "Rome"
       },
       {
         "pays": "Espagne",
-        "drapeau": "/images/drapeaux/espagne.png",
+        "drapeau": "images/drapeaux/espagne.png",
         "capitale": "Madrid"
       },
       {
         "pays": "Royaume-Uni",
-        "drapeau": "/images/drapeaux/royaume-uni.png",
+        "drapeau": "images/drapeaux/royaume-uni.png",
         "capitale": "Londres"
       },
       {
         "pays": "Portugal",
-        "drapeau": "/images/drapeaux/portugal.png",
+        "drapeau": "images/drapeaux/portugal.png",
         "capitale": "Lisbonne"
       },
       {
         "pays": "Pays-Bas",
-        "drapeau": "/images/drapeaux/pays-bas.png",
+        "drapeau": "images/drapeaux/pays-bas.png",
         "capitale": "Amsterdam"
       },
       {
         "pays": "Belgique",
-        "drapeau": "/images/drapeaux/belgique.png",
+        "drapeau": "images/drapeaux/belgique.png",
         "capitale": "Bruxelles"
       },
       {
         "pays": "Suisse",
-        "drapeau": "/images/drapeaux/suisse.png",
+        "drapeau": "images/drapeaux/suisse.png",
         "capitale": "Berne"
       },
       {
         "pays": "Suède",
-        "drapeau": "/images/drapeaux/suede.png",
+        "drapeau": "images/drapeaux/suede.png",
         "capitale": "Stockholm"
       }
     ],
     "Afrique": [
       {
         "pays": "Maroc",
-        "drapeau": "/images/drapeaux/maroc.png",
+        "drapeau": "images/drapeaux/maroc.png",
         "capitale": "Rabat"
       },
       {
         "pays": "Égypte",
-        "drapeau": "/images/drapeaux/egypte.png",
+        "drapeau": "images/drapeaux/egypte.png",
         "capitale": "Le Caire"
       },
       {
         "pays": "Afrique du Sud",
-        "drapeau": "/images/drapeaux/afrique-du-sud.png",
+        "drapeau": "images/drapeaux/afrique-du-sud.png",
         "capitale": "Prétoria"
       },
       {
         "pays": "Algérie",
-        "drapeau": "/images/drapeaux/algerie.png",
+        "drapeau": "images/drapeaux/algerie.png",
         "capitale": "Alger"
       },
       {
         "pays": "Tunisie",
-        "drapeau": "/images/drapeaux/tunisie.png",
+        "drapeau": "images/drapeaux/tunisie.png",
         "capitale": "Tunis"
       },
       {
         "pays": "Nigeria",
-        "drapeau": "/images/drapeaux/nigeria.png",
+        "drapeau": "images/drapeaux/nigeria.png",
         "capitale": "Abuja"
       },
       {
         "pays": "Kenya",
-        "drapeau": "/images/drapeaux/kenya.png",
+        "drapeau": "images/drapeaux/kenya.png",
         "capitale": "Nairobi"
       },
       {
         "pays": "Sénégal",
-        "drapeau": "/images/drapeaux/senegal.png",
+        "drapeau": "images/drapeaux/senegal.png",
         "capitale": "Dakar"
       },
       {
         "pays": "Côte d'Ivoire",
-        "drapeau": "/images/drapeaux/cote-divoire.png",
+        "drapeau": "images/drapeaux/cote-divoire.png",
         "capitale": "Yamoussoukro"
       },
       {
         "pays": "Cameroun",
-        "drapeau": "/images/drapeaux/cameroun.png",
+        "drapeau": "images/drapeaux/cameroun.png",
         "capitale": "Yaoundé"
       }
     ],
     "Asie": [
       {
         "pays": "Japon",
-        "drapeau": "/images/drapeaux/japon.png",
+        "drapeau": "images/drapeaux/japon.png",
         "capitale": "Tokyo"
       },
       {
         "pays": "Chine",
-        "drapeau": "/images/drapeaux/chine.png",
+        "drapeau": "images/drapeaux/chine.png",
         "capitale": "Pékin"
       },
       {
         "pays": "Inde",
-        "drapeau": "/images/drapeaux/inde.png",
+        "drapeau": "images/drapeaux/inde.png",
         "capitale": "New Delhi"
       },
       {
         "pays": "Russie",
-        "drapeau": "/images/drapeaux/russie.png",
+        "drapeau": "images/drapeaux/russie.png",
         "capitale": "Moscou"
       },
       {
         "pays": "Corée du Sud",
-        "drapeau": "/images/drapeaux/coree-du-sud.png",
+        "drapeau": "images/drapeaux/coree-du-sud.png",
         "capitale": "Séoul"
       },
       {
         "pays": "Thaïlande",
-        "drapeau": "/images/drapeaux/thailande.png",
+        "drapeau": "images/drapeaux/thailande.png",
         "capitale": "Bangkok"
       },
       {
         "pays": "Vietnam",
-        "drapeau": "/images/drapeaux/vietnam.png",
+        "drapeau": "images/drapeaux/vietnam.png",
         "capitale": "Hanoï"
       },
       {
         "pays": "Indonésie",
-        "drapeau": "/images/drapeaux/indonesie.png",
+        "drapeau": "images/drapeaux/indonesie.png",
         "capitale": "Jakarta"
       },
       {
         "pays": "Turquie",
-        "drapeau": "/images/drapeaux/turquie.png",
+        "drapeau": "images/drapeaux/turquie.png",
         "capitale": "Ankara"
       },
       {
         "pays": "Arabie Saoudite",
-        "drapeau": "/images/drapeaux/arabie-saoudite.png",
+        "drapeau": "images/drapeaux/arabie-saoudite.png",
         "capitale": "Riyad"
       }
     ],
     "Océanie": [
       {
         "pays": "Australie",
-        "drapeau": "/images/drapeaux/australie.png",
+        "drapeau": "images/drapeaux/australie.png",
         "capitale": "Canberra"
       },
       {
         "pays": "Nouvelle-Zélande",
-        "drapeau": "/images/drapeaux/nouvelle-zelande.png",
+        "drapeau": "images/drapeaux/nouvelle-zelande.png",
         "capitale": "Wellington"
       },
       {
         "pays": "Fidji",
-        "drapeau": "/images/drapeaux/fidji.png",
+        "drapeau": "images/drapeaux/fidji.png",
         "capitale": "Suva"
       },
       {
         "pays": "Papouasie-Nouvelle-Guinée",
-        "drapeau": "/images/drapeaux/papouasie-nouvelle-guinee.png",
+        "drapeau": "images/drapeaux/papouasie-nouvelle-guinee.png",
         "capitale": "Port Moresby"
       },
       {
         "pays": "Samoa",
-        "drapeau": "/images/drapeaux/samoa.png",
+        "drapeau": "images/drapeaux/samoa.png",
         "capitale": "Apia"
       }
     ],
     "Amérique": [
       {
         "pays": "États-Unis",
-        "drapeau": "/images/drapeaux/etats-unis.png",
+        "drapeau": "images/drapeaux/etats-unis.png",
         "capitale": "Washington, D.C."
       },
       {
         "pays": "Canada",
-        "drapeau": "/images/drapeaux/canada.png",
+        "drapeau": "images/drapeaux/canada.png",
         "capitale": "Ottawa"
       },
       {
         "pays": "Brésil",
-        "drapeau": "/images/drapeaux/bresil.png",
+        "drapeau": "images/drapeaux/bresil.png",
         "capitale": "Brasília"
       },
       {
         "pays": "Mexique",
-        "drapeau": "/images/drapeaux/mexique.png",
+        "drapeau": "images/drapeaux/mexique.png",
         "capitale": "Mexico"
       },
       {
         "pays": "Argentine",
-        "drapeau": "/images/drapeaux/argentine.png",
+        "drapeau": "images/drapeaux/argentine.png",
         "capitale": "Buenos Aires"
       },
       {
         "pays": "Chili",
-        "drapeau": "/images/drapeaux/chili.png",
+        "drapeau": "images/drapeaux/chili.png",
         "capitale": "Santiago"
       },
       {
         "pays": "Colombie",
-        "drapeau": "/images/drapeaux/colombie.png",
+        "drapeau": "images/drapeaux/colombie.png",
         "capitale": "Bogotá"
       },
       {
         "pays": "Pérou",
-        "drapeau": "/images/drapeaux/perou.png",
+        "drapeau": "images/drapeaux/perou.png",
         "capitale": "Lima"
       },
       {
         "pays": "Cuba",
-        "drapeau": "/images/drapeaux/cuba.png",
+        "drapeau": "images/drapeaux/cuba.png",
         "capitale": "La Havane"
       },
       {
         "pays": "Venezuela",
-        "drapeau": "/images/drapeaux/venezuela.png",
+        "drapeau": "images/drapeaux/venezuela.png",
         "capitale": "Caracas"
       }
     ]

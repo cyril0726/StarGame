@@ -6,7 +6,7 @@
     <title>StarGame - Quiz des Drapeaux</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/drapeaux.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -26,20 +26,20 @@
                 <button onclick="selectContinent('Océanie')">Océanie</button>
             </div>
         </div>
-		<div id="quiz-container" style="display: none;">
-			<div id="flag-container">
-				<img id="flag" src="../images/drapeaux/france.png" alt="Drapeau">
-			</div>
-			<div id="question-container"></div> <!-- Conteneur pour la question -->
-			<div id="options-container"></div>
-			<div id="feedback"></div>
-		</div>
+        <div id="quiz-container" style="display: none;">
+            <div id="flag-container">
+                <img id="flag" src="" alt="Drapeau"> <!-- src vide, défini par JS -->
+            </div>
+            <div id="question-container"></div>
+            <div id="options-container"></div>
+            <div id="feedback"></div>
+        </div>
     </div>
-	
-	<footer>
+
+    <footer>
         <p>© 2026 StarGame - Un jeu par Cyril0726</p>
     </footer>
-	
+
     <script src="../js/drapeaux.js"></script>
 </body>
 </html>
