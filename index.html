@@ -1,77 +1,198 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarGame</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StarLab - Jeux, interfaces et expériences interactives.">
+  <title>StarLab — Jeux et expériences interactives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header class="home-header">
-        <h1 class="site-title">StarGame</h1>
-        <p class="site-slogan">Joue avec tes amis en ligne</p>
-    </header>
 
-    <main class="games-container">
-        <div class="game-card">
-            <div class="game-icon">🖥️</div>
-            <h2 class="game-card-title">Pendu</h2>
-            <p class="game-card-description">Devine le mot avant que le pendu ne soit complet !</p>
-            <a href="jeux/pendu.html" class="game-card-link">Jouer</a>
-        </div>
+  <!-- BOOT -->
+  <div id="boot">
+    <div class="boot-title">
+      🪐 StarLab
+    </div>
+    <div class="boot-sub">
+      Initialisation...
+    </div>
+  </div>
+  
+  <!-- BACKGROUND -->
+  <div class="bg-glow"></div>
+  
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="logo" data-section="home">
+      🪐 StarLab
+    </div>
+	<nav class="links" aria-label="Navigation principale">
+	  <button type="button" class="nav-item" data-section="home">Accueil</button>
+	  <button type="button" class="nav-item" data-section="explorer">Explorer</button>
+	  <button type="button" class="nav-item" data-section="journal">Journal</button>
+	  <button type="button" class="nav-item" data-section="about">À propos</button>
+	</nav>
+  </header>
 
-        <div class="game-card">
-            <div class="game-icon">✖️</div>
-            <h2 class="game-card-title">Tables de Multiplication</h2>
-            <p class="game-card-description">Teste tes connaissances en calcul mental !</p>
-            <a href="jeux/tables.html" class="game-card-link">Jouer</a>
-        </div>
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+	<button data-section="home">🏠</button>
+	<button data-section="explorer">🧩</button>
+	<button data-section="journal">📓</button>
+	<button data-section="about">👨‍🚀</button>
+  </nav>
 
-        <div class="game-card">
-            <div class="game-icon">🏷️</div>
-            <h2 class="game-card-title">Jeu de l'Étiquette</h2>
-            <p class="game-card-description">Devine le personnage en posant des questions !</p>
-            <p class="coming-soon">Prochainement</p>
-        </div>
+  <!-- MAIN -->
+  <main>
 
-        <div class="game-card">
-            <div class="game-icon">🎨</div>
-            <h2 class="game-card-title">Dessin Devine</h2>
-            <p class="game-card-description">Dessine et fais deviner le mot à tes amis !</p>
-            <p class="coming-soon">Prochainement</p>
-        </div>
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <span class="hero-badge">
+          ✦ Laboratoire interactif
+        </span>
+        <h1>
+          Créer.<br>
+          Expérimenter.<br>
+          Partager.
+        </h1>
+        <p>
+          Jeux, hardware, interfaces et projets interactifs.
+        </p>
+        <button class="primary" data-section="explorer">
+          Explorer le labo
+        </button>
+      </div>
+    </section>
 
-        <div class="game-card">
-            <div class="game-icon">🏆</div>
-            <h2 class="game-card-title">Quiz Culture Générale</h2>
-            <p class="game-card-description">Teste ta culture générale et devance tes adversaires !</p>
-            <a href="jeux/quiz.html" class="game-card-link">Jouer</a>
-        </div>
+    <!-- EXPLORER -->
+    <section id="explorer" class="section">
+      <div class="section-title">
+        <h2>
+          Explorer
+        </h2>
+        <p>
+          Toutes les activités du laboratoire.
+        </p>
 
-        <div class="game-card">
-            <div class="game-icon">🕵️</div>
-            <h2 class="game-card-title">Jeu Asymétrique</h2>
-            <p class="game-card-description">Chaque joueur a sa propre mission, mais attention aux saboteurs !</p>
-            <p class="coming-soon">Prochainement</p>
-        </div>
+      </div>
+	<div class="grid">
+	  <a class="card" href="jeux/pendu.html">
+		<span class="icon">🎮</span>
+		<h3>Pendu</h3>
+		<p>Jeu de mots interactif.</p>
+	  </a>
+	  <a class="card" href="jeux/quiz.html">
+		<span class="icon">🧠</span>
+		<h3>Quiz</h3>
+		<p>Questions et défis.</p>
+	  </a>
+	  <a class="card" href="jeux/morpion.html">	  
+		<span class="icon">🔥</span>
+		<h3>Morpion</h3>
+		<p>Expérience multijoueur.</p>
+	  </a>
+	  <a class="card" href="jeux/Tool-Web.html">	 
+		<span class="icon">🛠</span>
+		<h3>Tool Web</h3>
+		<p>Outils expérimentaux.</p>
+	  </a>
+	</div>
+    </section>
 
-        <div class="game-card">
-            <div class="game-icon">🤹</div>
-            <h2 class="game-card-title">Jeux Impossible</h2>
-            <p class="game-card-description">Tout le monde joue ensemble, mais avec des objectifs incompatibles !</p>
-            <p class="coming-soon">Prochainement</p>
+    <!-- JOURNAL -->
+    <section id="journal" class="section">
+      <div class="section-title">
+        <h2>
+          Journal
+        </h2>
+        <p>
+          Notes de développement du laboratoire.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="item">
+          <span class="version">
+            v0.4
+          </span>
+          <div class="content">
+            <span class="date">
+              22/05
+            </span>
+            <h3>
+              Refactor UI
+            </h3>
+            <p>
+              Refonte complète de l’interface StarLab.
+            </p>
+          </div>
         </div>
-		<div class="game-card">
-            <div class="game-icon">🌍</div>
-            <h2 class="game-card-title">Drapeaux du Monde</h2>
-            <p class="game-card-description">Teste tes connaissances sur les drapeaux, pays et capitales.</p>
-            <a href="jeux/drapeaux.html" class="game-card-link">Jouer</a>
+        <div class="item">
+          <span class="version">
+            v0.3
+          </span>
+          <div class="content">
+            <span class="date">
+              20/05
+            </span>
+            <h3>
+              Explorer Dashboard
+            </h3>
+            <p>
+              Ajout du système de tuiles interactives.
+            </p>
+          </div>
         </div>
-    </main>
+      </div>
+    </section>
 
-    <footer class="home-footer">
-        <p>© 2026 StarGame - Créé par Cyril0726</p>
-    </footer>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="profile">
+        <div class="avatar">
+          🧑‍🚀
+        </div>
+        <h2>
+          Cyril0726
+        </h2>
+        <p class="role">
+          Dev créatif • Frontend • Game Dev
+        </p>
+        <div class="bio">
+          Passionné par les mini-jeux,
+          interfaces modernes et expériences interactives.
+        </div>
+        <div class="stats">
+          <div>
+            <h3>10+</h3>
+            <p>Projets</p>
+          </div>
+          <div>
+            <h3>5+</h3>
+            <p>Jeux</p>
+          </div>
+          <div>
+            <h3>∞</h3>
+            <p>Idées</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 StarLab
+  </footer>
+
+  <script src="js/index.js"></script>
+
 </body>
 </html>

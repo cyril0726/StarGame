@@ -1,4 +1,4 @@
-// Variables globales (à encapsuler dans un objet si tu préfères)
+// Variables globales
 let data;
 let currentContinent;
 let currentQuestions;
@@ -11,7 +11,6 @@ async function loadData() {
         const response = await fetch('../data/drapeaux.json');
         if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
         data = await response.json();
-        console.log("Données chargées:", data);
     } catch (error) {
         console.error("Erreur de chargement des données:", error);
     }
@@ -19,7 +18,6 @@ async function loadData() {
 
 // Sélectionner un continent
 function selectContinent(continent) {
-    console.log("Continent sélectionné:", continent);
     currentContinent = continent;
     currentQuestions = data.continents[continent];
     if (currentQuestions && currentQuestions.length > 0) {
@@ -34,115 +32,88 @@ function selectContinent(continent) {
 
 // Démarrer le quiz
 function startQuiz() {
-    console.log("Début du quiz pour le continent:", currentContinent);
+    const randomIndex = Math.floor(Math.random() * currentQuestions.length);
+    currentQuestion = currentQuestions[randomIndex];
 
-    if (currentStep === "pays") {
-        const randomIndex = Math.floor(Math.random() * currentQuestions.length);
-        currentQuestion = currentQuestions[randomIndex];
-        console.log("Question sélectionnée:", currentQuestion);
-    }
-
-    if (!currentQuestion) {
-        console.error("currentQuestion n'est pas défini !");
-        return;
-    }
-
-    // Mettre à jour l'image du drapeau
     document.getElementById('flag').src = currentQuestion.drapeau;
 
     if (currentStep === "pays") {
         displayCountryQuestion();
-    } else if (currentStep === "capitale") {
+    } else {
         displayCapitalQuestion();
     }
 }
 
-// Afficher la question pour le pays
-function displayCountryQuestion() {
-    const optionsContainer = document.getElementById('options-container');
-    optionsContainer.innerHTML = '';
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.textContent = "Quel est ce pays ?";
-
-    const options = [currentQuestion.pays];
+// Générer des options pour une question
+function generateOptions(correctAnswer, getOptionFn) {
+    const options = [correctAnswer];
     while (options.length < 4) {
-        const randomOption = currentQuestions[Math.floor(Math.random() * currentQuestions.length)].pays;
+        const randomOption = getOptionFn();
         if (!options.includes(randomOption)) {
             options.push(randomOption);
         }
     }
-    shuffleArray(options);
+    return shuffleArray(options);
+}
 
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.onclick = () => checkAnswer(option, currentQuestion.pays);
-        optionsContainer.appendChild(button);
-    });
+// Afficher la question pour le pays
+function displayCountryQuestion() {
+    const questionContainer = document.getElementById('question-container');
+    questionContainer.textContent = "Quel est ce pays ?";
+
+    const options = generateOptions(
+        currentQuestion.pays,
+        () => currentQuestions[Math.floor(Math.random() * currentQuestions.length)].pays
+    );
+
+    renderOptions(options, (option) => checkAnswer(option, currentQuestion.pays));
 }
 
 // Afficher la question pour la capitale
 function displayCapitalQuestion() {
     const questionContainer = document.getElementById('question-container');
-    questionContainer.innerHTML = `<p>Quelle est la capitale de ${currentQuestion.pays} ?</p>`;
+    questionContainer.textContent = `Quelle est la capitale de ${currentQuestion.pays} ?`;
 
+    const options = generateOptions(
+        currentQuestion.capitale,
+        () => currentQuestions[Math.floor(Math.random() * currentQuestions.length)].capitale
+    );
+
+    renderOptions(options, (option) => checkAnswer(option, currentQuestion.capitale));
+}
+
+// Rendre les options dans le DOM
+function renderOptions(options, onClickHandler) {
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
-
-    const options = [currentQuestion.capitale];
-    while (options.length < 4) {
-        const randomOption = currentQuestions[Math.floor(Math.random() * currentQuestions.length)].capitale;
-        if (!options.includes(randomOption)) {
-            options.push(randomOption);
-        }
-    }
-    shuffleArray(options);
-
     options.forEach(option => {
         const button = document.createElement('button');
         button.textContent = option;
-        button.onclick = () => checkCapitalAnswer(option, currentQuestion.capitale);
+        button.onclick = () => onClickHandler(option);
         optionsContainer.appendChild(button);
     });
+}
+
+// Vérifier la réponse (fonction unifiée)
+function checkAnswer(selectedOption, correctAnswer) {
+    const feedback = document.getElementById('feedback');
+    const isCorrect = selectedOption === correctAnswer;
+
+    feedback.textContent = isCorrect
+        ? "Correct !"
+        : `Faux ! La bonne réponse est ${correctAnswer}.`;
+    feedback.style.color = isCorrect ? "#4CAF50" : "#F44336";
+
+    setTimeout(() => {
+        feedback.textContent = "";
+        currentStep = currentStep === "pays" ? "capitale" : "pays";
+        startQuiz();
+    }, 2000);
 }
 
 // Mélanger un tableau
 function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
-}
-
-// Vérifier la réponse pour le pays
-function checkAnswer(selectedOption, correctAnswer) {
-    const feedback = document.getElementById('feedback');
-    if (selectedOption === correctAnswer) {
-        feedback.textContent = "Correct !";
-        feedback.style.color = "#4CAF50";
-    } else {
-        feedback.textContent = `Faux ! La bonne réponse est ${correctAnswer}.`;
-        feedback.style.color = "#F44336";
-    }
-    setTimeout(() => {
-        feedback.textContent = "";
-        currentStep = "capitale";
-        startQuiz();
-    }, 2000);
-}
-
-// Vérifier la réponse pour la capitale
-function checkCapitalAnswer(selectedOption, correctAnswer) {
-    const feedback = document.getElementById('feedback');
-    if (selectedOption === correctAnswer) {
-        feedback.textContent = "Correct !";
-        feedback.style.color = "#4CAF50";
-    } else {
-        feedback.textContent = `Faux ! La bonne réponse est ${correctAnswer}.`;
-        feedback.style.color = "#F44336";
-    }
-    setTimeout(() => {
-        feedback.textContent = "";
-        currentStep = "pays";
-        startQuiz();
-    }, 2000);
 }
 
 // Charger les données au démarrage
