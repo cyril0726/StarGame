@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="StarLab - Jeux, interfaces et expériences interactives.">
-  <title>StarLab — Jeux et expériences interactives</title>
+  <title>StarLab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,185 +12,193 @@
 
 <body>
 
-  <!-- BOOT -->
-  <div id="boot">
-    <div class="boot-title">
-      🪐 StarLab
-    </div>
-    <div class="boot-sub">
-      Initialisation...
-    </div>
-  </div>
-  
-  <!-- BACKGROUND -->
-  <div class="bg-glow"></div>
-  
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="logo" data-section="home">
-      🪐 StarLab
-    </div>
-	<nav class="links" aria-label="Navigation principale">
-	  <button type="button" class="nav-item" data-section="home">Accueil</button>
-	  <button type="button" class="nav-item" data-section="explorer">Explorer</button>
-	  <button type="button" class="nav-item" data-section="journal">Journal</button>
-	  <button type="button" class="nav-item" data-section="about">À propos</button>
+<div class="bg-glow"></div>
+
+<header class="nav">
+	<a class="nav-brand" href="index.html">
+		<span class="brand-icon">🪐</span>
+		<span class="brand-text">StarLab</span>
+	</a>
+	<nav class="nav-links">
+		<button class="nav-item active" data-section="home">Accueil</button>
+		<button class="nav-item" data-section="explorer">Explorer</button>
+		<button class="nav-item" data-section="journal">Journal</button>
+		<button class="nav-item" data-section="about">À propos</button>
 	</nav>
-  </header>
+</header>
 
-  <!-- MOBILE NAV -->
-  <nav class="mobile-nav">
-	<button data-section="home">🏠</button>
-	<button data-section="explorer">🧩</button>
-	<button data-section="journal">📓</button>
-	<button data-section="about">👨‍🚀</button>
-  </nav>
+<main class="page">
 
-  <!-- MAIN -->
-  <main>
+	<section id="home" class="section active">
+		<div class="hero">
+			<span class="hero-badge">✦ Laboratoire interactif</span>
+			<h1>Créer.<br>Expérimenter.<br>Partager.</h1>
+			<p>Jeux, interfaces et expériences interactives.</p>
+			<button class="primary" data-section="explorer">Explorer</button>
+		</div>
+	</section>
 
-    <!-- HOME -->
-    <section id="home" class="section active">
-      <div class="hero">
-        <span class="hero-badge">
-          ✦ Laboratoire interactif
-        </span>
-        <h1>
-          Créer.<br>
-          Expérimenter.<br>
-          Partager.
-        </h1>
-        <p>
-          Jeux, hardware, interfaces et projets interactifs.
-        </p>
-        <button class="primary" data-section="explorer">
-          Explorer le labo
-        </button>
-      </div>
-    </section>
+	<section id="explorer" class="section">
+		<h2>Explorer le laboratoire</h2>
+		<p>Tous les projets interactifs de StarLab. Jeux, outils et prototypes expérimentaux.</p>
+		<div class="grid">
+			<a class="card" href="jeux/pendu.html">
+				<span class="icon">🎮</span>
+				<h3>Pendu</h3>
+				<p>Un jeu de mots simple, rapide et addictif.</p>
+			</a>
+<a class="card work-card" href="jeux/tables.html">
+	<span class="work-badge">🚧 En travaux</span>
 
-    <!-- EXPLORER -->
-    <section id="explorer" class="section">
-      <div class="section-title">
-        <h2>
-          Explorer
-        </h2>
-        <p>
-          Toutes les activités du laboratoire.
-        </p>
+	<span class="icon">🔢</span>
+	<h3>Tables</h3>
+	<p>Test tes connaissances en multiplication.</p>
+</a>
 
-      </div>
-	<div class="grid">
-	  <a class="card" href="jeux/pendu.html">
-		<span class="icon">🎮</span>
-		<h3>Pendu</h3>
-		<p>Jeu de mots interactif.</p>
-	  </a>
-	  <a class="card" href="jeux/quiz.html">
-		<span class="icon">🧠</span>
-		<h3>Quiz</h3>
-		<p>Questions et défis.</p>
-	  </a>
-	  <a class="card" href="jeux/morpion.html">	  
-		<span class="icon">🔥</span>
-		<h3>Morpion</h3>
-		<p>Expérience multijoueur.</p>
-	  </a>
-	  <a class="card" href="jeux/Tool-Web.html">	 
-		<span class="icon">🛠</span>
-		<h3>Tool Web</h3>
-		<p>Outils expérimentaux.</p>
-	  </a>
+		</div>
+	</section>
+
+<section id="journal" class="section">
+
+	<div class="journal-header">
+		<span class="journal-tag">✦ DevLog StarLab</span>
+		<h2>Journal de développement</h2>
+		<p>Suivi des évolutions du laboratoire StarLab.</p>
 	</div>
-    </section>
 
-    <!-- JOURNAL -->
-    <section id="journal" class="section">
-      <div class="section-title">
-        <h2>
-          Journal
-        </h2>
-        <p>
-          Notes de développement du laboratoire.
-        </p>
-      </div>
-      <div class="timeline">
-        <div class="item">
-          <span class="version">
-            v0.4
-          </span>
-          <div class="content">
-            <span class="date">
-              22/05
-            </span>
-            <h3>
-              Refactor UI
-            </h3>
-            <p>
-              Refonte complète de l’interface StarLab.
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <span class="version">
-            v0.3
-          </span>
-          <div class="content">
-            <span class="date">
-              20/05
-            </span>
-            <h3>
-              Explorer Dashboard
-            </h3>
-            <p>
-              Ajout du système de tuiles interactives.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+	<div class="timeline">
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="profile">
-        <div class="avatar">
-          🧑‍🚀
-        </div>
-        <h2>
-          Cyril0726
-        </h2>
-        <p class="role">
-          Dev créatif • Frontend • Game Dev
-        </p>
-        <div class="bio">
-          Passionné par les mini-jeux,
-          interfaces modernes et expériences interactives.
-        </div>
-        <div class="stats">
-          <div>
-            <h3>10+</h3>
-            <p>Projets</p>
-          </div>
-          <div>
-            <h3>5+</h3>
-            <p>Jeux</p>
-          </div>
-          <div>
-            <h3>∞</h3>
-            <p>Idées</p>
-          </div>
-        </div>
-      </div>
-    </section>
+		<div class="timeline-item">
+			<div class="timeline-dot"></div>
 
-  </main>
+			<div class="timeline-card">
+				<div class="timeline-top">
+					<span class="version">v0.4</span>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2026 StarLab
-  </footer>
+					<div class="timeline-meta">
+						<span>UI</span>
+						<span>Design</span>
+						<span>Glassmorphism</span>
+					</div>
+				</div>
 
-  <script src="js/index.js"></script>
+				<h3>Refonte de l’interface</h3>
+
+				<p>
+					Nouvelle direction artistique : ambiance néon,
+					glassmorphism et structure modulaire des sections.
+				</p>
+			</div>
+		</div>
+
+		<div class="timeline-item">
+			<div class="timeline-dot"></div>
+
+			<div class="timeline-card">
+				<div class="timeline-top">
+					<span class="version">v0.3</span>
+
+					<div class="timeline-meta">
+						<span>UX</span>
+						<span>Design</span>
+					</div>
+				</div>
+
+				<h3>Système d’exploration</h3>
+
+				<p>
+					Mise en place du système de navigation
+					par sections dynamiques.
+				</p>
+			</div>
+		</div>
+
+		<div class="timeline-item">
+			<div class="timeline-dot"></div>
+
+			<div class="timeline-card">
+				<div class="timeline-top">
+					<span class="version">v0.2</span>
+
+					<div class="timeline-meta">
+						<span>UX</span>
+						<span>Design</span>
+					</div>
+				</div>
+
+				<h3>Premier prototype</h3>
+
+				<p>
+					Création des premiers jeux et tests
+					d’interface utilisateur.
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+<section id="about" class="section">
+
+	<div class="about-card">
+
+		<div class="about-left">
+
+			<div class="about-avatar">
+				🧑‍🚀
+			</div>
+
+			<div class="about-badge">
+				✦ Créateur de StarLab
+			</div>
+
+		</div>
+
+		<div class="about-content">
+
+			<h2>À propos de StarLab</h2>
+
+			<p>
+				StarLab est un laboratoire personnel de création numérique :
+				jeux, interfaces et expériences interactives.
+			</p>
+
+			<p>
+				Objectif : tester, apprendre et construire des projets
+				concrets autour du web interactif et du game design.
+			</p>
+
+			<div class="about-stats">
+
+				<div class="stat">
+					<h3>10+</h3>
+					<span>Projets</span>
+				</div>
+
+				<div class="stat">
+					<h3>5+</h3>
+					<span>Jeux</span>
+				</div>
+
+				<div class="stat">
+					<h3>∞</h3>
+					<span>Expériences</span>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+</main>
+
+<footer class="footer">© 2026 StarLab</footer>
+
+<script src="js/index.js"></script>
 
 </body>
 </html>

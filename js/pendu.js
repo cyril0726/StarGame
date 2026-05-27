@@ -1,134 +1,192 @@
+// =====================
+// DOM CACHE
+// =====================
+
+const UI = {
+	mot: document.getElementById("mot"),
+	erreurs: document.getElementById("erreurs"),
+	lettres: document.getElementById("lettres-utilisees"),
+	input: document.getElementById("lettre"),
+	button: document.getElementById("valider-btn"),
+	toast: document.getElementById("toast") || null,
+	hangman: document.querySelector(".hangman")
+};
+
+// =====================
+// CONSTANTES
+// =====================
+
+const HANGMAN_PARTS = [
+	document.getElementById("head"),
+	document.getElementById("body"),
+	document.getElementById("arm1"),
+	document.getElementById("arm2"),
+	document.getElementById("leg1"),
+	document.getElementById("leg2")
+];
+
+
+// =====================
+// GAME
+// =====================
+
 const JeuPendu = {
-  motATrouver: "",
-  lettresTrouvees: [],
-  erreurs: 0,
-  maxErreurs: 6,
-  mots: [
-    "MAISON", "VOITURE", "ORDINATEUR", "TELEPHONE", "CHAT", "CHIEN", "OISEAU", "ARBRE", "FLEUR", "SOLEIL",
-    "LUNETTES", "LIVRE", "STYLO", "CAHIER", "TABLE", "CHAISE", "FENETRE", "PORTE", "MUR", "PLANCHER",
-    "JARDIN", "PARC", "RUE", "VILLE", "PAYS", "MONTAGNE", "RIVIERE", "MER", "OCEAN", "ILE",
-    "AVION", "TRAIN", "BATEAU", "VELO", "MOTO", "BUS", "CAMION", "TRAMWAY"
-  ],
 
-  initialiserJeu: function() {
-    this.motATrouver = this.choisirMotAleatoire();
-    this.lettresTrouvees = [];
-    this.erreurs = 0;
-    this.afficherMotCache();
-    this.afficherPendu();
-  },
+	// ===== STATE =====
+	motATrouver: "",
+	lettresUtilisees: [],
+	lettresCorrectes: [],
+	erreurs: 0,
+	maxErreurs: 6,
+	jeuTermine: false,
 
-  choisirMotAleatoire: function() {
-    const index = Math.floor(Math.random() * this.mots.length);
-    return this.mots[index];
-  },
+	// ===== DATA =====
+	mots: [
+		"MAISON", "VOITURE", "ORDINATEUR", "TELEPHONE", "CHAT", "CHIEN", "OISEAU", "ARBRE", "FLEUR", "SOLEIL", "LUNETTES", "LIVRE",	"STYLO", "CAHIER", "TABLE",	"CHAISE", "FENETRE", "PORTE", "JARDIN", "PARC", "VILLE", "MONTAGNE", "RIVIERE", "OCEAN","AVION", "TRAIN", "VELO"
+	],
 
-  afficherMotCache: function() {
-    let motCache = "";
-    for (const lettre of this.motATrouver) {
-      motCache += this.lettresTrouvees.includes(lettre) ? lettre + " " : "_ ";
-    }
-    document.getElementById("mot").textContent = motCache.trim();
-	document.getElementById(
-  "lettres-utilisees"
-).textContent =
-this.lettresTrouvees.join(" • ");
-  },
+	// =====================
+	// INIT
+	// =====================
+	initialiserJeu() {
+		this.motATrouver = this.choisirMot();
+		this.lettresUtilisees = [];
+		this.lettresCorrectes = [];
+		this.erreurs = 0;
+		this.jeuTermine = false;
+		this.mettreAJourUI();
+	},
 
-afficherPendu: function() {
-  document.getElementById("erreurs").textContent =
-    `Erreurs : ${this.erreurs}/6`;
-  const parts = [
-    "head",
-    "body",
-    "arm1",
-    "arm2",
-    "leg1",
-    "leg2"
-  ];
-  parts.forEach((part, index) => {
-    const el = document.getElementById(part);
-    if(el){
-      el.style.opacity = index < this.erreurs ? "1" : "0";
-    }
-  });
-  const erreursEl = document.getElementById("erreurs");
+	choisirMot() {
+		return this.mots[Math.floor(Math.random() * this.mots.length)];
+	},
 
-erreursEl.style.color =
-  this.erreurs >= 4 ? "#ff6565" : "#b9b9b9";
-},
+	// =====================
+	// GAME LOGIC
+	// =====================
+	verifierLettre(lettre) {
+		if (this.jeuTermine) return;
+		lettre = lettre.toUpperCase().trim();
+		if (!/^[A-Z]$/.test(lettre)) {
+			showToast("Lettre invalide");
+			return;
+		}
+		if (this.lettresUtilisees.includes(lettre)) {
+			showToast("Lettre déjà utilisée");
+			return;
+		}
+		this.lettresUtilisees.push(lettre);
+		if (this.motATrouver.includes(lettre)) {
+			this.lettresCorrectes.push(lettre);
+		} else {
+			this.erreurs++;
+			this.jouerAnimationErreur();
+			}
+		this.mettreAJourUI();
+		this.resetInput();
+		if (this.verifierVictoire()) {
+			this.jeuTermine = true;
+			showToast("Victoire !");
+			setTimeout(() => {
+				this.initialiserJeu();
+			}, 1200);
+		return;
+		}
+		if (this.verifierDefaite()) {
+			this.jeuTermine = true;
+			// révèle le mot
+			UI.mot.textContent = this.motATrouver.split("").join(" ");
+			showToast(`Perdu : ${this.motATrouver}`);
+			setTimeout(() => {
+					this.initialiserJeu();
+				}, 1500);
+			}
+	},
+	verifierVictoire() {
+		for (const lettre of this.motATrouver) {
+			if (!this.lettresCorrectes.includes(lettre)) {
+				return false;
+			}
+		}
+		return true;
+	},
+	verifierDefaite() {
+		return this.erreurs >= this.maxErreurs;
+	},
 
-  verifierLettre: function(lettre) {
-    if (!lettre || lettre.length !== 1 || !/[A-Z]/.test(lettre.toUpperCase())) {
-      showToast("Lettre invalide");
-      return;
-    }
 
-    lettre = lettre.toUpperCase();
-
-    if (this.lettresTrouvees.includes(lettre)) {
-      showToast("Lettre déjà utilisée");
-      return;
-    }
-
-    this.lettresTrouvees.push(lettre);
-
-    if (!this.motATrouver.includes(lettre)) {
-      this.erreurs++;
-const art = document.querySelector(".hangman");
-art.classList.add("shake");
-setTimeout(()=>{
-  art.classList.remove("shake");
-},300);
-		setTimeout(()=>{
-		  art.classList.remove("shake");
-		},300);
-      document.getElementById("erreurs").textContent = `Erreurs : ${this.erreurs}/6`;
-      this.afficherPendu();
-    }
-
-    this.afficherMotCache();
-
-    if (this.erreurs >= this.maxErreurs) {
-      alert(`Perdu ! Le mot était : ${this.motATrouver}`);
-      this.initialiserJeu();
-    } else if ([...this.motATrouver].every(l => this.lettresTrouvees.includes(l))) {
-      showToast("Victoire !");
-      this.initialiserJeu();
-    }
-	// Vider la case de saisie
-    document.getElementById('lettre').value = '';
-  }
+	// =====================
+	// UI
+	// =====================
+	mettreAJourUI() {
+		this.afficherMot();
+		this.afficherErreurs();
+		this.afficherLettres();
+		this.afficherPendu();
+	},
+	afficherMot() {
+		const motCache =[...this.motATrouver].map(lettre =>	this.lettresCorrectes.includes(lettre) ? lettre : "_").join(" ");
+		UI.mot.textContent = motCache;
+	},
+	afficherErreurs() {
+		UI.erreurs.textContent =`Erreurs : ${this.erreurs}/${this.maxErreurs}`;
+		UI.erreurs.style.color = this.erreurs >= 4 ? "var(--danger)" : "#b9b9b9";
+	},
+	afficherLettres() {
+		UI.lettres.textContent = this.lettresUtilisees.join(" • ");
+	},
+	afficherPendu() {
+		HANGMAN_PARTS.forEach((element, index) => {
+			const visible = index < this.erreurs;
+		element.style.opacity =
+			visible ? "1" : "0";
+		element.style.transform =
+			visible
+				? "scale(1)"
+				: "scale(.8)";
+		});
+	},
+	jouerAnimationErreur() {
+		UI.hangman.classList.add("shake");
+		setTimeout(() => {UI.hangman.classList.remove("shake");	}, 300);
+	},
+	resetInput() {
+		UI.input.value = "";
+		UI.input.focus();
+	}
 };
 
-// Initialisation du jeu au chargement de la page
-window.onload = function() {
-  document.getElementById("lettre").focus();
-  JeuPendu.initialiserJeu();
-};
-const input =
-  document.getElementById("lettre");
-const button =
-  document.getElementById("valider-btn");
-button.addEventListener("click",()=>{
-  JeuPendu.verifierLettre(
-    input.value
-  );
-});
 
-input.addEventListener("keypress",(e)=>{
-  if(e.key === "Enter"){
-    JeuPendu.verifierLettre(
-      input.value
-    );
-  }
-});
+// =====================
+// TOAST
+// =====================
 
-function showToast(message){
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2000);
+function showToast(message) {
+	if (!UI.toast) {
+		console.log(message);
+		return;
+	}
+	UI.toast.textContent = message;
+	UI.toast.classList.add("show");
+	setTimeout(() => {UI.toast.classList.remove("show");}, 2000);
 }
+
+// =====================
+// EVENTS
+// =====================
+UI.button.addEventListener("click", () => {
+	JeuPendu.verifierLettre(UI.input.value);
+});
+UI.input.addEventListener("keydown", e => {
+	if (e.key === "Enter") {
+		JeuPendu.verifierLettre(UI.input.value);
+	}
+});
+
+// =====================
+// INIT
+// =====================
+document.addEventListener("DOMContentLoaded", () => {
+	UI.input.focus();
+	JeuPendu.initialiserJeu();
+});
