@@ -99,12 +99,16 @@
 }
 
 .chrono-toggle{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:1rem;
-    color:white;
-    cursor:pointer;
+    padding:10px 16px;
+    border-radius:14px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.015)
+        );
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
 }
 
 #start-game{
