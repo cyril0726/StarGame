@@ -206,24 +206,25 @@ p{
 /* PAGE DES MINI-JEUX */
 .game-page{
 	width:min(720px,92vw);
-	min-height:480px;
+	min-height:calc(100vh - 60px);
+	margin:auto;
 	display:flex;
 	justify-content:center;
-	align-items:flex-start;
-	padding:120px 20px 40px;
+	align-items:center;
+	padding:75px 20px 70px;
 }
 
 /* CARTE PRINCIPALE DU JEU */
 .game-shell{
-	width:min(720px, 92vw);
+	width:min(720px,92vw);
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	gap:24px;
-	padding:32px;
+	gap:12px;
+	padding:18px;
 	position:relative;
 	overflow:hidden;
-	border-radius:32px;
+	border-radius:28px;
 	background:
 		linear-gradient(
 			180deg,
@@ -742,7 +743,6 @@ p{
 }
 
 /* LEFT */
-
 .about-left{
 	display:flex;
 	flex-direction:column;
@@ -752,7 +752,6 @@ p{
 }
 
 /* avatar */
-
 .about-avatar{
 	width:120px;
 	height:120px;
@@ -785,7 +784,6 @@ p{
 }
 
 /* content */
-
 .about-content{
 	flex:1;
 }

@@ -1,93 +1,352 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow-y: hidden;
-    font-family: 'Poppins', sans-serif;
+/* =========================
+   DRAPEAUX.CSS
+========================= */
+
+/* CONTAINER */
+#map-container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1px;
+    padding:1px;
 }
 
-.container {
-    margin: 0 auto;
-    padding: 1rem;
+/* =========================
+   HEADER
+========================= */
+.map-header{
+    text-align:center;
+    max-width:650px;
 }
 
-#map-container {
-    text-align: center;
-    margin: 1rem auto;
-    padding: 1rem;
-    max-width: 100%;
+.map-header h2{
+    font-size:clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom:6px;
+    color:white;
+    text-shadow:
+        0 0 25px rgba(139,61,255,0.35);
 }
 
-.continent-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem auto;
-    max-width: 600px;
+.map-subtitle{
+    color:rgba(255,255,255,0.7);
+    font-size:.9rem;
+    line-height:1.5;
 }
 
-/* Classe commune pour tous les boutons */
-.btn {
-    padding: 0.75rem 1.5rem;
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* =========================
+   WORLD MAP
+========================= */
+.world-map{
+    position:relative;
+	width:min(700px, 100%);
+	margin:auto;
+    height:340px;
+    border-radius:22px;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139,61,255,0.16),
+            transparent 70%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.01)
+        );
+    border:1px solid rgba(139,61,255,0.18);
+    backdrop-filter:blur(18px);
+    box-shadow:
+        0 0 80px rgba(139,61,255,0.12),
+        inset 0 0 50px rgba(255,255,255,0.02);
 }
 
-.btn:hover {
-    background-color: #8a2be2;
+/* GRID */
+
+.world-map::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        );
+
+    background-size:40px 40px;
+
+    opacity:0.3;
 }
 
-#flag-container {
-    text-align: center;
-    margin: 1rem auto;
+/* GLOW */
+
+.world-map::after{
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%, -50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,61,255,0.10),
+            rgba(0,200,255,0.04),
+            transparent 70%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
 }
 
-#flag {
-    max-width: 200px;
-    max-height: 120px;
-    width: auto;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+/* =========================
+   RESET BUTTON
+========================= */
+
+button{
+    appearance:none;
+    -webkit-appearance:none;
+    outline:none;
 }
 
-#options-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 1rem auto;
-    max-width: 500px;
+/* =========================
+   CONTINENTS
+========================= */
+
+.continent{
+    position:absolute;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    color:white;
+    font-family:'Orbitron', sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:1px;
+    cursor:pointer;
+    overflow:hidden;
+    opacity:.82;
+    backdrop-filter:blur(14px);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139,61,255,0.35),
+            rgba(0,200,255,0.18)
+        );
+    border:1px solid rgba(255,255,255,0.10);
+    box-shadow:
+        0 0 25px rgba(139,61,255,0.25),
+        inset 0 0 25px rgba(255,255,255,0.03);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        opacity .25s ease;
+	animation:float 6s ease-in-out infinite;
 }
 
-#question-container {
-    text-align: center;
-    margin: 1rem auto;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
 }
 
-#quiz-container {
-    display: none;
-    margin: 0 auto;
-    padding: 1rem;
+/* SHINE EFFECT */
+.continent::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.14),
+            transparent
+        );
+
+    transform:translateX(-120%);
+
+    transition:transform .8s ease;
 }
 
-#feedback {
-    margin: 1rem auto;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+.continent:hover::before{
+    transform:translateX(120%);
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    font-family: 'Poppins', sans-serif;
+/* HOVER */
+
+.continent:hover{
+    transform:scale(1.08);
+    border-color:rgba(139,61,255,0.5);
+    box-shadow:
+        0 0 35px rgba(139,61,255,0.5),
+        0 0 70px rgba(0,200,255,0.16);
+    opacity:1;
+	transform:translateY(-6px) scale(1.05);
+}
+
+.continent span{
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   CONTINENT SHAPES
+========================= */
+
+.europe{
+    top:20%;
+    left:43%;
+    width:110px;
+    height:70px;
+    border-radius:58% 42% 47% 53%;
+}
+
+.afrique{
+    top:44%;
+    left:45%;
+    width:90px;
+    height:135px;
+    border-radius:52% 48% 60% 40%;
+}
+
+.asie{
+    top:16%;
+    right:6%;
+    width:210px;
+    height:145px;
+    border-radius:60% 40% 55% 45%;
+}
+
+.amerique{
+    top:18%;
+    left:6%;
+	width:135px;
+    height:200px;
+    border-radius:46% 54% 58% 42%;
+}
+
+.oceanie{
+    bottom:8%;
+    right:12%;
+    width:85px;
+    height:55px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+#quiz-container{
+    display:none;
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:5px;
+    border-radius:28px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.02)
+        );
+    border:1px solid rgba(255,255,255,0.06);
+    backdrop-filter:blur(14px);
+    box-shadow:
+        0 0 60px rgba(139,61,255,0.10);
+}
+
+/* FLAG */
+#flag-container{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+#flag{
+    width:220px;
+    max-width:100%;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:
+        0 0 40px rgba(139,61,255,0.15);
+}
+
+/* QUESTION */
+#question-container{
+    text-align:center;
+    margin-bottom:24px;
+    font-family:'Orbitron', sans-serif;
+    font-size:1.4rem;
+    font-weight:700;
+    color:white;
+}
+
+/* OPTIONS */
+
+#options-container{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:18px;
+    width:100%;
+}
+
+#options-container button{
+    padding:18px;
+    border:none;
+    border-radius:18px
+    color:white;
+    font-family:'Poppins', sans-serif;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.02)
+        );
+    border:1px solid rgba(255,255,255,0.08);
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+#options-container button:hover{
+    transform:translateY(-3px);
+    border-color:rgba(139,61,255,0.35);
+    box-shadow:
+        0 0 25px rgba(139,61,255,0.12);
+}
+
+/* FEEDBACK */
+
+#feedback{
+    margin-top:24px;
+    text-align:center;
+    font-size:1.2rem;
+    font-weight:600;
 }
