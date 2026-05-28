@@ -74,7 +74,6 @@ p{
 /* =========================
    NAVBAR PREMIUM
 ========================= */
-
 .nav{
 	position: fixed;
 	top: 0;
@@ -204,10 +203,10 @@ p{
 /* =========================
    GAME LAYOUT SYSTEM
 ========================= */
-
 /* PAGE DES MINI-JEUX */
 .game-page{
-	min-height:calc(100vh - 120px);
+	width:min(720px,92vw);
+	min-height:480px;
 	display:flex;
 	justify-content:center;
 	align-items:flex-start;

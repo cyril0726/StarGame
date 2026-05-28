@@ -1,78 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tables - StarLab</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tables - StarLab</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/tables.css">
-</head>
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/tables.css">
+	</head>
 
-<body>
-<header class="nav nav--game">
-    <a class="nav-brand" href="../index.html">🪐 StarLab</a>
-    <h1 class="nav-title">Tables</h1>
-</header>
+	<body>
+		<header class="nav nav--game">
+			<a class="nav-brand" href="../index.html"><span class="brand-icon">🪐</span><span class="brand-text">StarLab</span>	</a>
+			<h1 class="nav-title">Tables</h1>
+			<a class="back-btn" href="../index.html">← Retour</a>
+		</header>
 
-<main class="game-container">
-
-    <!-- MENU -->
-    <section id="menu-screen" class="screen active">
-        <h2>Quelles tables veux-tu tester ?</h2>
-
-        <div class="tables-buttons">
-            <button class="table-button" data-table="1">1</button>
-            <button class="table-button" data-table="2">2</button>
-            <button class="table-button" data-table="3">3</button>
-            <button class="table-button" data-table="4">4</button>
-            <button class="table-button" data-table="5">5</button>
-            <button class="table-button" data-table="6">6</button>
-            <button class="table-button" data-table="7">7</button>
-            <button class="table-button" data-table="8">8</button>
-            <button class="table-button" data-table="9">9</button>
-        </div>
-
-        <div class="mode-buttons">
-            <button id="start-normal" class="btn primary">Commencer</button>
-            <button id="start-chrono" class="btn danger">Mode Chrono</button>
-        </div>
-    </section>
-
-    <!-- GAME -->
-    <section id="game-screen" class="screen">
-        <div id="hud">
-            <div id="score">Score : 0</div>
-            <div id="errors">Erreurs : 0</div>
-            <div id="timer">⏱ 60</div>
-        </div>
-
-        <div id="tables-chosen">Tables sélectionnées : </div>
-
-        <div id="question">?</div>
-
-        <div class="answer-box">
-            <input type="number" id="answer" placeholder="Réponse">
-            <button id="validate">Valider</button>
-        </div>
-    </section>
-
-    <!-- END -->
-    <section id="end-screen" class="screen">
-        <h2>Partie terminée</h2>
-        <div id="final-score"></div>
-        <button id="restart" class="btn primary">Rejouer</button>
-    </section>
-</main>
-
-<footer>© 2026 StarLab</footer>
-
-<div id="toast"></div>
-
-<script src="../js/tables.js"></script>
-</body>
+		<main class="page game-page">
+			<section class="game-shell">
+				<!-- MENU -->
+				<section id="menu-screen" class="screen active">
+					<h2>Quelles tables veux-tu tester ?</h2>
+					<div class="tables-buttons">
+						<button class="table-button" data-table="1">1</button>
+						<button class="table-button" data-table="2">2</button>
+						<button class="table-button" data-table="3">3</button>
+						<button class="table-button" data-table="4">4</button>
+						<button class="table-button" data-table="5">5</button>
+						<button class="table-button" data-table="6">6</button>
+						<button class="table-button" data-table="7">7</button>
+						<button class="table-button" data-table="8">8</button>
+						<button class="table-button" data-table="9">9</button>
+					</div>
+					<div class="mode-buttons">
+						<label class="chrono-toggle">
+							<input type="checkbox" id="chrono-mode">
+							<span class="toggle-ui"></span>
+							<span>Mode Chrono</span>
+						</label>
+						<button id="start-game" class="btn primary">
+							Commencer
+						</button>
+					</div>
+				</section>
+				<!-- GAME -->
+				<section id="game-screen" class="screen">
+					<div id="hud">
+						<div id="score">Score : 0</div>
+						<div id="errors">Erreurs : 0</div>
+						<div id="timer">⏱ 60</div>
+					</div>
+					<div id="tables-chosen">Tables sélectionnées : </div>
+					<div id="question">?</div>
+					<div class="answer-box">
+						<input type="text" inputmode="numeric" id="answer" placeholder="Réponse">
+						<button id="validate">Valider</button>
+					</div>
+				</section>
+				<!-- END -->
+				<section id="end-screen" class="screen">
+					<h2>Partie terminée</h2>
+					<div id="final-score"></div>
+					<button id="restart" class="btn primary">Rejouer</button>
+				</section>
+			</section>
+		</main>
+		<footer class="footer">© 2026 StarLab</footer>
+		<div id="toast"></div>
+		<script src="../js/tables.js"></script>
+	</body>
 </html>

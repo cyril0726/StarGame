@@ -35,13 +35,19 @@ document.querySelectorAll(".table-button").forEach(btn=>{
             btn.classList.add("selected");
         }
         // Enable start buttons
-        document.getElementById("start-normal").disabled = Game.tables.length===0;
-        document.getElementById("start-chrono").disabled = Game.tables.length===0;
+		document.getElementById("start-game").disabled =
+			Game.tables.length===0;
     });
 });
 
-document.getElementById("start-normal").onclick = ()=>startGame("normal");
-document.getElementById("start-chrono").onclick = ()=>startGame("chrono");
+document.getElementById("start-game").onclick = ()=>{
+    const chrono =
+        document.getElementById("chrono-mode").checked;
+
+    startGame(
+        chrono ? "chrono" : "normal"
+    );
+};
 
 // GAME logic
 function startGame(mode){
