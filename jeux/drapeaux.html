@@ -23,37 +23,40 @@
 		<main class="page game-page">
 			<section class="game-shell">
 			
-				<div id="map-container">
-					<div class="map-header">
-						<h2>Explore le monde</h2>
-						<p class="map-subtitle">
-							Choisis un continent et teste tes connaissances
-							sur les drapeaux du monde.
-						</p>
-					</div>
-					<div class="world-map">
-						<button class="continent europe"
-							onclick="selectContinent('Europe')">
-							<span>Europe</span>
-						</button>
-						<button class="continent afrique"
-							onclick="selectContinent('Afrique')">
-							<span>Afrique</span>
-						</button>
-						<button class="continent asie"
-							onclick="selectContinent('Asie')">
-							<span>Asie</span>
-						</button>
-						<button class="continent amerique"
-							onclick="selectContinent('Amérique')">
-							<span>Amérique</span>
-						</button>
-						<button class="continent oceanie"
-							onclick="selectContinent('Océanie')">
-							<span>Océanie</span>
-						</button>
-					</div>
-				</div>
+<div id="map-container">
+    <div class="map-header">
+        <h2>Explore le monde</h2>
+        <p class="map-subtitle">
+            Choisis un continent et teste tes connaissances
+            sur les drapeaux du monde.
+        </p>
+    </div>
+
+    <div class="world-map">
+        <button class="continent europe" onclick="toggleContinent('Europe', this)">
+            <span>Europe</span>
+        </button>
+        <button class="continent afrique" onclick="toggleContinent('Afrique', this)">
+            <span>Afrique</span>
+        </button>
+        <button class="continent asie" onclick="toggleContinent('Asie', this)">
+            <span>Asie</span>
+        </button>
+        <button class="continent amerique" onclick="toggleContinent('Amérique', this)">
+            <span>Amérique</span>
+        </button>
+        <button class="continent oceanie" onclick="toggleContinent('Océanie', this)">
+            <span>Océanie</span>
+        </button>
+    </div>
+
+    <div class="start-btn-wrapper">
+        <button id="start-quiz-btn" disabled onclick="startQuizFromSelection()">
+            Lancer le quiz
+        </button>
+    </div>
+</div>
+
 				<div id="quiz-container">
 					<div id="flag-container">
 						<img id="flag" src="" alt="Drapeau" loading="lazy">

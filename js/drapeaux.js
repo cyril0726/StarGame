@@ -30,6 +30,40 @@ function selectContinent(continent) {
     }
 }
 
+let selectedContinents = []; // nouveaux continents sélectionnés
+function toggleContinent(continent, buttonElement) {
+    const index = selectedContinents.indexOf(continent);
+
+    if (index === -1) {
+        selectedContinents.push(continent); // ajouter
+        buttonElement.classList.add('selected');
+    } else {
+        selectedContinents.splice(index, 1); // retirer
+        buttonElement.classList.remove('selected');
+    }
+
+    // Activer ou désactiver le bouton "Démarrer"
+    document.getElementById('start-quiz-btn').disabled = selectedContinents.length === 0;
+}
+
+function startQuizFromSelection() {
+    currentQuestions = selectedContinents.flatMap(
+        continent => data.continents[continent] || []
+    );
+    if (currentQuestions.length === 0) {
+        console.error("Aucune question disponible");
+        return;
+    }
+    // cacher la map
+    document.getElementById('map-container').style.display = 'none';
+    // cacher le bouton
+    document.getElementById('start-quiz-btn').style.display = 'none';
+    // afficher le quiz
+    document.getElementById('quiz-container').style.display = 'block';
+    currentStep = "pays";
+    startQuiz();
+}
+
 // Démarrer le quiz
 function startQuiz() {
     const randomIndex = Math.floor(Math.random() * currentQuestions.length);

@@ -9,8 +9,8 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:8px;             /* réduit l’espace vertical entre éléments */
-    padding:8px;         /* réduit le padding global */
+    gap:1px;             /* réduit l’espace vertical entre éléments */
+    padding:1px;         /* réduit le padding global */
 }
 
 /* =========================
@@ -39,9 +39,10 @@
    WORLD MAP
 ========================= */
 .world-map {
+    position: relative;
     width:100%;
-    max-width:560px;     /* plus petit que 700px */
-    height:260px;        /* réduit la hauteur */
+    max-width:560px;
+    height:260px;
     border-radius:18px;
     overflow:hidden;
     background:
@@ -49,17 +50,17 @@
         linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border:1px solid rgba(139,61,255,0.12);
     backdrop-filter:blur(14px);
-    box-shadow: 0 0 60px rgba(139,61,255,0.08), inset 0 0 30px rgba(255,255,255,0.01);
+    box-shadow:
+        0 0 60px rgba(139,61,255,0.08),
+        inset 0 0 30px rgba(255,255,255,0.01);
 }
 
 /* GRID */
 
 .world-map::before{
     content:"";
-
     position:absolute;
     inset:0;
-
     background-image:
         linear-gradient(
             rgba(255,255,255,0.03) 1px,
@@ -70,9 +71,7 @@
             rgba(255,255,255,0.03) 1px,
             transparent 1px
         );
-
     background-size:40px 40px;
-
     opacity:0.3;
 }
 
@@ -80,19 +79,13 @@
 
 .world-map::after{
     content:"";
-
     position:absolute;
-
     width:700px;
     height:700px;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%, -50%);
-
     border-radius:50%;
-
     background:
         radial-gradient(
             circle,
@@ -100,9 +93,7 @@
             rgba(0,200,255,0.04),
             transparent 70%
         );
-
     filter:blur(20px);
-
     pointer-events:none;
 }
 
@@ -166,10 +157,8 @@ button{
 /* SHINE EFFECT */
 .continent::before{
     content:"";
-
     position:absolute;
     inset:0;
-
     background:
         linear-gradient(
             120deg,
@@ -177,9 +166,7 @@ button{
             rgba(255,255,255,0.14),
             transparent
         );
-
     transform:translateX(-120%);
-
     transition:transform .8s ease;
 }
 
@@ -188,7 +175,6 @@ button{
 }
 
 /* HOVER */
-
 .continent:hover{
     transform:scale(1.08);
     border-color:rgba(139,61,255,0.5);
@@ -202,6 +188,15 @@ button{
 .continent span{
     position:relative;
     z-index:2;
+}
+
+.continent.selected{
+    transform:scale(1.08);
+    opacity:1;
+    border:2px solid #00ffc8;
+    box-shadow:
+        0 0 20px rgba(0,255,200,.7),
+        0 0 50px rgba(0,255,200,.4);
 }
 
 /* =========================
@@ -250,6 +245,48 @@ button{
     width:85px;
     height:45px;
     border-radius:55% 45% 50% 50%;
+}
+
+/* =========================
+   START QUIZ BTN
+========================= */
+#start-quiz-btn{
+    margin-top:20px;
+    padding:14px 28px;
+    border:none;
+    border-radius:18px;
+    font-family:'Orbitron', sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:1px;
+    color:white;
+    cursor:pointer;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139,61,255,0.85),
+            rgba(0,200,255,0.55)
+        );
+    box-shadow:
+        0 0 25px rgba(139,61,255,0.35),
+        0 0 60px rgba(0,200,255,0.18);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+}
+
+#start-quiz-btn:hover:not(:disabled){
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:
+        0 0 35px rgba(139,61,255,0.5),
+        0 0 80px rgba(0,200,255,0.25);
+}
+
+#start-quiz-btn:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+    box-shadow:none;
 }
 
 /* =========================
