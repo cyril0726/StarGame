@@ -4,12 +4,13 @@
 
 /* CONTAINER */
 #map-container{
-    width:100%;
+    width:90%;           /* réduit la largeur */
+    max-width:600px;     /* limite la taille maximale */
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:1px;
-    padding:1px;
+    gap:8px;             /* réduit l’espace vertical entre éléments */
+    padding:8px;         /* réduit le padding global */
 }
 
 /* =========================
@@ -37,29 +38,18 @@
 /* =========================
    WORLD MAP
 ========================= */
-.world-map{
-    position:relative;
-	width:min(700px, 100%);
-	margin:auto;
-    height:340px;
-    border-radius:22px;
+.world-map {
+    width:100%;
+    max-width:560px;     /* plus petit que 700px */
+    height:260px;        /* réduit la hauteur */
+    border-radius:18px;
     overflow:hidden;
     background:
-        radial-gradient(
-            circle at center,
-            rgba(139,61,255,0.16),
-            transparent 70%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.01)
-        );
-    border:1px solid rgba(139,61,255,0.18);
-    backdrop-filter:blur(18px);
-    box-shadow:
-        0 0 80px rgba(139,61,255,0.12),
-        inset 0 0 50px rgba(255,255,255,0.02);
+        radial-gradient(circle at center, rgba(139,61,255,0.12), transparent 70%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(139,61,255,0.12);
+    backdrop-filter:blur(14px);
+    box-shadow: 0 0 60px rgba(139,61,255,0.08), inset 0 0 30px rgba(255,255,255,0.01);
 }
 
 /* GRID */
@@ -217,44 +207,49 @@ button{
 /* =========================
    CONTINENT SHAPES
 ========================= */
-
+/* Europe */
 .europe{
-    top:20%;
+    top:18%;
     left:43%;
-    width:110px;
-    height:70px;
-    border-radius:58% 42% 47% 53%;
+    width:100px;
+    height:60px;
+    border-radius:50% 40% 45% 55%; /* arrondi conservé */
 }
 
+/* Afrique */
 .afrique{
-    top:44%;
+    top:42%;
     left:45%;
-    width:90px;
-    height:135px;
-    border-radius:52% 48% 60% 40%;
+    width:80px;
+    height:110px;
+    border-radius:50% 45% 60% 40%;
 }
 
+/* Asie */
 .asie{
-    top:16%;
+    top:14%;
     right:6%;
-    width:210px;
-    height:145px;
+    width:170px;
+    height:115px;
     border-radius:60% 40% 55% 45%;
 }
 
+/* Amérique */
 .amerique{
-    top:18%;
+    top:16%;
     left:6%;
-	width:135px;
-    height:200px;
-    border-radius:46% 54% 58% 42%;
+    width:110px;
+    height:170px;
+    border-radius:45% 55% 58% 42%;
 }
 
+/* Océanie */
 .oceanie{
-    bottom:8%;
-    right:12%;
+    bottom:6%;
+    right:10%;
     width:85px;
-    height:55px;
+    height:45px;
+    border-radius:55% 45% 50% 50%;
 }
 
 /* =========================
@@ -262,46 +257,40 @@ button{
 ========================= */
 #quiz-container{
     display:none;
-    width:100%;
-    max-width:900px;
+    width:90%;
+    max-width:620px;
     margin:auto;
-    padding:5px;
+    padding:12px 18px;
     border-radius:28px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.05),
-            rgba(255,255,255,0.02)
-        );
-    border:1px solid rgba(255,255,255,0.06);
-    backdrop-filter:blur(14px);
-    box-shadow:
-        0 0 60px rgba(139,61,255,0.10);
+    background:transparent;
+    border:none;	
+    box-shadow:none;
 }
 
 /* FLAG */
 #flag-container{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:14px;
 }
 
 #flag{
-    width:220px;
+    width:170px;
     max-width:100%;
-    border-radius:18px;
+    border-radius:14px;
     border:1px solid rgba(255,255,255,0.08);
     box-shadow:
-        0 0 40px rgba(139,61,255,0.15);
+        0 0 25px rgba(139,61,255,0.15);
 }
 
 /* QUESTION */
 #question-container{
     text-align:center;
-    margin-bottom:24px;
+    margin-bottom:16px;
     font-family:'Orbitron', sans-serif;
-    font-size:1.4rem;
+    font-size:1.05rem;
     font-weight:700;
     color:white;
+    line-height:1.3;
 }
 
 /* OPTIONS */
@@ -309,30 +298,34 @@ button{
 #options-container{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
-    gap:18px;
+    gap:12px;
     width:100%;
 }
 
 #options-container button{
-    padding:18px;
+    padding:14px;
     border:none;
-    border-radius:18px
+    border-radius:16px;
     color:white;
     font-family:'Poppins', sans-serif;
-    font-size:1rem;
+    font-size:.95rem;
     font-weight:600;
     cursor:pointer;
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.05),
-            rgba(255,255,255,0.02)
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.04)
         );
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(10px);
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.25);
     transition:
         transform .2s ease,
         border-color .2s ease,
-        box-shadow .2s ease;
+        box-shadow .2s ease,
+        background .2s ease;
 }
 
 #options-container button:hover{
@@ -342,11 +335,39 @@ button{
         0 0 25px rgba(139,61,255,0.12);
 }
 
-/* FEEDBACK */
+.correct{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,255,140,0.25),
+            rgba(0,180,100,0.18)
+        ) !important;
+    border:1px solid rgba(0,255,140,0.5) !important;
+    box-shadow:
+        0 0 25px rgba(0,255,140,0.35);
+}
 
+.wrong{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,60,60,0.25),
+            rgba(180,0,0,0.18)
+        ) !important;
+    border:1px solid rgba(255,80,80,0.45) !important;
+    box-shadow:
+        0 0 25px rgba(255,60,60,0.35);
+}
+
+/* FEEDBACK */
 #feedback{
-    margin-top:24px;
+    margin-top:14px;
+    min-height:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    font-size:1.2rem;
+    font-size:1rem;
     font-weight:600;
+    color:white;
 }
