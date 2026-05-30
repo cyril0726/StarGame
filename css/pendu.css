@@ -144,3 +144,129 @@ button{
   opacity:1;
   transform:translateX(-50%) translateY(-10px);
 }
+
+/* ==========================================
+   RESPONSIVE PENDU
+========================================== */
+
+/* Informations du jeu */
+
+.game-info{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	gap:12px;
+	text-align:center;
+}
+
+/* Champ + bouton */
+
+.input-section{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	gap:12px;
+	flex-wrap:wrap;
+	width:100%;
+	margin-top:10px;
+}
+
+/* Lettres utilisées */
+
+#lettres-utilisees{
+	width:min(500px,100%);
+	justify-content:center;
+	text-align:center;
+	flex-wrap:wrap;
+	height:auto;
+	min-height:48px;
+}
+
+/* SVG */
+
+.hangman svg{
+	width:min(220px,45vw);
+	height:auto;
+}
+
+/* ==========================================
+   TABLETTE
+========================================== */
+
+@media (max-width:768px){
+
+	.game-shell{
+		padding:20px;
+	}
+
+	#mot{
+		font-size:1.5rem;
+		letter-spacing:.25rem;
+		white-space:normal;
+		word-break:break-word;
+	}
+
+	#lettres-utilisees{
+		padding:12px;
+		font-size:.9rem;
+	}
+
+	.hangman svg{
+		width:min(200px,55vw);
+	}
+
+	#lettre{
+		width:100px;
+	}
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+	.game-page{
+		padding-left:12px;
+		padding-right:12px;
+	}
+
+	.game-shell{
+		padding:18px 14px;
+		border-radius:22px;
+	}
+
+	#mot{
+		font-size:1.25rem;
+		letter-spacing:.15rem;
+		line-height:1.5;
+	}
+
+	.hangman svg{
+		width:min(180px,65vw);
+	}
+
+	.input-section{
+		flex-direction:column;
+		gap:10px;
+	}
+
+	#lettre{
+		width:100%;
+		max-width:220px;
+	}
+
+	#valider-btn,
+	.primary{
+		width:100%;
+		max-width:220px;
+	}
+
+	#toast{
+		width:calc(100vw - 30px);
+		max-width:320px;
+		text-align:center;
+		font-size:.9rem;
+	}
+}

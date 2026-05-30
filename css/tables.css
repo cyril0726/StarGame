@@ -282,3 +282,175 @@ letter-spacing:1px;
 #toast.show{
     opacity:1;
 }
+
+/* ==========================================
+   RESPONSIVE TABLES
+========================================== */
+
+/* Grille des tables plus flexible */
+
+.tables-buttons{
+	grid-template-columns:
+		repeat(
+			auto-fit,
+			minmax(62px,1fr)
+		);
+
+	max-width:320px;
+	margin:0 auto;
+}
+
+/* HUD responsive */
+
+#hud{
+	flex-wrap:wrap;
+	gap:12px;
+	width:100%;
+}
+
+#hud div{
+	flex:1;
+	min-width:120px;
+}
+
+/* Réponse */
+
+.answer-box{
+	flex-wrap:wrap;
+	width:100%;
+}
+
+#answer{
+	max-width:220px;
+	width:100%;
+}
+
+#validate{
+	white-space:nowrap;
+}
+
+/* ==========================================
+   TABLETTE
+========================================== */
+
+@media (max-width:768px){
+
+	.game-shell{
+		padding:20px;
+	}
+
+	.tables-buttons{
+		max-width:280px;
+		gap:8px;
+	}
+
+	.table-button{
+		height:58px;
+		font-size:1.15rem;
+	}
+
+	#hud{
+		gap:10px;
+	}
+
+	#hud div{
+		min-width:100px;
+		padding:12px;
+		font-size:.85rem;
+	}
+
+	#tables-chosen{
+		font-size:.85rem;
+		line-height:1.5;
+	}
+
+	#question{
+		font-size:clamp(2.2rem,10vw,4rem);
+	}
+
+	.answer-box{
+		flex-direction:column;
+		align-items:center;
+	}
+
+	#answer{
+		width:100%;
+		max-width:260px;
+	}
+
+	#validate{
+		width:100%;
+		max-width:260px;
+	}
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+	.tables-buttons{
+		grid-template-columns:
+			repeat(
+				3,
+				1fr
+			);
+
+		max-width:240px;
+	}
+
+	.table-button{
+		height:54px;
+		font-size:1rem;
+		border-radius:14px;
+	}
+
+	.chrono-toggle{
+		width:100%;
+		max-width:260px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		gap:10px;
+	}
+
+	#start-game{
+		width:100%;
+		max-width:260px;
+		min-width:auto;
+	}
+
+	#hud{
+		flex-direction:column;
+		align-items:stretch;
+	}
+
+	#hud div{
+		width:100%;
+		min-width:auto;
+	}
+
+	#question{
+		font-size:2rem;
+	}
+
+	#answer{
+		height:50px;
+		font-size:1.2rem;
+	}
+
+	#validate{
+		height:50px;
+	}
+
+	#final-score{
+		font-size:1.2rem;
+	}
+
+	#toast{
+		width:calc(100vw - 30px);
+		max-width:320px;
+		text-align:center;
+	}
+}

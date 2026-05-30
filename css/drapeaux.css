@@ -408,3 +408,210 @@ button{
     font-weight:600;
     color:white;
 }
+
+/* ==========================================
+   RESPONSIVE DRAPEAUX
+========================================== */
+
+/* Container principal */
+
+#map-container{
+	width:100%;
+	max-width:700px;
+	margin:auto;
+}
+
+/* Carte du monde */
+
+.world-map{
+	width:100%;
+	aspect-ratio:16/9;
+	height:auto;
+	min-height:240px;
+	max-height:420px;
+}
+
+/* Quiz */
+
+#quiz-container{
+	width:100%;
+	max-width:650px;
+}
+
+/* Boutons de réponses */
+
+#options-container button{
+	min-height:56px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+}
+
+/* ==========================================
+   TABLETTE
+========================================== */
+
+@media (max-width:768px){
+
+	.map-header h2{
+		font-size:1.8rem;
+	}
+
+	.map-subtitle{
+		font-size:.9rem;
+	}
+
+	.world-map{
+		min-height:220px;
+	}
+
+	.continent{
+		font-size:.85rem;
+	}
+
+	.europe{
+		width:80px;
+		height:50px;
+	}
+
+	.afrique{
+		width:70px;
+		height:95px;
+	}
+
+	.asie{
+		width:140px;
+		height:95px;
+	}
+
+	.amerique{
+		width:90px;
+		height:140px;
+	}
+
+	.oceanie{
+		width:70px;
+		height:40px;
+	}
+
+	#options-container{
+		grid-template-columns:1fr;
+	}
+
+	#flag{
+		width:150px;
+	}
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+	#map-container{
+		width:100%;
+	}
+
+	.world-map{
+		min-height:190px;
+		border-radius:16px;
+	}
+
+	.continent{
+		font-size:.7rem;
+		letter-spacing:.5px;
+	}
+
+	.europe{
+		width:65px;
+		height:42px;
+	}
+
+	.afrique{
+		width:55px;
+		height:78px;
+	}
+
+	.asie{
+		width:105px;
+		height:72px;
+	}
+
+	.amerique{
+		width:72px;
+		height:115px;
+	}
+
+	.oceanie{
+		width:55px;
+		height:32px;
+	}
+
+	#start-quiz-btn{
+		width:100%;
+		max-width:260px;
+		font-size:.9rem;
+		padding:12px 18px;
+	}
+
+	#flag{
+		width:120px;
+	}
+
+	#question-container{
+		font-size:.95rem;
+		line-height:1.4;
+	}
+
+	#options-container{
+		grid-template-columns:1fr;
+		gap:10px;
+	}
+
+	#options-container button{
+		padding:12px;
+		font-size:.9rem;
+	}
+
+	#feedback{
+		font-size:.9rem;
+	}
+}
+
+/* ==========================================
+   TRES PETITS MOBILES
+========================================== */
+
+@media (max-width:360px){
+
+	.continent{
+		font-size:.6rem;
+	}
+
+	.europe{
+		width:58px;
+		height:38px;
+	}
+
+	.afrique{
+		width:48px;
+		height:70px;
+	}
+
+	.asie{
+		width:95px;
+		height:65px;
+	}
+
+	.amerique{
+		width:62px;
+		height:100px;
+	}
+
+	.oceanie{
+		width:48px;
+		height:28px;
+	}
+}
