@@ -882,3 +882,183 @@ p{
 	backdrop-filter:blur(10px);
 	pointer-events:none;
 }
+
+/* =====================================================
+   RESPONSIVE IMPROVEMENTS STARLAB
+   A COLLER TOUT EN BAS DU STYLE.CSS
+===================================================== */
+
+img{
+	max-width:100%;
+	height:auto;
+	display:block;
+}
+
+.page{
+	width:min(1200px,92vw);
+	padding-inline:clamp(12px,2vw,24px);
+}
+
+.hero h1{
+	font-size:clamp(2.2rem,6vw,5rem);
+}
+
+.hero p{
+	font-size:clamp(1rem,2vw,1.25rem);
+}
+
+.hero-badge{
+	display:inline-block;
+	padding:8px 14px;
+	border-radius:999px;
+	background:rgba(139,61,255,0.12);
+	border:1px solid rgba(139,61,255,0.2);
+	color:#d7b8ff;
+}
+
+.grid{
+	display:grid;
+	grid-template-columns:repeat(
+		auto-fit,
+		minmax(280px,1fr)
+	);
+	gap:24px;
+	margin-top:30px;
+}
+
+.work-badge{
+	max-width:120px;
+	text-align:center;
+}
+
+.about-stats{
+	display:grid;
+	grid-template-columns:repeat(
+		auto-fit,
+		minmax(120px,1fr)
+	);
+	gap:18px;
+	width:100%;
+}
+
+/* TABLETTE */
+
+@media (max-width:900px){
+
+	.timeline::before{
+		left:20px;
+		transform:none;
+	}
+
+	.timeline-dot{
+		left:20px;
+		transform:none;
+	}
+
+	.timeline-item{
+		justify-content:flex-start !important;
+		margin-top:0 !important;
+		padding-left:50px;
+	}
+
+	.timeline-card{
+		width:100%;
+		max-width:none;
+	}
+
+	.about-card{
+		flex-direction:column;
+		text-align:center;
+		gap:24px;
+		padding:24px;
+	}
+
+	.about-left{
+		min-width:auto;
+	}
+
+	.about-content h2{
+		font-size:clamp(1.6rem,5vw,2.2rem);
+	}
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+	.nav{
+		height:auto;
+		padding:12px;
+		flex-direction:column;
+		gap:12px;
+	}
+
+	.nav-links{
+		width:100%;
+		justify-content:center;
+		flex-wrap:wrap;
+		gap:8px;
+	}
+
+	.nav-item{
+		font-size:.85rem;
+		padding:8px 12px;
+	}
+
+	.page{
+		padding-top:140px;
+	}
+
+	.hero{
+		padding-top:10px;
+	}
+
+	.about-avatar{
+		width:90px;
+		height:90px;
+		font-size:2.4rem;
+	}
+
+	.about-content p{
+		font-size:.95rem;
+	}
+
+	.footer{
+		position:relative;
+		left:auto;
+		bottom:auto;
+		transform:none;
+		width:max-content;
+		margin:30px auto;
+	}
+}
+
+/* PETITS MOBILES */
+
+@media (max-width:480px){
+
+	.hero h1{
+		font-size:2rem;
+		line-height:1.15;
+	}
+
+	.card{
+		padding:16px;
+	}
+
+	.timeline-card{
+		padding:14px;
+	}
+
+	.about-card{
+		padding:18px;
+	}
+
+	.stat{
+		min-width:auto;
+	}
+
+	.nav-item{
+		font-size:.8rem;
+	}
+}
