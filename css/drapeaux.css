@@ -1,617 +1,470 @@
 /* =========================
    DRAPEAUX.CSS
 ========================= */
-
-/* CONTAINER */
-#map-container{
-    width:90%;           /* réduit la largeur */
-    max-width:600px;     /* limite la taille maximale */
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:1px;             /* réduit l’espace vertical entre éléments */
-    padding:1px;         /* réduit le padding global */
+.game-shell {
+	max-width: 620px;
+	margin: auto;
 }
 
 /* =========================
-   HEADER
+   BASE LAYOUT
 ========================= */
-.map-header{
-    text-align:center;
-    max-width:650px;
+#map-container {
+	width: 100%;
+	max-width: 700px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
 }
 
-.map-header h2{
-    font-size:clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom:6px;
-    color:white;
-    text-shadow:
-        0 0 25px rgba(139,61,255,0.35);
+.map-header {
+	text-align: center;
+	max-width: 650px;
+	margin-bottom: 6px;
 }
 
-.map-subtitle{
-    color:rgba(255,255,255,0.7);
-    font-size:.9rem;
-    line-height:1.5;
+.map-header h2 {
+	font-size: clamp(1.2rem, 2.5vw, 2rem);
+	margin-bottom: 4px;
+	color: white;
+	text-shadow: 0 0 25px rgba(139,61,255,0.35);
+}
+
+.map-subtitle {
+	color: rgba(255,255,255,0.7);
+	font-size: .85rem;
+	line-height: 1.5;
 }
 
 /* =========================
    WORLD MAP
 ========================= */
+
 .world-map {
-    position: relative;
-    width:100%;
-    max-width:560px;
-    height:260px;
-    border-radius:18px;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at center, rgba(139,61,255,0.12), transparent 70%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(139,61,255,0.12);
-    backdrop-filter:blur(14px);
-    box-shadow:
-        0 0 60px rgba(139,61,255,0.08),
-        inset 0 0 30px rgba(255,255,255,0.01);
+	position: relative;
+	width: 100%;
+	max-width: 480px;
+	aspect-ratio: 16/9;
+	min-height: 200px;
+	max-height: 420px;
+	border-radius: 18px;
+	overflow: hidden;
+
+	background:
+		radial-gradient(circle at center, rgba(139,61,255,0.12), transparent 70%),
+		linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+
+	border: 1px solid rgba(139,61,255,0.12);
+	backdrop-filter: blur(14px);
+
+	box-shadow:
+		0 0 60px rgba(139,61,255,0.08),
+		inset 0 0 30px rgba(255,255,255,0.01);
 }
 
 /* GRID */
-
-.world-map::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,0.03) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.03) 1px,
-            transparent 1px
-        );
-    background-size:40px 40px;
-    opacity:0.3;
+.world-map::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+	background-size: 40px 40px;
+	opacity: 0.3;
 }
 
 /* GLOW */
+.world-map::after {
+	content: "";
+	position: absolute;
+	width: 700px;
+	height: 700px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
 
-.world-map::after{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle,
-            rgba(139,61,255,0.10),
-            rgba(0,200,255,0.04),
-            transparent 70%
-        );
-    filter:blur(20px);
-    pointer-events:none;
+	background:
+		radial-gradient(circle,
+			rgba(139,61,255,0.10),
+			rgba(0,200,255,0.04),
+			transparent 70%);
+
+	filter: blur(20px);
+	pointer-events: none;
 }
 
 /* =========================
-   RESET BUTTON
+   BUTTON RESET
 ========================= */
 
-button{
-    appearance:none;
-    -webkit-appearance:none;
-    outline:none;
+button {
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
 }
 
 /* =========================
    CONTINENTS
 ========================= */
 
-.continent{
-    position:absolute;
-    z-index:5;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:none;
-    color:white;
-    font-family:'Orbitron', sans-serif;
-    font-size:1rem;
-    font-weight:700;
-    letter-spacing:1px;
-    cursor:pointer;
-    overflow:hidden;
-    opacity:.82;
-    backdrop-filter:blur(14px);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(139,61,255,0.35),
-            rgba(0,200,255,0.18)
-        );
-    border:1px solid rgba(255,255,255,0.10);
-    box-shadow:
-        0 0 25px rgba(139,61,255,0.25),
-        inset 0 0 25px rgba(255,255,255,0.03);
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease,
-        opacity .25s ease;
-	animation:float 6s ease-in-out infinite;
+.continent {
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	opacity: .82;
+	overflow: hidden;
+	backdrop-filter: blur(14px);
+	background: linear-gradient(
+		145deg,
+		rgba(139,61,255,0.35),
+		rgba(0,200,255,0.18)
+	);
+	border: 1px solid rgba(255,255,255,0.10);
+	box-shadow:
+		0 0 25px rgba(139,61,255,0.25),
+		inset 0 0 25px rgba(255,255,255,0.03);
+	transition: transform .25s ease,
+		box-shadow .25s ease,
+		border-color .25s ease,
+		opacity .25s ease;
+	animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-6px);
-    }
+/* FLOAT */
+@keyframes float {
+	0%,100% { transform: translateY(0px); }
+	50% { transform: translateY(-6px); }
 }
 
-/* SHINE EFFECT */
-.continent::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            120deg,
-            transparent,
-            rgba(255,255,255,0.14),
-            transparent
-        );
-    transform:translateX(-120%);
-    transition:transform .8s ease;
+/* SHINE */
+.continent::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+
+	background: linear-gradient(
+		120deg,
+		transparent,
+		rgba(255,255,255,0.14),
+		transparent
+	);
+
+	transform: translateX(-120%);
+	transition: transform .8s ease;
 }
 
-.continent:hover::before{
-    transform:translateX(120%);
+.continent:hover::before {
+	transform: translateX(120%);
 }
 
 /* HOVER */
-.continent:hover{
-    transform:scale(1.08);
-    border-color:rgba(139,61,255,0.5);
-    box-shadow:
-        0 0 35px rgba(139,61,255,0.5),
-        0 0 70px rgba(0,200,255,0.16);
-    opacity:1;
-	transform:translateY(-6px) scale(1.05);
+.continent:hover {
+	transform: translateY(-6px) scale(1.05);
+	border-color: rgba(139,61,255,0.5);
+	box-shadow:
+		0 0 35px rgba(139,61,255,0.5),
+		0 0 70px rgba(0,200,255,0.16);
+	opacity: 1;
 }
 
-.continent span{
-    position:relative;
-    z-index:2;
+/* TEXT */
+.continent span {
+	position: relative;
+	z-index: 2;
 }
 
-.continent.selected{
-    transform:scale(1.08);
-    opacity:1;
-    border:2px solid #00ffc8;
-    box-shadow:
-        0 0 20px rgba(0,255,200,.7),
-        0 0 50px rgba(0,255,200,.4);
-}
-
-/* =========================
-   CONTINENT SHAPES
-========================= */
-/* Europe */
-.europe{
-    top:18%;
-    left:43%;
-    width:100px;
-    height:60px;
-    border-radius:50% 40% 45% 55%; /* arrondi conservé */
-}
-
-/* Afrique */
-.afrique{
-    top:42%;
-    left:45%;
-    width:80px;
-    height:110px;
-    border-radius:50% 45% 60% 40%;
-}
-
-/* Asie */
-.asie{
-    top:14%;
-    right:6%;
-    width:170px;
-    height:115px;
-    border-radius:60% 40% 55% 45%;
-}
-
-/* Amérique */
-.amerique{
-    top:16%;
-    left:6%;
-    width:110px;
-    height:170px;
-    border-radius:45% 55% 58% 42%;
-}
-
-/* Océanie */
-.oceanie{
-    bottom:6%;
-    right:10%;
-    width:85px;
-    height:45px;
-    border-radius:55% 45% 50% 50%;
+/* SELECTED */
+.continent.selected {
+	transform: scale(1.08);
+	opacity: 1;
+	border: 2px solid #00ffc8;
+	box-shadow:
+		0 0 20px rgba(0,255,200,.7),
+		0 0 50px rgba(0,255,200,.4);
 }
 
 /* =========================
-   START QUIZ BTN
+   CONTINENT POSITIONS
 ========================= */
-#start-quiz-btn{
-    margin-top:20px;
-    padding:14px 28px;
-    border:none;
-    border-radius:18px;
-    font-family:'Orbitron', sans-serif;
-    font-size:1rem;
-    font-weight:700;
-    letter-spacing:1px;
-    color:white;
-    cursor:pointer;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(139,61,255,0.85),
-            rgba(0,200,255,0.55)
-        );
-    box-shadow:
-        0 0 25px rgba(139,61,255,0.35),
-        0 0 60px rgba(0,200,255,0.18);
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        opacity .2s ease;
+
+.europe {
+	top: 18%;
+	left: 43%;
+	width: 85px;
+	height: 50px;
+	border-radius: 50% 40% 45% 55%;
 }
 
-#start-quiz-btn:hover:not(:disabled){
-    transform:translateY(-3px) scale(1.03);
-    box-shadow:
-        0 0 35px rgba(139,61,255,0.5),
-        0 0 80px rgba(0,200,255,0.25);
+.afrique {
+	top: 42%;
+	left: 45%;
+	width: 70px;
+	height: 95px;
+	border-radius: 50% 45% 60% 40%;
 }
 
-#start-quiz-btn:disabled{
-    opacity:.35;
-    cursor:not-allowed;
-    box-shadow:none;
+.asie {
+	top: 14%;
+	right: 6%;
+	width: 145px;
+	height: 95px;
+	border-radius: 60% 40% 55% 45%;
+}
+
+.amerique {
+	top: 16%;
+	left: 6%;
+	width: 95px;
+	height: 145px;
+	border-radius: 45% 55% 58% 42%;
+}
+
+.oceanie {
+	bottom: 6%;
+	right: 10%;
+	width: 75px;
+	height: 40px;
+	border-radius: 55% 45% 50% 50%;
 }
 
 /* =========================
-   QUIZ
+   START BUTTON
 ========================= */
-#quiz-container{
-    display:none;
-    width:90%;
-    max-width:620px;
-    margin:auto;
-    padding:12px 18px;
-    border-radius:28px;
-    background:transparent;
-    border:none;	
-    box-shadow:none;
+
+#start-quiz-btn {
+	margin-top: 14px;
+	padding: 12px 22px;
+	border: none;
+	border-radius: 18px;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 0.9rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: white;
+	cursor: pointer;
+	background: linear-gradient(
+		145deg,
+		rgba(139,61,255,0.85),
+		rgba(0,200,255,0.55)
+	);
+	box-shadow:
+		0 0 25px rgba(139,61,255,0.35),
+		0 0 60px rgba(0,200,255,0.18);
+	transition: transform .2s ease,
+		box-shadow .2s ease,
+		opacity .2s ease;
 }
 
-/* FLAG */
-#flag-container{
-    text-align:center;
-    margin-bottom:14px;
+#start-quiz-btn:hover:not(:disabled) {
+	transform: translateY(-3px) scale(1.03);
+	box-shadow:
+		0 0 35px rgba(139,61,255,0.5),
+		0 0 80px rgba(0,200,255,0.25);
 }
 
-#flag{
-    width:170px;
-    max-width:100%;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,0.08);
-    box-shadow:
-        0 0 25px rgba(139,61,255,0.15);
+#start-quiz-btn:disabled {
+	opacity: .35;
+	cursor: not-allowed;
+	box-shadow: none;
 }
 
-/* QUESTION */
-#question-container{
-    text-align:center;
-    margin-bottom:16px;
-    font-family:'Orbitron', sans-serif;
-    font-size:1.05rem;
-    font-weight:700;
-    color:white;
-    line-height:1.3;
+/* =========================
+   QUIZ CONTAINER
+========================= */
+
+#quiz-container {
+	display: none;
+	width: 100%;
+	max-width: 650px;
+	margin: auto;
+	padding: 12px 18px;
+	border-radius: 28px;
+	background: transparent;
+	border: none;
+
+	transition: opacity .25s ease, transform .25s ease;
 }
 
-/* OPTIONS */
-
-#options-container{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:12px;
-    width:100%;
+#quiz-container.fade-out {
+	opacity: 0;
+	transform: translateY(10px);
 }
 
-#options-container button{
-    padding:14px;
-    border:none;
-    border-radius:16px;
-    color:white;
-    font-family:'Poppins', sans-serif;
-    font-size:.95rem;
-    font-weight:600;
-    cursor:pointer;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.10),
-            rgba(255,255,255,0.04)
-        );
-    border:1px solid rgba(255,255,255,0.12);
-    backdrop-filter:blur(10px);
-    text-shadow:
-        0 0 8px rgba(255,255,255,0.25);
-    transition:
-        transform .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
+#quiz-container.fade-in {
+	opacity: 1;
+	transform: translateY(0);
 }
 
-#options-container button:hover{
-    transform:translateY(-3px);
-    border-color:rgba(139,61,255,0.35);
-    box-shadow:
-        0 0 25px rgba(139,61,255,0.12);
+/* =========================
+   FLAG
+========================= */
+
+#flag-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 220px;
+	height: 140px; /* taille fixe */
+	margin: 0 auto 20px;
 }
 
-.correct{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,255,140,0.25),
-            rgba(0,180,100,0.18)
-        ) !important;
-    border:1px solid rgba(0,255,140,0.5) !important;
-    box-shadow:
-        0 0 25px rgba(0,255,140,0.35);
+#flag {
+	width: 100%;
+	height: 100%;
+	object-fit: contain; /* conserve les proportions */
+	border-radius: 14px;
+	border: 1px solid rgba(255,255,255,0.08);
+	box-shadow: 0 0 25px rgba(139,61,255,0.15);
 }
 
-.wrong{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,60,60,0.25),
-            rgba(180,0,0,0.18)
-        ) !important;
-    border:1px solid rgba(255,80,80,0.45) !important;
-    box-shadow:
-        0 0 25px rgba(255,60,60,0.35);
+/* =========================
+   QUESTION
+========================= */
+
+#question-container {
+	text-align: center;
+	margin-bottom: 16px;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+	color: white;
+	line-height: 1.3;
 }
 
-/* FEEDBACK */
-#feedback{
-    margin-top:14px;
-    min-height:22px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    font-size:1rem;
-    font-weight:600;
-    color:white;
+/* =========================
+   OPTIONS
+========================= */
+
+#options-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+	width: 100%;
 }
 
-/* ==========================================
-   RESPONSIVE DRAPEAUX
-========================================== */
+#options-container button {
+	min-height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-/* Container principal */
+	padding: 14px;
+	border-radius: 16px;
 
-#map-container{
-	width:100%;
-	max-width:700px;
-	margin:auto;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: .95rem;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	background: linear-gradient(
+		145deg,
+		rgba(255,255,255,0.10),
+		rgba(255,255,255,0.04)
+	);
+
+	border: 1px solid rgba(255,255,255,0.12);
+
+	backdrop-filter: blur(10px);
+
+	transition: transform .2s ease,
+		border-color .2s ease,
+		box-shadow .2s ease,
+		background .2s ease;
 }
 
-/* Carte du monde */
-
-.world-map{
-	width:100%;
-	aspect-ratio:16/9;
-	height:auto;
-	min-height:240px;
-	max-height:420px;
+#options-container button:hover {
+	transform: translateY(-3px);
+	border-color: rgba(139,61,255,0.35);
+	box-shadow: 0 0 25px rgba(139,61,255,0.12);
 }
 
-/* Quiz */
+/* =========================
+   ANSWER STATES
+========================= */
 
-#quiz-container{
-	width:100%;
-	max-width:650px;
+.option-locked {
+	pointer-events: none;
+	opacity: 0.85;
 }
 
-/* Boutons de réponses */
-
-#options-container button{
-	min-height:56px;
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	text-align:center;
+.option-correct {
+	background: linear-gradient(
+		145deg,
+		rgba(0,255,140,0.25),
+		rgba(0,180,100,0.18)
+	) !important;
+	border: 1px solid rgba(0,255,140,0.7) !important;
+	box-shadow: 0 0 25px rgba(0,255,140,0.35);
+	transform: translateY(-2px);
 }
 
-/* ==========================================
-   TABLETTE
-========================================== */
-
-@media (max-width:768px){
-
-	.map-header h2{
-		font-size:1.8rem;
-	}
-
-	.map-subtitle{
-		font-size:.9rem;
-	}
-
-	.world-map{
-		min-height:220px;
-	}
-
-	.continent{
-		font-size:.85rem;
-	}
-
-	.europe{
-		width:80px;
-		height:50px;
-	}
-
-	.afrique{
-		width:70px;
-		height:95px;
-	}
-
-	.asie{
-		width:140px;
-		height:95px;
-	}
-
-	.amerique{
-		width:90px;
-		height:140px;
-	}
-
-	.oceanie{
-		width:70px;
-		height:40px;
-	}
-
-	#options-container{
-		grid-template-columns:1fr;
-	}
-
-	#flag{
-		width:150px;
-	}
+.option-wrong {
+	background: linear-gradient(
+		145deg,
+		rgba(255,60,60,0.25),
+		rgba(180,0,0,0.18)
+	) !important;
+	border: 1px solid rgba(255,80,80,0.6) !important;
+	box-shadow: 0 0 25px rgba(255,60,60,0.35);
 }
 
-/* ==========================================
-   MOBILE
-========================================== */
+/* =========================
+   FLAG ANIMATIONS
+========================= */
 
-@media (max-width:480px){
+#flag.correct-anim {
+	animation: popGood .4s ease;
+}
 
-	#map-container{
-		width:100%;
+#flag.wrong-anim {
+	animation: shakeBad .4s ease;
+}
+
+@keyframes popGood {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.07); }
+	100% { transform: scale(1); }
+}
+
+@keyframes shakeBad {
+	0% { transform: translateX(0); }
+	25% { transform: translateX(-6px); }
+	50% { transform: translateX(6px); }
+	75% { transform: translateX(-4px); }
+	100% { transform: translateX(0); }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+	#options-container {
+		grid-template-columns: 1fr;
 	}
 
-	.world-map{
-		min-height:190px;
-		border-radius:16px;
-	}
-
-	.continent{
-		font-size:.7rem;
-		letter-spacing:.5px;
-	}
-
-	.europe{
-		width:65px;
-		height:42px;
-	}
-
-	.afrique{
-		width:55px;
-		height:78px;
-	}
-
-	.asie{
-		width:105px;
-		height:72px;
-	}
-
-	.amerique{
-		width:72px;
-		height:115px;
-	}
-
-	.oceanie{
-		width:55px;
-		height:32px;
-	}
-
-	#start-quiz-btn{
-		width:100%;
-		max-width:260px;
-		font-size:.9rem;
-		padding:12px 18px;
-	}
-
-	#flag{
-		width:120px;
-	}
-
-	#question-container{
-		font-size:.95rem;
-		line-height:1.4;
-	}
-
-	#options-container{
-		grid-template-columns:1fr;
-		gap:10px;
-	}
-
-	#options-container button{
-		padding:12px;
-		font-size:.9rem;
-	}
-
-	#feedback{
-		font-size:.9rem;
+	#flag {
+		width: 150px;
 	}
 }
 
-/* ==========================================
-   TRES PETITS MOBILES
-========================================== */
-
-@media (max-width:360px){
-
-	.continent{
-		font-size:.6rem;
-	}
-
-	.europe{
-		width:58px;
-		height:38px;
-	}
-
-	.afrique{
-		width:48px;
-		height:70px;
-	}
-
-	.asie{
-		width:95px;
-		height:65px;
-	}
-
-	.amerique{
-		width:62px;
-		height:100px;
-	}
-
-	.oceanie{
-		width:48px;
-		height:28px;
+@media (max-width: 480px) {
+	#flag {
+		width: 120px;
 	}
 }

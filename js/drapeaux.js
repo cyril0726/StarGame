@@ -1,154 +1,197 @@
-// Variables globales
-let data;
-let currentContinent;
-let currentQuestions;
-let currentQuestion;
-let currentStep = "pays"; // "pays" ou "capitale"
+// =========================
+// STATE
+// =========================
+let data = null;
 
-// Charger les données
+let currentQuestions = [];
+let currentQuestion = null;
+
+let currentStep = "pays"; // "pays" -> "capitale"
+
+let selectedContinents = [];
+
+// =========================
+// LOAD DATA
+// =========================
 async function loadData() {
     try {
-        const response = await fetch('../data/drapeaux.json');
-        if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-        data = await response.json();
-    } catch (error) {
-        console.error("Erreur de chargement des données:", error);
+        const res = await fetch('../data/drapeaux.json');
+        if (!res.ok) throw new Error(res.status);
+        data = await res.json();
+    } catch (e) {
+        console.error("Erreur chargement data:", e);
     }
 }
 
-// Sélectionner un continent
-function selectContinent(continent) {
-    currentContinent = continent;
-    currentQuestions = data.continents[continent];
-    if (currentQuestions && currentQuestions.length > 0) {
-        document.getElementById('map-container').style.display = 'none';
-        document.getElementById('quiz-container').style.display = 'block';
-        currentStep = "pays";
-        startQuiz();
-    } else {
-        console.error("Aucune question trouvée pour ce continent:", continent);
-    }
-}
+// =========================
+// CONTINENT SELECTION
+// =========================
+function toggleContinent(continent, btn) {
+    const i = selectedContinents.indexOf(continent);
 
-let selectedContinents = []; // nouveaux continents sélectionnés
-function toggleContinent(continent, buttonElement) {
-    const index = selectedContinents.indexOf(continent);
-
-    if (index === -1) {
-        selectedContinents.push(continent); // ajouter
-        buttonElement.classList.add('selected');
+    if (i === -1) {
+        selectedContinents.push(continent);
+        btn.classList.add("selected");
     } else {
-        selectedContinents.splice(index, 1); // retirer
-        buttonElement.classList.remove('selected');
+        selectedContinents.splice(i, 1);
+        btn.classList.remove("selected");
     }
 
-    // Activer ou désactiver le bouton "Démarrer"
-    document.getElementById('start-quiz-btn').disabled = selectedContinents.length === 0;
+    document.getElementById("start-quiz-btn").disabled =
+        selectedContinents.length === 0;
 }
 
 function startQuizFromSelection() {
     currentQuestions = selectedContinents.flatMap(
-        continent => data.continents[continent] || []
+        c => data.continents[c] || []
     );
-    if (currentQuestions.length === 0) {
-        console.error("Aucune question disponible");
+
+    if (!currentQuestions.length) {
+        console.error("Aucune question dispo");
         return;
     }
-    // cacher la map
-    document.getElementById('map-container').style.display = 'none';
-    // cacher le bouton
-    document.getElementById('start-quiz-btn').style.display = 'none';
-    // afficher le quiz
-    document.getElementById('quiz-container').style.display = 'block';
-    currentStep = "pays";
+
+    document.getElementById("map-container").style.display = "none";
+    document.getElementById("start-quiz-btn").style.display = "none";
+    document.getElementById("quiz-container").style.display = "block";
+
     startQuiz();
 }
 
-// Démarrer le quiz
+// =========================
+// QUIZ CORE
+// =========================
 function startQuiz() {
-    const randomIndex = Math.floor(Math.random() * currentQuestions.length);
-    currentQuestion = currentQuestions[randomIndex];
+    currentStep = "pays";
+    pickRandomQuestion();
+    renderQuestion();
+}
 
-    document.getElementById('flag').src = currentQuestion.drapeau;
+function pickRandomQuestion() {
+    currentQuestion =
+        currentQuestions[Math.floor(Math.random() * currentQuestions.length)];
+}
+
+// =========================
+// RENDER QUESTION
+// =========================
+function renderQuestion() {
+    const flag = document.getElementById("flag");
+    const question = document.getElementById("question-container");
+
+    flag.src = currentQuestion.drapeau;
 
     if (currentStep === "pays") {
-        displayCountryQuestion();
+        question.textContent = "Quel est ce pays ?";
+        renderOptions(
+            currentQuestion.pays,
+            "pays"
+        );
     } else {
-        displayCapitalQuestion();
+        question.textContent =
+            `Quelle est la capitale de ${currentQuestion.pays} ?`;
+
+        renderOptions(
+            currentQuestion.capitale,
+            "capitale"
+        );
     }
 }
 
-// Générer des options pour une question
-function generateOptions(correctAnswer, getOptionFn) {
-    const options = [correctAnswer];
+// =========================
+// OPTIONS
+// =========================
+function generateOptions(correct, key) {
+    const options = [correct];
+
     while (options.length < 4) {
-        const randomOption = getOptionFn();
-        if (!options.includes(randomOption)) {
-            options.push(randomOption);
-        }
+        const rand =
+            currentQuestions[
+                Math.floor(Math.random() * currentQuestions.length)
+            ][key];
+
+        if (!options.includes(rand)) options.push(rand);
     }
+
     return shuffleArray(options);
 }
 
-// Afficher la question pour le pays
-function displayCountryQuestion() {
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.textContent = "Quel est ce pays ?";
+function renderOptions(correct, key) {
+    const container = document.getElementById("options-container");
+    container.innerHTML = "";
 
-    const options = generateOptions(
-        currentQuestion.pays,
-        () => currentQuestions[Math.floor(Math.random() * currentQuestions.length)].pays
-    );
+    const options = generateOptions(correct, key);
 
-    renderOptions(options, (option) => checkAnswer(option, currentQuestion.pays));
-}
+    options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
 
-// Afficher la question pour la capitale
-function displayCapitalQuestion() {
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.textContent = `Quelle est la capitale de ${currentQuestion.pays} ?`;
+        btn.onclick = () => handleAnswer(opt === correct, btn);
 
-    const options = generateOptions(
-        currentQuestion.capitale,
-        () => currentQuestions[Math.floor(Math.random() * currentQuestions.length)].capitale
-    );
-
-    renderOptions(options, (option) => checkAnswer(option, currentQuestion.capitale));
-}
-
-// Rendre les options dans le DOM
-function renderOptions(options, onClickHandler) {
-    const optionsContainer = document.getElementById('options-container');
-    optionsContainer.innerHTML = '';
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.onclick = () => onClickHandler(option);
-        optionsContainer.appendChild(button);
+        container.appendChild(btn);
     });
 }
 
-// Vérifier la réponse (fonction unifiée)
-function checkAnswer(selectedOption, correctAnswer) {
-    const feedback = document.getElementById('feedback');
-    const isCorrect = selectedOption === correctAnswer;
+// =========================
+// ANSWER HANDLING
+// =========================
+function handleAnswer(isCorrect, btn) {
+    const buttons = document.querySelectorAll("#options-container button");
+    const flag = document.getElementById("flag");
 
-    feedback.textContent = isCorrect
-        ? "Correct !"
-        : `Faux ! La bonne réponse est ${correctAnswer}.`;
-    feedback.style.color = isCorrect ? "#4CAF50" : "#F44336";
+    // lock UI
+    buttons.forEach(b => b.classList.add("option-locked"));
+
+    const correctValue =
+        currentStep === "pays"
+            ? currentQuestion.pays
+            : currentQuestion.capitale;
+
+    buttons.forEach(b => {
+        if (b.textContent === correctValue) {
+            b.classList.add("option-correct");
+        }
+    });
+
+    if (!isCorrect) {
+        btn.classList.add("option-wrong");
+        flag.classList.add("wrong-anim");
+    } else {
+        flag.classList.add("correct-anim");
+    }
 
     setTimeout(() => {
-        feedback.textContent = "";
-        currentStep = currentStep === "pays" ? "capitale" : "pays";
-        startQuiz();
-    }, 2000);
+        next();
+    }, 700);
 }
 
-// Mélanger un tableau
-function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
+// =========================
+// FLOW CONTROL
+// =========================
+function next() {
+	const flag = document.getElementById("flag");
+
+	flag.classList.remove("correct-anim");
+	flag.classList.remove("wrong-anim");
+
+	if (currentStep === "pays") {
+		currentStep = "capitale";
+	} else {
+		currentStep = "pays";
+		pickRandomQuestion();
+	}
+
+	renderQuestion();
 }
 
-// Charger les données au démarrage
+// =========================
+// UTILS
+// =========================
+function shuffleArray(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+}
+
+// =========================
+// INIT
+// =========================
 loadData();

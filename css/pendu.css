@@ -1,7 +1,24 @@
+/* Informations du jeu */
+.game-info{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	gap:8px;
+	text-align:center;
+}
+
+.input-section {
+    display: flex;
+    align-items: center; /* centre verticalement input + bouton */
+    justify-content: center;
+    gap: 12px;
+}
+
 #mot{
 	font-family:'Orbitron',sans-serif;
 	font-size:clamp(1.4rem,3vw,2.2rem);
-	letter-spacing:.45rem;
+	letter-spacing:clamp(.08rem, .4vw, .35rem);
 	color:#b266ff;
 	text-shadow:
 		0 0 18px rgba(139,61,255,0.45),
@@ -34,13 +51,18 @@
 }
 
 #lettres-utilisees{
-	height:48px;
+	height:auto;
+	min-height:48px;
+	width:min(400px,100%);
 	padding:10px 16px;
 	border-radius:14px;
+	justify-content:center;
+	text-align:center;
 	background:rgba(255,255,255,0.03);
 	border:1px solid rgba(139,61,255,0.12);
 	margin-top:10px;
 	display:flex;
+	flex-wrap:wrap;
 	align-items:center;
 	overflow:hidden;
 	box-sizing:border-box;
@@ -54,8 +76,8 @@
 
 .hangman svg{
 	margin-top:-10px;
-	width:min(190px,38vw);
-	height:min(190px,38vw);
+	width:clamp(110px, 16vw, 160px);
+	height:auto;
 	stroke:rgba(160,90,255,0.95);
 	stroke-width:3;
 	filter:drop-shadow(0 0 10px rgba(139,61,255,0.28));
@@ -87,32 +109,22 @@
 }
 
 #lettre,
-button{
-	appearance:none;
-	-webkit-appearance:none;
-	-moz-appearance:none;
-	box-sizing:border-box;
-	height:44px;
-	margin:0;
-	padding:0;
-	border:none;
-	font:inherit;
+#valider-btn {
+    height: 46px;
+    display: inline-flex;        /* flex pour centrer le texte verticalement */
+    align-items: center;
+    justify-content: center;
+    font: inherit;               /* héritage de la police */
+    box-sizing: border-box;      /* important pour que padding ne change pas la hauteur */
 }
 
-button{
-	padding:0 26px;
-	border-radius:16px;
-	background:linear-gradient(135deg,#8b3dff,#b266ff);
-	color:white;
-}
-
-#lettre{
-	width:110px;
-	padding:0 18px;
-	border:1px solid rgba(139,61,255,0.2);
-	border-radius:14px;
-	background:rgba(255,255,255,0.03);
-	color:white;
+#lettre {
+    width: 110px;
+    padding: 0 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(139,61,255,0.2);
+    background: rgba(255,255,255,0.03);
+    color: white;
 }
 
 #lettre:focus{
@@ -120,6 +132,18 @@ button{
   border-color:var(--primary);
   box-shadow:
     0 0 20px rgba(139,61,255,0.25);
+}
+
+#valider-btn {
+    height: 46px;
+    padding: 0 18px;
+    margin: 0;
+    line-height: 1;
+    transform: none;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -143,51 +167,6 @@ button{
 #toast.show{
   opacity:1;
   transform:translateX(-50%) translateY(-10px);
-}
-
-/* ==========================================
-   RESPONSIVE PENDU
-========================================== */
-
-/* Informations du jeu */
-
-.game-info{
-	width:100%;
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	gap:12px;
-	text-align:center;
-}
-
-/* Champ + bouton */
-
-.input-section{
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	gap:12px;
-	flex-wrap:wrap;
-	width:100%;
-	margin-top:10px;
-}
-
-/* Lettres utilisées */
-
-#lettres-utilisees{
-	width:min(500px,100%);
-	justify-content:center;
-	text-align:center;
-	flex-wrap:wrap;
-	height:auto;
-	min-height:48px;
-}
-
-/* SVG */
-
-.hangman svg{
-	width:min(220px,45vw);
-	height:auto;
 }
 
 /* ==========================================
@@ -228,6 +207,7 @@ button{
 @media (max-width:480px){
 
 	.game-page{
+		padding:12px;
 		padding-left:12px;
 		padding-right:12px;
 	}
@@ -249,19 +229,16 @@ button{
 
 	.input-section{
 		flex-direction:column;
+        align-items:center;
 		gap:10px;
 	}
-
-	#lettre{
-		width:100%;
-		max-width:220px;
-	}
-
-	#valider-btn,
-	.primary{
-		width:100%;
-		max-width:220px;
-	}
+	
+	#lettre,
+    #valider-btn,
+    .primary{
+        width:100%;
+        max-width:220px;
+    }
 
 	#toast{
 		width:calc(100vw - 30px);

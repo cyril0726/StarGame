@@ -20,52 +20,55 @@
 			<a class="back-btn" href="../index.html">← Retour</a>
 		</header>
 		
-		<main class="page game-page">
-			<section class="game-shell">
-			
-<div id="map-container">
-    <div class="map-header">
-        <h2>Explore le monde</h2>
-        <p class="map-subtitle">
-            Choisis un continent et teste tes connaissances
-            sur les drapeaux du monde.
-        </p>
-    </div>
+		<main class="layout">
+			<div class="content">
+				<div class="game-panel">
+					<section class="game-shell">	
+						<div id="map-container">
+							<div class="map-header">
+								<h2>Explore le monde</h2>
+								<p class="map-subtitle">
+									Choisis un continent et teste tes connaissances
+									sur les drapeaux du monde.
+								</p>
+							</div>
 
-    <div class="world-map">
-        <button class="continent europe" onclick="toggleContinent('Europe', this)">
-            <span>Europe</span>
-        </button>
-        <button class="continent afrique" onclick="toggleContinent('Afrique', this)">
-            <span>Afrique</span>
-        </button>
-        <button class="continent asie" onclick="toggleContinent('Asie', this)">
-            <span>Asie</span>
-        </button>
-        <button class="continent amerique" onclick="toggleContinent('Amérique', this)">
-            <span>Amérique</span>
-        </button>
-        <button class="continent oceanie" onclick="toggleContinent('Océanie', this)">
-            <span>Océanie</span>
-        </button>
-    </div>
+							<div class="world-map">
+								<button class="continent europe" onclick="toggleContinent('Europe', this)">
+									<span>Europe</span>
+								</button>
+								<button class="continent afrique" onclick="toggleContinent('Afrique', this)">
+									<span>Afrique</span>
+								</button>
+								<button class="continent asie" onclick="toggleContinent('Asie', this)">
+									<span>Asie</span>
+								</button>
+								<button class="continent amerique" onclick="toggleContinent('Amérique', this)">
+									<span>Amérique</span>
+								</button>
+								<button class="continent oceanie" onclick="toggleContinent('Océanie', this)">
+									<span>Océanie</span>
+								</button>
+							</div>
 
-    <div class="start-btn-wrapper">
-        <button id="start-quiz-btn" disabled onclick="startQuizFromSelection()">
-            Lancer le quiz
-        </button>
-    </div>
-</div>
+							<div class="start-btn-wrapper">
+								<button id="start-quiz-btn" disabled onclick="startQuizFromSelection()">
+									Lancer le quiz
+								</button>
+							</div>
+						</div>
 
-				<div id="quiz-container">
-					<div id="flag-container">
-						<img id="flag" src="" alt="Drapeau" loading="lazy">
-					</div>
-					<div id="question-container"></div>
-					<div id="options-container"></div>
-					<div id="feedback"></div>
+						<div id="quiz-container">
+							<div id="flag-container">
+								<img id="flag" src="" alt="Drapeau" loading="lazy">
+							</div>
+							<div id="question-container"></div>
+							<div id="options-container"></div>
+							<div id="feedback"></div>
+						</div>
+					</section>
 				</div>
-			</section>
+			</div>
 		</main>
 	
 		<footer class="footer">© 2026 StarLab</footer>

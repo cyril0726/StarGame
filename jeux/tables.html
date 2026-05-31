@@ -20,54 +20,58 @@
 			<a class="back-btn" href="../index.html">← Retour</a>
 		</header>
 
-		<main class="page game-page">
-			<section class="game-shell">
-				<!-- MENU -->
-				<section id="menu-screen" class="screen active">
-					<h2>Quelles tables veux-tu tester ?</h2>
-					<div class="tables-buttons">
-						<button class="table-button" data-table="1">1</button>
-						<button class="table-button" data-table="2">2</button>
-						<button class="table-button" data-table="3">3</button>
-						<button class="table-button" data-table="4">4</button>
-						<button class="table-button" data-table="5">5</button>
-						<button class="table-button" data-table="6">6</button>
-						<button class="table-button" data-table="7">7</button>
-						<button class="table-button" data-table="8">8</button>
-						<button class="table-button" data-table="9">9</button>
-					</div>
-					<div class="mode-buttons">
-						<label class="chrono-toggle">
-							<input type="checkbox" id="chrono-mode">
-							<span class="toggle-ui"></span>
-							<span>Mode Chrono</span>
-						</label>
-						<button id="start-game" class="btn primary">
-							Commencer
-						</button>
-					</div>
-				</section>
-				<!-- GAME -->
-				<section id="game-screen" class="screen">
-					<div id="hud">
-						<div id="score">Score : 0</div>
-						<div id="errors">Erreurs : 0</div>
-						<div id="timer">⏱ 60</div>
-					</div>
-					<div id="tables-chosen">Tables sélectionnées : </div>
-					<div id="question">?</div>
-					<div class="answer-box">
-						<input type="text" inputmode="numeric" id="answer" placeholder="Réponse">
-						<button id="validate">Valider</button>
-					</div>
-				</section>
-				<!-- END -->
-				<section id="end-screen" class="screen">
-					<h2>Partie terminée</h2>
-					<div id="final-score"></div>
-					<button id="restart" class="btn primary">Rejouer</button>
-				</section>
-			</section>
+		<main class="layout">
+			<div class="content">
+				<div class="game-panel">
+					<section class="game-shell">
+						<!-- MENU -->
+						<section id="menu-screen" class="screen active">
+							<h2>Quelles tables veux-tu tester ?</h2>
+							<div class="tables-buttons">
+								<button class="table-button" data-table="1">1</button>
+								<button class="table-button" data-table="2">2</button>
+								<button class="table-button" data-table="3">3</button>
+								<button class="table-button" data-table="4">4</button>
+								<button class="table-button" data-table="5">5</button>
+								<button class="table-button" data-table="6">6</button>
+								<button class="table-button" data-table="7">7</button>
+								<button class="table-button" data-table="8">8</button>
+								<button class="table-button" data-table="9">9</button>
+							</div>
+							<div class="mode-buttons">
+								<label class="chrono-toggle">
+									<input type="checkbox" id="chrono-mode">
+									<span class="toggle-ui"></span>
+									<span>Mode Chrono</span>
+								</label>
+								<button id="start-game" class="btn primary">
+									Commencer
+								</button>
+							</div>
+						</section>
+						<!-- GAME -->
+						<section id="game-screen" class="screen">
+							<div id="hud">
+								<div id="score">Score : 0</div>
+								<div id="errors">Erreurs : 0</div>
+								<div id="timer">⏱ 60</div>
+							</div>
+							<div id="tables-chosen">Tables sélectionnées : </div>
+							<div id="question">?</div>
+							<div class="answer-box">
+								<input type="text" inputmode="numeric" id="answer" placeholder="Réponse">
+								<button id="validate">Valider</button>
+							</div>
+						</section>
+						<!-- END -->
+						<section id="end-screen" class="screen">
+							<h2>Partie terminée</h2>
+							<div id="final-score"></div>
+							<button id="restart" class="btn primary">Rejouer</button>
+						</section>
+					</section>
+				</div>
+			</div>
 		</main>
 		<footer class="footer">© 2026 StarLab</footer>
 		<div id="toast"></div>
