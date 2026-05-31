@@ -54,7 +54,7 @@ function startQuizFromSelection() {
 
     document.getElementById("map-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
-
+	document.getElementById("progress-bar").style.display = "block";
     document.getElementById("quiz-info").style.display = "flex";
 
     startQuiz();
@@ -74,6 +74,7 @@ function startQuiz() {
     updateScoreDisplay();
     startTime = Date.now();
     timerInterval = setInterval(updateTimer, 1000);
+	updateProgress();
 }
 
 function pickRandomQuestion() {
@@ -101,6 +102,16 @@ function updateTimer() {
     const seconds = String(elapsed % 60).padStart(2, '0');
     document.getElementById("timer").textContent = `${minutes}:${seconds}`;
 }	
+
+function updateProgress() {
+	    const percent =
+        (roundsPlayed / MAX_ROUNDS) * 100;
+
+    document.getElementById("progress-fill").style.width =
+        `${percent}%`;
+    document.getElementById("progress").textContent =
+        `${roundsPlayed + 1}/${MAX_ROUNDS}`;
+}
 
 // =========================
 // RENDER QUESTION
@@ -189,13 +200,6 @@ function handleAnswer(isCorrect, btn) {
         btn.classList.add("option-wrong");
         flag.classList.add("wrong-anim");
     }
-	
-	if (isCorrect) {
-		score++;
-		streak++;
-	} else {
-		streak = 0;
-	}
 
 totalAnswers++;
 
@@ -220,6 +224,7 @@ function next() {
 	} else {
 
 		roundsPlayed++;
+		updateProgress();
 
 		if (roundsPlayed >= MAX_ROUNDS) {
 			endQuiz();
@@ -234,46 +239,21 @@ function next() {
 }
 
 function endQuiz() {
-
     clearInterval(timerInterval);
 
     const elapsed =
         Math.floor((Date.now() - startTime) / 1000);
-
     const minutes =
         String(Math.floor(elapsed / 60)).padStart(2, "0");
-
     const seconds =
         String(elapsed % 60).padStart(2, "0");
-
     const accuracy =
         totalAnswers === 0
             ? 0
             : Math.round(
                 (score / totalAnswers) * 100
             );
-
-    document.getElementById("final-score").textContent =
-        `${score}/${totalAnswers}`;
-
-    document.getElementById("final-streak").textContent =
-        bestStreak;
-
-    document.getElementById("final-accuracy").textContent =
-        accuracy + "%";
-
-    document.getElementById("final-time").textContent =
-        `${minutes}:${seconds}`;
-
-    document.getElementById("quiz-container").style.display =
-        "none";
-
-    document.getElementById("quiz-info").style.display =
-        "none";
-
-    document.getElementById("end-screen").style.display =
-        "block";
-		
+			
 	let rank;
 
 	if (accuracy >= 95) {
@@ -285,6 +265,52 @@ function endQuiz() {
 	} else {
 		rank = "🚀 Apprenti géographe";
 	}
+
+    document.getElementById("final-score").textContent =`${score}/${totalAnswers}`;
+    document.getElementById("final-streak").textContent =bestStreak;
+    document.getElementById("final-accuracy").textContent =accuracy + "%";
+    document.getElementById("final-time").textContent =`${minutes}:${seconds}`;
+    document.getElementById("quiz-container").style.display ="none";
+    document.getElementById("quiz-info").style.display ="none";
+    document.getElementById("end-screen").style.display ="block";
+	document.getElementById("final-rank").textContent =rank;
+	document.getElementById("progress-bar").style.display = "none";
+}
+
+function backToContinentSelection() {
+
+    clearInterval(timerInterval);
+
+    // Masquer les écrans du quiz
+    document.getElementById("end-screen").style.display = "none";
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("quiz-info").style.display = "none";
+
+    const progressBar = document.getElementById("progress-bar");
+    if (progressBar) {
+        progressBar.style.display = "none";
+    }
+
+    // Réafficher la carte
+    document.getElementById("map-container").style.display = "flex";
+
+    // Réinitialiser les stats
+    score = 0;
+    streak = 0;
+    bestStreak = 0;
+    totalAnswers = 0;
+    roundsPlayed = 0;
+
+    // Vider les continents sélectionnés
+    selectedContinents = [];
+
+    // Retirer les classes visuelles
+    document
+        .querySelectorAll(".continent.selected")
+        .forEach(btn => btn.classList.remove("selected"));
+
+    // Désactiver le bouton de lancement
+    document.getElementById("start-quiz-btn").disabled = true;
 }
 
 // =========================
@@ -301,29 +327,23 @@ loadData();
 
 document.getElementById("restart-btn")
     .addEventListener("click", restartQuiz);
+document.getElementById("change-continents-btn")
+    .addEventListener("click", backToContinentSelection);
 	
 function restartQuiz() {
 
     score = 0;
     streak = 0;
     bestStreak = 0;
-
     totalAnswers = 0;
-
     roundsPlayed = 0;
-
     clearInterval(timerInterval);
-
-    document.getElementById("end-screen").style.display =
-        "none";
-
-    document.getElementById("quiz-container").style.display =
-        "block";
-
-    document.getElementById("quiz-info").style.display =
-        "flex";
+	
+    document.getElementById("end-screen").style.display = "none";
+    document.getElementById("quiz-container").style.display = "block";
+    document.getElementById("quiz-info").style.display = "flex";
 
     updateScoreDisplay();
-
+	updateProgress();
     startQuiz();
 }

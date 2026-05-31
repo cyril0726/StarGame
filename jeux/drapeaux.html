@@ -60,8 +60,12 @@
 						<div id="quiz-info" style="display:none;">
 							<div>⭐ Score : <span id="score">0</span></div>
 							<div>🔥 Série : <span id="streak">0</span></div>
+							<div>📍 <span id="progress">1/20</span></div>
 							<div>⏱️ Temps : <span id="timer">00:00</span></div>
 							<div>🎯 <span id="accuracy">0%</span></div>
+						</div>
+						<div id="progress-bar" style="display:none;">
+							<div id="progress-fill"></div>
 						</div>
 						<div id="quiz-container">
 							<div id="flag-container">
@@ -78,10 +82,15 @@
 							<p>🔥 Meilleure série : <span id="final-streak"></span></p>
 							<p>🎯 Précision : <span id="final-accuracy"></span></p>
 							<p>⏱️ Temps : <span id="final-time"></span></p>
-
-							<button id="restart-btn">
-								Rejouer
-							</button>
+							<p id="final-rank"></p>
+							<div class="end-actions">
+								<button id="restart-btn">
+									Rejouer
+								</button>
+								<button id="change-continents-btn">
+									Changer de continents
+								</button>
+							</div>
 						</div>
 					</section>
 				</div>

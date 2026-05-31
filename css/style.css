@@ -55,7 +55,6 @@ h1, h2, h3{
 
 /* BRANDING */
 .nav-brand,
-.logo,
 .nav-title{
 	font-family: 'Orbitron', sans-serif;
 }
@@ -215,11 +214,10 @@ img{
    GAME LAYOUT SYSTEM
 ========================= */
 .layout {
+  flex: 1;
   width: min(1000px, 92%);
   margin: 0 auto;
-  padding: calc(var(--nav-h) + 20px) clamp(12px, 2vw, 24px) 20px;
-  display: flex;
-  flex-direction: column;
+  padding: calc(var(--nav-h) + 20px) ...
 }
 
 .content {

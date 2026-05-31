@@ -75,12 +75,31 @@
 }
 
 /* MODE BUTTONS */
-.mode-buttons{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-    margin-top:4px;
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.mode-buttons .btn {
+    min-width: 140px;
+    padding: 14px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    background: linear-gradient(145deg, #8b3dff, #b266ff);
+    color: white;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.mode-buttons .btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(139,61,255,.35);
 }
 
 /* BUTTONS */
@@ -96,19 +115,6 @@
     opacity:.4;
     cursor:not-allowed;
     transform:none !important;
-}
-
-.chrono-toggle{
-    padding:10px 16px;
-    border-radius:14px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.05),
-            rgba(255,255,255,0.015)
-        );
-    border:1px solid rgba(255,255,255,0.06);
-    backdrop-filter:blur(10px);
 }
 
 #start-game{
