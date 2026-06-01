@@ -51,6 +51,23 @@
 								</button>
 							</div>
 
+							<div class="difficulty-selector">
+								<div class="difficulty-options">
+									<button class="difficulty-btn selected"
+											onclick="selectDifficulty('facile', this)">
+										🟢 Facile
+									</button>
+									<button class="difficulty-btn"
+											onclick="selectDifficulty('moyen', this)">
+										🟡 Normal
+									</button>
+									<button class="difficulty-btn"
+											onclick="selectDifficulty('difficile', this)">
+										🔴 Difficile
+									</button>
+								</div>
+							</div>
+
 							<div class="start-btn-wrapper">
 								<button id="start-quiz-btn" disabled onclick="startQuizFromSelection()">
 									Lancer le quiz

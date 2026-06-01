@@ -14,6 +14,12 @@ let timerInterval;
 let totalAnswers = 0;
 let roundsPlayed = 0;
 const MAX_ROUNDS = 20;
+let selectedDifficulty = "facile";
+const difficultyLevels = {
+    facile: ["facile"],
+    moyen: ["facile", "moyen"],
+    difficile: ["facile", "moyen", "difficile"]
+};
 
 // =========================
 // LOAD DATA
@@ -46,17 +52,54 @@ function toggleContinent(continent, btn) {
         selectedContinents.length === 0;
 }
 
-function startQuizFromSelection() {
+// =========================
+// DIFFICULTY SELECTION
+// =========================
+function selectDifficulty(level, btn) {
 
-    currentQuestions = selectedContinents.flatMap(
+    selectedDifficulty = level;
+
+    document
+        .querySelectorAll(".difficulty-btn")
+        .forEach(b => b.classList.remove("selected"));
+
+    btn.classList.add("selected");
+}
+
+function startQuizFromSelection() {
+    if (!selectedDifficulty) {
+        alert("Veuillez sélectionner un niveau de difficulté.");
+        return;
+    }
+
+    // Récupérer tous les pays des continents sélectionnés
+    let countries = selectedContinents.flatMap(
         c => data.continents[c] || []
     );
 
+    // Filtrage par difficulté
+	const allowed =
+		difficultyLevels[selectedDifficulty] || ["facile"];
+
+	countries = countries.filter(c =>
+		allowed.includes(c.difficulte)
+	);
+
+    if (countries.length === 0) {
+        alert("Aucun pays disponible pour cette difficulté et ces continents.");
+        return;
+    }
+
+    // Initialiser le quiz avec les questions filtrées
+    currentQuestions = countries;
+
+    // Masquer la carte et afficher le quiz
     document.getElementById("map-container").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
-	document.getElementById("progress-bar").style.display = "block";
+    document.getElementById("progress-bar").style.display = "block";
     document.getElementById("quiz-info").style.display = "flex";
 
+    // Démarrer le quiz
     startQuiz();
 }
 
@@ -311,6 +354,16 @@ function backToContinentSelection() {
 
     // Désactiver le bouton de lancement
     document.getElementById("start-quiz-btn").disabled = true;
+	
+	selectedDifficulty = "facile";
+
+	document
+		.querySelectorAll(".difficulty-btn")
+		.forEach(btn => btn.classList.remove("selected"));
+
+	document
+		.querySelector(".difficulty-btn")
+		.classList.add("selected");
 }
 
 // =========================

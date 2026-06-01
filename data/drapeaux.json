@@ -1,239 +1,206 @@
 {
-  "continents": {
-    "Europe": [
-      {
-        "pays": "France",
-        "drapeau": "../images/drapeaux/france.png",
-        "capitale": "Paris"
-      },
-      {
-        "pays": "Allemagne",
-        "drapeau": "../images/drapeaux/allemagne.png",
-        "capitale": "Berlin"
-      },
-      {
-        "pays": "Italie",
-        "drapeau": "../images/drapeaux/italie.png",
-        "capitale": "Rome"
-      },
-      {
-        "pays": "Espagne",
-        "drapeau": "../images/drapeaux/espagne.png",
-        "capitale": "Madrid"
-      },
-      {
-        "pays": "Royaume-Uni",
-        "drapeau": "../images/drapeaux/royaume-uni.png",
-        "capitale": "Londres"
-      },
-      {
-        "pays": "Portugal",
-        "drapeau": "../images/drapeaux/portugal.png",
-        "capitale": "Lisbonne"
-      },
-      {
-        "pays": "Pays-Bas",
-        "drapeau": "../images/drapeaux/pays-bas.png",
-        "capitale": "Amsterdam"
-      },
-      {
-        "pays": "Belgique",
-        "drapeau": "../images/drapeaux/belgique.png",
-        "capitale": "Bruxelles"
-      },
-      {
-        "pays": "Suisse",
-        "drapeau": "../images/drapeaux/suisse.png",
-        "capitale": "Berne"
-      },
-      {
-        "pays": "Suède",
-        "drapeau": "../images/drapeaux/suede.png",
-        "capitale": "Stockholm"
-      }
-    ],
-    "Afrique": [
-      {
-        "pays": "Maroc",
-        "drapeau": "../images/drapeaux/maroc.png",
-        "capitale": "Rabat"
-      },
-      {
-        "pays": "Égypte",
-        "drapeau": "../images/drapeaux/egypte.png",
-        "capitale": "Le Caire"
-      },
-      {
-        "pays": "Afrique du Sud",
-        "drapeau": "../images/drapeaux/afrique-du-sud.png",
-        "capitale": "Prétoria"
-      },
-      {
-        "pays": "Algérie",
-        "drapeau": "../images/drapeaux/algerie.png",
-        "capitale": "Alger"
-      },
-      {
-        "pays": "Tunisie",
-        "drapeau": "../images/drapeaux/tunisie.png",
-        "capitale": "Tunis"
-      },
-      {
-        "pays": "Nigeria",
-        "drapeau": "../images/drapeaux/nigeria.png",
-        "capitale": "Abuja"
-      },
-      {
-        "pays": "Kenya",
-        "drapeau": "../images/drapeaux/kenya.png",
-        "capitale": "Nairobi"
-      },
-      {
-        "pays": "Sénégal",
-        "drapeau": "../images/drapeaux/senegal.png",
-        "capitale": "Dakar"
-      },
-      {
-        "pays": "Côte d'Ivoire",
-        "drapeau": "../images/drapeaux/cote-divoire.png",
-        "capitale": "Yamoussoukro"
-      },
-      {
-        "pays": "Cameroun",
-        "drapeau": "../images/drapeaux/cameroun.png",
-        "capitale": "Yaoundé"
-      }
-    ],
-    "Asie": [
-      {
-        "pays": "Japon",
-        "drapeau": "../images/drapeaux/japon.png",
-        "capitale": "Tokyo"
-      },
-      {
-        "pays": "Chine",
-        "drapeau": "../images/drapeaux/chine.png",
-        "capitale": "Pékin"
-      },
-      {
-        "pays": "Inde",
-        "drapeau": "../images/drapeaux/inde.png",
-        "capitale": "New Delhi"
-      },
-      {
-        "pays": "Russie",
-        "drapeau": "../images/drapeaux/russie.png",
-        "capitale": "Moscou"
-      },
-      {
-        "pays": "Corée du Sud",
-        "drapeau": "../images/drapeaux/coree-du-sud.png",
-        "capitale": "Séoul"
-      },
-      {
-        "pays": "Thaïlande",
-        "drapeau": "../images/drapeaux/thailande.png",
-        "capitale": "Bangkok"
-      },
-      {
-        "pays": "Vietnam",
-        "drapeau": "../images/drapeaux/vietnam.png",
-        "capitale": "Hanoï"
-      },
-      {
-        "pays": "Indonésie",
-        "drapeau": "../images/drapeaux/indonesie.png",
-        "capitale": "Jakarta"
-      },
-      {
-        "pays": "Turquie",
-        "drapeau": "../images/drapeaux/turquie.png",
-        "capitale": "Ankara"
-      },
-      {
-        "pays": "Arabie Saoudite",
-        "drapeau": "../images/drapeaux/arabie-saoudite.png",
-        "capitale": "Riyad"
-      }
-    ],
-    "Océanie": [
-      {
-        "pays": "Australie",
-        "drapeau": "../images/drapeaux/australie.png",
-        "capitale": "Canberra"
-      },
-      {
-        "pays": "Nouvelle-Zélande",
-        "drapeau": "../images/drapeaux/nouvelle-zelande.png",
-        "capitale": "Wellington"
-      },
-      {
-        "pays": "Fidji",
-        "drapeau": "../images/drapeaux/fidji.png",
-        "capitale": "Suva"
-      },
-      {
-        "pays": "Papouasie-Nouvelle-Guinée",
-        "drapeau": "../images/drapeaux/papouasie-nouvelle-guinee.png",
-        "capitale": "Port Moresby"
-      },
-      {
-        "pays": "Samoa",
-        "drapeau": "../images/drapeaux/samoa.png",
-        "capitale": "Apia"
-      }
-    ],
-    "Amérique": [
-      {
-        "pays": "États-Unis",
-        "drapeau": "../images/drapeaux/etats-unis.png",
-        "capitale": "Washington, D.C."
-      },
-      {
-        "pays": "Canada",
-        "drapeau": "../images/drapeaux/canada.png",
-        "capitale": "Ottawa"
-      },
-      {
-        "pays": "Brésil",
-        "drapeau": "../images/drapeaux/bresil.png",
-        "capitale": "Brasília"
-      },
-      {
-        "pays": "Mexique",
-        "drapeau": "../images/drapeaux/mexique.png",
-        "capitale": "Mexico"
-      },
-      {
-        "pays": "Argentine",
-        "drapeau": "../images/drapeaux/argentine.png",
-        "capitale": "Buenos Aires"
-      },
-      {
-        "pays": "Chili",
-        "drapeau": "../images/drapeaux/chili.png",
-        "capitale": "Santiago"
-      },
-      {
-        "pays": "Colombie",
-        "drapeau": "../images/drapeaux/colombie.png",
-        "capitale": "Bogotá"
-      },
-      {
-        "pays": "Pérou",
-        "drapeau": "../images/drapeaux/perou.png",
-        "capitale": "Lima"
-      },
-      {
-        "pays": "Cuba",
-        "drapeau": "../images/drapeaux/cuba.png",
-        "capitale": "La Havane"
-      },
-      {
-        "pays": "Venezuela",
-        "drapeau": "../images/drapeaux/venezuela.png",
-        "capitale": "Caracas"
-      }
-    ]
-  }
+	"continents": {
+		"Europe": [
+			{ "pays": "Albanie", "capitale": "Tirana", "difficulte": "moyen", "drapeau": "../images/drapeaux/al.svg" },
+			{ "pays": "Allemagne", "capitale": "Berlin", "difficulte": "facile", "drapeau": "../images/drapeaux/de.svg" },
+			{ "pays": "Andorre", "capitale": "Andorre-la-Vieille", "difficulte": "difficile", "drapeau": "../images/drapeaux/ad.svg" },
+			{ "pays": "Autriche", "capitale": "Vienne", "difficulte": "facile", "drapeau": "../images/drapeaux/at.svg" },
+			{ "pays": "Belgique", "capitale": "Bruxelles", "difficulte": "facile", "drapeau": "../images/drapeaux/be.svg" },
+			{ "pays": "Biélorussie", "capitale": "Minsk", "difficulte": "moyen", "drapeau": "../images/drapeaux/by.svg" },
+			{ "pays": "Bosnie-Herzégovine", "capitale": "Sarajevo", "difficulte": "moyen", "drapeau": "../images/drapeaux/ba.svg" },
+			{ "pays": "Bulgarie", "capitale": "Sofia", "difficulte": "moyen", "drapeau": "../images/drapeaux/bg.svg" },
+			{ "pays": "Croatie", "capitale": "Zagreb", "difficulte": "moyen", "drapeau": "../images/drapeaux/hr.svg" },
+			{ "pays": "Danemark", "capitale": "Copenhague", "difficulte": "facile", "drapeau": "../images/drapeaux/dk.svg" },
+			{ "pays": "Espagne", "capitale": "Madrid", "difficulte": "facile", "drapeau": "../images/drapeaux/es.svg" },
+			{ "pays": "Estonie", "capitale": "Tallinn", "difficulte": "moyen", "drapeau": "../images/drapeaux/ee.svg" },
+			{ "pays": "Finlande", "capitale": "Helsinki", "difficulte": "facile", "drapeau": "../images/drapeaux/fi.svg" },
+			{ "pays": "France", "capitale": "Paris", "difficulte": "facile", "drapeau": "../images/drapeaux/fr.svg" },
+			{ "pays": "Grèce", "capitale": "Athènes", "difficulte": "facile", "drapeau": "../images/drapeaux/gr.svg" },
+			{ "pays": "Hongrie", "capitale": "Budapest", "difficulte": "facile", "drapeau": "../images/drapeaux/hu.svg" },
+			{ "pays": "Irlande", "capitale": "Dublin", "difficulte": "facile", "drapeau": "../images/drapeaux/ie.svg" },
+			{ "pays": "Islande", "capitale": "Reykjavik", "difficulte": "moyen", "drapeau": "../images/drapeaux/is.svg" },
+			{ "pays": "Italie", "capitale": "Rome", "difficulte": "facile", "drapeau": "../images/drapeaux/it.svg" },
+			{ "pays": "Lettonie", "capitale": "Riga", "difficulte": "moyen", "drapeau": "../images/drapeaux/lv.svg" },
+			{ "pays": "Liechtenstein", "capitale": "Vaduz", "difficulte": "difficile", "drapeau": "../images/drapeaux/li.svg" },
+			{ "pays": "Lituanie", "capitale": "Vilnius", "difficulte": "moyen", "drapeau": "../images/drapeaux/lt.svg" },
+			{ "pays": "Luxembourg", "capitale": "Luxembourg", "difficulte": "facile", "drapeau": "../images/drapeaux/lu.svg" },
+			{ "pays": "Malte", "capitale": "La Valette", "difficulte": "difficile", "drapeau": "../images/drapeaux/mt.svg" },
+			{ "pays": "Moldavie", "capitale": "Chișinău", "difficulte": "moyen", "drapeau": "../images/drapeaux/md.svg" },
+			{ "pays": "Monaco", "capitale": "Monaco", "difficulte": "difficile", "drapeau": "../images/drapeaux/mc.svg" },
+			{ "pays": "Monténégro", "capitale": "Podgorica", "difficulte": "difficile", "drapeau": "../images/drapeaux/me.svg" },
+			{ "pays": "Norvège", "capitale": "Oslo", "difficulte": "facile", "drapeau": "../images/drapeaux/no.svg" },
+			{ "pays": "Pays-Bas", "capitale": "Amsterdam", "difficulte": "facile", "drapeau": "../images/drapeaux/nl.svg" },
+			{ "pays": "Pologne", "capitale": "Varsovie", "difficulte": "facile", "drapeau": "../images/drapeaux/pl.svg" },
+			{ "pays": "Portugal", "capitale": "Lisbonne", "difficulte": "facile", "drapeau": "../images/drapeaux/pt.svg" },
+			{ "pays": "République tchèque", "capitale": "Prague", "difficulte": "facile", "drapeau": "../images/drapeaux/cz.svg" },
+			{ "pays": "Roumanie", "capitale": "Bucarest", "difficulte": "facile", "drapeau": "../images/drapeaux/ro.svg" },
+			{ "pays": "Royaume-Uni", "capitale": "Londres", "difficulte": "facile", "drapeau": "../images/drapeaux/gb.svg" },
+			{ "pays": "Russie", "capitale": "Moscou", "difficulte": "moyen", "drapeau": "../images/drapeaux/ru.svg" },
+			{ "pays": "Saint-Marin", "capitale": "Saint-Marin", "difficulte": "difficile", "drapeau": "../images/drapeaux/sm.svg" },
+			{ "pays": "Serbie", "capitale": "Belgrade", "difficulte": "moyen", "drapeau": "../images/drapeaux/rs.svg" },
+			{ "pays": "Slovaquie", "capitale": "Bratislava", "difficulte": "moyen", "drapeau": "../images/drapeaux/sk.svg" },
+			{ "pays": "Slovénie", "capitale": "Ljubljana", "difficulte": "moyen", "drapeau": "../images/drapeaux/si.svg" },
+			{ "pays": "Suède", "capitale": "Stockholm", "difficulte": "facile", "drapeau": "../images/drapeaux/se.svg" },
+			{ "pays": "Suisse", "capitale": "Berne", "difficulte": "facile", "drapeau": "../images/drapeaux/ch.svg" },
+			{ "pays": "Ukraine", "capitale": "Kyiv", "difficulte": "facile", "drapeau": "../images/drapeaux/ua.svg" },
+			{ "pays": "Vatican", "capitale": "Vatican", "difficulte": "difficile", "drapeau": "../images/drapeaux/va.svg" }
+		],
+		"Afrique": [
+			{ "pays": "Afrique du Sud", "capitale": "Pretoria", "difficulte": "moyen", "drapeau": "../images/drapeaux/za.svg" },
+			{ "pays": "Algérie", "capitale": "Alger", "difficulte": "facile", "drapeau": "../images/drapeaux/dz.svg" },
+			{ "pays": "Angola", "capitale": "Luanda", "difficulte": "moyen", "drapeau": "../images/drapeaux/ao.svg" },
+			{ "pays": "Bénin", "capitale": "Porto-Novo", "difficulte": "moyen", "drapeau": "../images/drapeaux/bj.svg" },
+			{ "pays": "Botswana", "capitale": "Gaborone", "difficulte": "moyen", "drapeau": "../images/drapeaux/bw.svg" },
+			{ "pays": "Burkina Faso", "capitale": "Ouagadougou", "difficulte": "moyen", "drapeau": "../images/drapeaux/bf.svg" },
+			{ "pays": "Burundi", "capitale": "Gitega", "difficulte": "moyen", "drapeau": "../images/drapeaux/bi.svg" },
+			{ "pays": "Cap-Vert", "capitale": "Praia", "difficulte": "difficile", "drapeau": "../images/drapeaux/cv.svg" },
+			{ "pays": "Cameroun", "capitale": "Yaoundé", "difficulte": "facile", "drapeau": "../images/drapeaux/cm.svg" },
+			{ "pays": "République centrafricaine", "capitale": "Bangui", "difficulte": "difficile", "drapeau": "../images/drapeaux/cf.svg" },
+			{ "pays": "Comores", "capitale": "Moroni", "difficulte": "difficile", "drapeau": "../images/drapeaux/km.svg" },
+			{ "pays": "République du Congo", "capitale": "Brazzaville", "difficulte": "moyen", "drapeau": "../images/drapeaux/cg.svg" },
+			{ "pays": "République démocratique du Congo", "capitale": "Kinshasa", "difficulte": "moyen", "drapeau": "../images/drapeaux/cd.svg" },
+			{ "pays": "Côte d’Ivoire", "capitale": "Yamoussoukro", "difficulte": "facile", "drapeau": "../images/drapeaux/ci.svg" },
+			{ "pays": "Djibouti", "capitale": "Djibouti", "difficulte": "difficile", "drapeau": "../images/drapeaux/dj.svg" },
+			{ "pays": "Égypte", "capitale": "Le Caire", "difficulte": "facile", "drapeau": "../images/drapeaux/eg.svg" },
+			{ "pays": "Érythrée", "capitale": "Asmara", "difficulte": "difficile", "drapeau": "../images/drapeaux/er.svg" },
+			{ "pays": "Eswatini", "capitale": "Mbabane", "difficulte": "difficile", "drapeau": "../images/drapeaux/sz.svg" },
+			{ "pays": "Éthiopie", "capitale": "Addis-Abeba", "difficulte": "moyen", "drapeau": "../images/drapeaux/et.svg" },
+			{ "pays": "Gabon", "capitale": "Libreville", "difficulte": "moyen", "drapeau": "../images/drapeaux/ga.svg" },
+			{ "pays": "Gambie", "capitale": "Banjul", "difficulte": "difficile", "drapeau": "../images/drapeaux/gm.svg" },
+			{ "pays": "Ghana", "capitale": "Accra", "difficulte": "facile", "drapeau": "../images/drapeaux/gh.svg" },
+			{ "pays": "Guinée", "capitale": "Conakry", "difficulte": "moyen", "drapeau": "../images/drapeaux/gn.svg" },
+			{ "pays": "Guinée-Bissau", "capitale": "Bissau", "difficulte": "difficile", "drapeau": "../images/drapeaux/gw.svg" },
+			{ "pays": "Guinée équatoriale", "capitale": "Malabo", "difficulte": "difficile", "drapeau": "../images/drapeaux/gq.svg" },
+			{ "pays": "Kenya", "capitale": "Nairobi", "difficulte": "facile", "drapeau": "../images/drapeaux/ke.svg" },
+			{ "pays": "Lesotho", "capitale": "Maseru", "difficulte": "difficile", "drapeau": "../images/drapeaux/ls.svg" },
+			{ "pays": "Libéria", "capitale": "Monrovia", "difficulte": "difficile", "drapeau": "../images/drapeaux/lr.svg" },
+			{ "pays": "Libye", "capitale": "Tripoli", "difficulte": "moyen", "drapeau": "../images/drapeaux/ly.svg" },
+			{ "pays": "Madagascar", "capitale": "Antananarivo", "difficulte": "moyen", "drapeau": "../images/drapeaux/mg.svg" },
+			{ "pays": "Malawi", "capitale": "Lilongwe", "difficulte": "moyen", "drapeau": "../images/drapeaux/mw.svg" },
+			{ "pays": "Mali", "capitale": "Bamako", "difficulte": "moyen", "drapeau": "../images/drapeaux/ml.svg" },
+			{ "pays": "Maroc", "capitale": "Rabat", "difficulte": "facile", "drapeau": "../images/drapeaux/ma.svg" },
+			{ "pays": "Maurice", "capitale": "Port-Louis", "difficulte": "difficile", "drapeau": "../images/drapeaux/mu.svg" },
+			{ "pays": "Mauritanie", "capitale": "Nouakchott", "difficulte": "difficile", "drapeau": "../images/drapeaux/mr.svg" },
+			{ "pays": "Mozambique", "capitale": "Maputo", "difficulte": "moyen", "drapeau": "../images/drapeaux/mz.svg" },
+			{ "pays": "Namibie", "capitale": "Windhoek", "difficulte": "moyen", "drapeau": "../images/drapeaux/na.svg" },
+			{ "pays": "Niger", "capitale": "Niamey", "difficulte": "moyen", "drapeau": "../images/drapeaux/ne.svg" },
+			{ "pays": "Nigeria", "capitale": "Abuja", "difficulte": "facile", "drapeau": "../images/drapeaux/ng.svg" },
+			{ "pays": "Ouganda", "capitale": "Kampala", "difficulte": "moyen", "drapeau": "../images/drapeaux/ug.svg" },
+			{ "pays": "Rwanda", "capitale": "Kigali", "difficulte": "moyen", "drapeau": "../images/drapeaux/rw.svg" },
+			{ "pays": "Sao Tomé-et-Principe", "capitale": "São Tomé", "difficulte": "difficile", "drapeau": "../images/drapeaux/st.svg" },
+			{ "pays": "Sénégal", "capitale": "Dakar", "difficulte": "facile", "drapeau": "../images/drapeaux/sn.svg" },
+			{ "pays": "Seychelles", "capitale": "Victoria", "difficulte": "difficile", "drapeau": "../images/drapeaux/sc.svg" },
+			{ "pays": "Sierra Leone", "capitale": "Freetown", "difficulte": "difficile", "drapeau": "../images/drapeaux/sl.svg" },
+			{ "pays": "Somalie", "capitale": "Mogadiscio", "difficulte": "difficile", "drapeau": "../images/drapeaux/so.svg" },
+			{ "pays": "Soudan", "capitale": "Khartoum", "difficulte": "moyen", "drapeau": "../images/drapeaux/sd.svg" },
+			{ "pays": "Soudan du Sud", "capitale": "Djouba", "difficulte": "difficile", "drapeau": "../images/drapeaux/ss.svg" },
+			{ "pays": "Tanzanie", "capitale": "Dodoma", "difficulte": "moyen", "drapeau": "../images/drapeaux/tz.svg" },
+			{ "pays": "Tchad", "capitale": "N’Djamena", "difficulte": "moyen", "drapeau": "../images/drapeaux/td.svg" },
+			{ "pays": "Togo", "capitale": "Lomé", "difficulte": "moyen", "drapeau": "../images/drapeaux/tg.svg" },
+			{ "pays": "Tunisie", "capitale": "Tunis", "difficulte": "facile", "drapeau": "../images/drapeaux/tn.svg" },
+			{ "pays": "Zambie", "capitale": "Lusaka", "difficulte": "moyen", "drapeau": "../images/drapeaux/zm.svg" },
+			{ "pays": "Zimbabwe", "capitale": "Harare", "difficulte": "moyen", "drapeau": "../images/drapeaux/zw.svg" }
+	  ],
+		"Asie": [
+			{ "pays": "Afghanistan", "capitale": "Kaboul", "difficulte": "moyen", "drapeau": "../images/drapeaux/af.svg" },
+			{ "pays": "Arabie Saoudite", "capitale": "Riyad", "difficulte": "facile", "drapeau": "../images/drapeaux/sa.svg" },
+			{ "pays": "Arménie", "capitale": "Erevan", "difficulte": "difficile", "drapeau": "../images/drapeaux/am.svg" },
+			{ "pays": "Azerbaïdjan", "capitale": "Bakou", "difficulte": "moyen", "drapeau": "../images/drapeaux/az.svg" },
+			{ "pays": "Bahreïn", "capitale": "Manama", "difficulte": "difficile", "drapeau": "../images/drapeaux/bh.svg" },
+			{ "pays": "Bangladesh", "capitale": "Dacca", "difficulte": "facile", "drapeau": "../images/drapeaux/bd.svg" },
+			{ "pays": "Bhoutan", "capitale": "Thimphou", "difficulte": "difficile", "drapeau": "../images/drapeaux/bt.svg" },
+			{ "pays": "Birmanie (Myanmar)", "capitale": "Naypyidaw", "difficulte": "moyen", "drapeau": "../images/drapeaux/mm.svg" },
+			{ "pays": "Brunei", "capitale": "Bandar Seri Begawan", "difficulte": "difficile", "drapeau": "../images/drapeaux/bn.svg" },
+			{ "pays": "Cambodge", "capitale": "Phnom Penh", "difficulte": "moyen", "drapeau": "../images/drapeaux/kh.svg" },
+			{ "pays": "Chine", "capitale": "Pékin", "difficulte": "facile", "drapeau": "../images/drapeaux/cn.svg" },
+			{ "pays": "Chypre", "capitale": "Nicosie", "difficulte": "moyen", "drapeau": "../images/drapeaux/cy.svg" },
+			{ "pays": "Corée du Nord", "capitale": "Pyongyang", "difficulte": "difficile", "drapeau": "../images/drapeaux/kp.svg" },
+			{ "pays": "Corée du Sud", "capitale": "Séoul", "difficulte": "facile", "drapeau": "../images/drapeaux/kr.svg" },
+			{ "pays": "Émirats arabes unis", "capitale": "Abou Dabi", "difficulte": "moyen", "drapeau": "../images/drapeaux/ae.svg" },
+			{ "pays": "Géorgie", "capitale": "Tbilissi", "difficulte": "moyen", "drapeau": "../images/drapeaux/ge.svg" },
+			{ "pays": "Inde", "capitale": "New Delhi", "difficulte": "facile", "drapeau": "../images/drapeaux/in.svg" },
+			{ "pays": "Indonésie", "capitale": "Jakarta", "difficulte": "facile", "drapeau": "../images/drapeaux/id.svg" },
+			{ "pays": "Iran", "capitale": "Téhéran", "difficulte": "moyen", "drapeau": "../images/drapeaux/ir.svg" },
+			{ "pays": "Irak", "capitale": "Bagdad", "difficulte": "moyen", "drapeau": "../images/drapeaux/iq.svg" },
+			{ "pays": "Israël", "capitale": "Jérusalem", "difficulte": "facile", "drapeau": "../images/drapeaux/il.svg" },
+			{ "pays": "Japon", "capitale": "Tokyo", "difficulte": "facile", "drapeau": "../images/drapeaux/jp.svg" },
+			{ "pays": "Jordanie", "capitale": "Amman", "difficulte": "moyen", "drapeau": "../images/drapeaux/jo.svg" },
+			{ "pays": "Kazakhstan", "capitale": "Astana", "difficulte": "moyen", "drapeau": "../images/drapeaux/kz.svg" },
+			{ "pays": "Kirghizistan", "capitale": "Bichkek", "difficulte": "difficile", "drapeau": "../images/drapeaux/kg.svg" },
+			{ "pays": "Koweït", "capitale": "Koweït", "difficulte": "moyen", "drapeau": "../images/drapeaux/kw.svg" },
+			{ "pays": "Laos", "capitale": "Vientiane", "difficulte": "difficile", "drapeau": "../images/drapeaux/la.svg" },
+			{ "pays": "Liban", "capitale": "Beyrouth", "difficulte": "moyen", "drapeau": "../images/drapeaux/lb.svg" },
+			{ "pays": "Malaisie", "capitale": "Kuala Lumpur", "difficulte": "facile", "drapeau": "../images/drapeaux/my.svg" },
+			{ "pays": "Maldives", "capitale": "Malé", "difficulte": "difficile", "drapeau": "../images/drapeaux/mv.svg" },
+			{ "pays": "Mongolie", "capitale": "Oulan-Bator", "difficulte": "moyen", "drapeau": "../images/drapeaux/mn.svg" },
+			{ "pays": "Népal", "capitale": "Katmandou", "difficulte": "moyen", "drapeau": "../images/drapeaux/np.svg" },
+			{ "pays": "Oman", "capitale": "Mascate", "difficulte": "moyen", "drapeau": "../images/drapeaux/om.svg" },
+			{ "pays": "Ouzbékistan", "capitale": "Tachkent", "difficulte": "moyen", "drapeau": "../images/drapeaux/uz.svg" },
+			{ "pays": "Pakistan", "capitale": "Islamabad", "difficulte": "moyen", "drapeau": "../images/drapeaux/pk.svg" },
+			{ "pays": "Philippines", "capitale": "Manille", "difficulte": "facile", "drapeau": "../images/drapeaux/ph.svg" },
+			{ "pays": "Qatar", "capitale": "Doha", "difficulte": "difficile", "drapeau": "../images/drapeaux/qa.svg" },
+			{ "pays": "Singapour", "capitale": "Singapour", "difficulte": "facile", "drapeau": "../images/drapeaux/sg.svg" },
+			{ "pays": "Sri Lanka", "capitale": "Sri Jayawardenepura Kotte", "difficulte": "moyen", "drapeau": "../images/drapeaux/lk.svg" },
+			{ "pays": "Syrie", "capitale": "Damas", "difficulte": "moyen", "drapeau": "../images/drapeaux/sy.svg" },
+			{ "pays": "Tadjikistan", "capitale": "Douchanbé", "difficulte": "difficile", "drapeau": "../images/drapeaux/tj.svg" },
+			{ "pays": "Taïwan", "capitale": "Taipei", "difficulte": "difficile", "drapeau": "../images/drapeaux/tw.svg" },
+			{ "pays": "Thaïlande", "capitale": "Bangkok", "difficulte": "facile", "drapeau": "../images/drapeaux/th.svg" },
+			{ "pays": "Timor oriental", "capitale": "Dili", "difficulte": "difficile", "drapeau": "../images/drapeaux/tl.svg" },
+			{ "pays": "Turkménistan", "capitale": "Achgabat", "difficulte": "difficile", "drapeau": "../images/drapeaux/tm.svg" },
+			{ "pays": "Turquie", "capitale": "Ankara", "difficulte": "facile", "drapeau": "../images/drapeaux/tr.svg" },
+			{ "pays": "Viêt Nam", "capitale": "Hanoï", "difficulte": "facile", "drapeau": "../images/drapeaux/vn.svg" },
+			{ "pays": "Yémen", "capitale": "Sanaa", "difficulte": "moyen", "drapeau": "../images/drapeaux/ye.svg" }
+		],
+		"Océanie": [
+			{ "pays": "Australie", "capitale": "Canberra", "difficulte": "facile", "drapeau": "../images/drapeaux/au.svg" },
+			{ "pays": "Nouvelle-Zélande", "capitale": "Wellington", "difficulte": "facile", "drapeau": "../images/drapeaux/nz.svg" },
+			{ "pays": "Fidji", "capitale": "Suva", "difficulte": "moyen", "drapeau": "../images/drapeaux/fj.svg" },
+			{ "pays": "Papouasie-Nouvelle-Guinée", "capitale": "Port Moresby", "difficulte": "difficile", "drapeau": "../images/drapeaux/pg.svg" },
+			{ "pays": "Samoa", "capitale": "Apia", "difficulte": "difficile", "drapeau": "../images/drapeaux/ws.svg" },
+			{ "pays": "Tonga", "capitale": "Nukuʻalofa", "difficulte": "difficile", "drapeau": "../images/drapeaux/to.svg" },
+			{ "pays": "Vanuatu", "capitale": "Port-Vila", "difficulte": "difficile", "drapeau": "../images/drapeaux/vu.svg" },
+			{ "pays": "Îles Salomon", "capitale": "Honiara", "difficulte": "difficile", "drapeau": "../images/drapeaux/sb.svg" },
+			{ "pays": "Kiribati", "capitale": "Tarawa", "difficulte": "difficile", "drapeau": "../images/drapeaux/ki.svg" },
+			{ "pays": "Tuvalu", "capitale": "Funafuti", "difficulte": "difficile", "drapeau": "../images/drapeaux/tv.svg" },
+			{ "pays": "Micronésie", "capitale": "Palikir", "difficulte": "difficile", "drapeau": "../images/drapeaux/fm.svg" },
+			{ "pays": "Palaos", "capitale": "Ngerulmud", "difficulte": "difficile", "drapeau": "../images/drapeaux/pw.svg" },
+			{ "pays": "Îles Marshall", "capitale": "Majuro", "difficulte": "difficile", "drapeau": "../images/drapeaux/mh.svg" }
+		],
+		"Amérique": [
+			{ "pays": "Antigua-et-Barbuda", "capitale": "Saint John's", "difficulte": "difficile", "drapeau": "../images/drapeaux/ag.svg" },
+			{ "pays": "Argentine", "capitale": "Buenos Aires", "difficulte": "facile", "drapeau": "../images/drapeaux/ar.svg" },
+			{ "pays": "Bahamas", "capitale": "Nassau", "difficulte": "moyen", "drapeau": "../images/drapeaux/bs.svg" },
+			{ "pays": "Barbade", "capitale": "Bridgetown", "difficulte": "moyen", "drapeau": "../images/drapeaux/bb.svg" },
+			{ "pays": "Belize", "capitale": "Belmopan", "difficulte": "difficile", "drapeau": "../images/drapeaux/bz.svg" },
+			{ "pays": "Bolivie", "capitale": "Sucre", "difficulte": "moyen", "drapeau": "../images/drapeaux/bo.svg" },
+			{ "pays": "Brésil", "capitale": "Brasília", "difficulte": "facile", "drapeau": "../images/drapeaux/br.svg" },
+			{ "pays": "Canada", "capitale": "Ottawa", "difficulte": "facile", "drapeau": "../images/drapeaux/ca.svg" },
+			{ "pays": "Chili", "capitale": "Santiago", "difficulte": "facile", "drapeau": "../images/drapeaux/cl.svg" },
+			{ "pays": "Colombie", "capitale": "Bogotá", "difficulte": "facile", "drapeau": "../images/drapeaux/co.svg" },
+			{ "pays": "Costa Rica", "capitale": "San José", "difficulte": "moyen", "drapeau": "../images/drapeaux/cr.svg" },
+			{ "pays": "Cuba", "capitale": "La Havane", "difficulte": "facile", "drapeau": "../images/drapeaux/cu.svg" },
+			{ "pays": "Dominique", "capitale": "Roseau", "difficulte": "difficile", "drapeau": "../images/drapeaux/dm.svg" },
+			{ "pays": "République dominicaine", "capitale": "Saint-Domingue", "difficulte": "moyen", "drapeau": "../images/drapeaux/do.svg" },
+			{ "pays": "Équateur", "capitale": "Quito", "difficulte": "moyen", "drapeau": "../images/drapeaux/ec.svg" },
+			{ "pays": "États-Unis", "capitale": "Washington, D.C.", "difficulte": "facile", "drapeau": "../images/drapeaux/us.svg" },
+			{ "pays": "Grenade", "capitale": "Saint-Georges", "difficulte": "difficile", "drapeau": "../images/drapeaux/gd.svg" },
+			{ "pays": "Guatemala", "capitale": "Guatemala", "difficulte": "moyen", "drapeau": "../images/drapeaux/gt.svg" },
+			{ "pays": "Guyana", "capitale": "Georgetown", "difficulte": "difficile", "drapeau": "../images/drapeaux/gy.svg" },
+			{ "pays": "Haïti", "capitale": "Port-au-Prince", "difficulte": "moyen", "drapeau": "../images/drapeaux/ht.svg" },
+			{ "pays": "Honduras", "capitale": "Tegucigalpa", "difficulte": "moyen", "drapeau": "../images/drapeaux/hn.svg" },
+			{ "pays": "Jamaïque", "capitale": "Kingston", "difficulte": "moyen", "drapeau": "../images/drapeaux/jm.svg" },
+			{ "pays": "Mexique", "capitale": "Mexico", "difficulte": "facile", "drapeau": "../images/drapeaux/mx.svg" },
+			{ "pays": "Nicaragua", "capitale": "Managua", "difficulte": "moyen", "drapeau": "../images/drapeaux/ni.svg" },
+			{ "pays": "Panama", "capitale": "Panama", "difficulte": "moyen", "drapeau": "../images/drapeaux/pa.svg" },
+			{ "pays": "Paraguay", "capitale": "Asuncion", "difficulte": "moyen", "drapeau": "../images/drapeaux/py.svg" },
+			{ "pays": "Pérou", "capitale": "Lima", "difficulte": "facile", "drapeau": "../images/drapeaux/pe.svg" },
+			{ "pays": "Saint-Kitts-et-Nevis", "capitale": "Basseterre", "difficulte": "difficile", "drapeau": "../images/drapeaux/kn.svg" },
+			{ "pays": "Saint-Lucie", "capitale": "Castries", "difficulte": "difficile", "drapeau": "../images/drapeaux/lc.svg" },
+			{ "pays": "Saint-Vincent-et-les-Grenadines", "capitale": "Kingstown", "difficulte": "difficile", "drapeau": "../images/drapeaux/vc.svg" },
+			{ "pays": "Suriname", "capitale": "Paramaribo", "difficulte": "difficile", "drapeau": "../images/drapeaux/sr.svg" },
+			{ "pays": "Trinité-et-Tobago", "capitale": "Port of Spain", "difficulte": "difficile", "drapeau": "../images/drapeaux/tt.svg" },
+			{ "pays": "Uruguay", "capitale": "Montevideo", "difficulte": "facile", "drapeau": "../images/drapeaux/uy.svg" },
+			{ "pays": "Venezuela", "capitale": "Caracas", "difficulte": "facile", "drapeau": "../images/drapeaux/ve.svg" }
+		]
+	}
 }

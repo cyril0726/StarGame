@@ -120,7 +120,7 @@ img{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 26px;
+	padding: 10px 20px;
 	background: rgba(10,10,14,0.55);
 	backdrop-filter: blur(18px);
 	-webkit-backdrop-filter: blur(18px);

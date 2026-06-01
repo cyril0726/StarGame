@@ -16,18 +16,18 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	gap: 4px;
 }
 
 .map-header {
 	text-align: center;
 	max-width: 650px;
-	margin-bottom: 6px;
+	margin-bottom: 0;
 }
 
 .map-header h2 {
-	font-size: clamp(1.2rem, 2.5vw, 2rem);
-	margin-bottom: 4px;
+	font-size: font-size: clamp(1rem, 2vw, 1.6rem);
+	margin-bottom: 2px;
 	color: white;
 	text-shadow: 0 0 25px rgba(139,61,255,0.35);
 }
@@ -113,7 +113,7 @@ button {
 	cursor: pointer;
 	color: white;
 	font-family: 'Orbitron', sans-serif;
-	font-size: 0.85rem;
+	font-size: 0.75rem;
 	font-weight: 700;
 	letter-spacing: 1px;
 	opacity: .82;
@@ -233,12 +233,12 @@ button {
    START BUTTON
 ========================= */
 #start-quiz-btn {
-	margin-top: 14px;
-	padding: 12px 22px;
+	margin-top: 4px;
+	padding: 8px 16px;
 	border: none;
 	border-radius: 18px;
 	font-family: 'Orbitron', sans-serif;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	font-weight: 700;
 	letter-spacing: 1px;
 	color: white;
@@ -267,6 +267,64 @@ button {
 	opacity: .35;
 	cursor: not-allowed;
 	box-shadow: none;
+}
+
+.difficulty-selector {
+	width: 100%;
+	max-width: 480px;
+	text-align: center;
+	margin-top: 4px;
+}
+
+.difficulty-selector h3 {
+	color: white;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 0.85rem;
+	margin-bottom: 12px;
+}
+
+.difficulty-options {
+	display: flex;
+	gap: 6px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.difficulty-btn {
+	padding: 10px 18px;
+	border-radius: 14px;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: rgba(255,255,255,0.05);
+	color: white;
+	cursor: pointer;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	transition: all .25s ease;
+}
+
+.difficulty-btn:hover {
+	transform: translateY(-2px);
+	border-color: rgba(139,61,255,0.5);
+}
+
+.difficulty-btn.selected {
+	background: linear-gradient(
+		145deg,
+		rgba(139,61,255,0.8),
+		rgba(0,200,255,0.4)
+	);
+
+	border-color: #00ffc8;
+
+	box-shadow:
+		0 0 15px rgba(0,255,200,.35),
+		0 0 35px rgba(139,61,255,.25);
+}
+
+.difficulty-description {
+	margin-top: 10px;
+	font-size: .85rem;
+	color: rgba(255,255,255,.7);
 }
 
 /* =========================
@@ -314,7 +372,7 @@ button {
 	width: 100%;
 	max-width: 650px;
 	margin: auto;
-	padding: 12px 18px;
+	padding: 8px 12px;
 	border-radius: 28px;
 	background: transparent;
 	border: none;
@@ -380,12 +438,13 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 14px;
+	padding: 10px;
 	border-radius: 16px;
 	color: white;
 	font-family: 'Poppins', sans-serif;
-	font-size: .95rem;
+	font-size: .85rem;
 	font-weight: 600;
+	min-height: 48px;
 	cursor: pointer;
 	background: linear-gradient(
 		145deg,
