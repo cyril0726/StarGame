@@ -117,10 +117,6 @@
     transform:none !important;
 }
 
-#start-game{
-    min-width:180px;
-}
-
 .primary{ background:#8b3dff; color:white; }
 .danger{ background:#ff4d6d; color:white; }
 
@@ -135,22 +131,16 @@
 
 #hud div{
     min-width:110px;
-
     padding:14px 18px;
-
     border-radius:18px;
-
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,0.05),
             rgba(255,255,255,0.015)
         );
-
     border:1px solid rgba(255,255,255,0.06);
-
     backdrop-filter:blur(12px);
-
     box-shadow:
         0 10px 30px rgba(0,0,0,.22);
 }
@@ -194,19 +184,19 @@
 }
 
 #answer{
-width:180px;
-font-size:1.5rem;
-letter-spacing:1px;
+	width:180px;
+	font-size:1.5rem;
+	letter-spacing:1px;
 	height:54px;
 	padding:0 18px;
 	border-radius:16px;
 	border:1px solid rgba(139,61,255,0.22);
 	background:
-	linear-gradient(
-		145deg,
-		rgba(255,255,255,0.045),
-		rgba(255,255,255,0.015)
-	);
+		linear-gradient(
+			145deg,
+			rgba(255,255,255,0.045),
+			rgba(255,255,255,0.015)
+		);
 	color:white;
 	font-size:1.35rem;
 	font-weight:600;
@@ -271,26 +261,7 @@ letter-spacing:1px;
     font-size:1.5rem;
 }
 
-/* TOAST */
-#toast{
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%) translateY(20px);
-    background:#111;
-    color:white;
-    padding:12px 20px;
-    border-radius:10px;
-    opacity:0;
-    transition:.3s;
-}
-
-#toast.show{
-    opacity:1;
-}
-
 /* HUD responsive */
-
 #hud{
 	flex-wrap:wrap;
 	gap:12px;
@@ -303,7 +274,6 @@ letter-spacing:1px;
 }
 
 /* Réponse */
-
 .answer-box{
 	flex-wrap:wrap;
 	width:100%;
@@ -321,9 +291,7 @@ letter-spacing:1px;
 /* ==========================================
    TABLETTE
 ========================================== */
-
 @media (max-width:768px){
-
 	.game-shell{
 		padding:20px;
 	}
@@ -376,9 +344,7 @@ letter-spacing:1px;
 /* ==========================================
    MOBILE
 ========================================== */
-
 @media (max-width:480px){
-
 	.tables-buttons{
 		grid-template-columns:
 			repeat(
@@ -393,21 +359,6 @@ letter-spacing:1px;
 		height:54px;
 		font-size:1rem;
 		border-radius:14px;
-	}
-
-	.chrono-toggle{
-		width:100%;
-		max-width:260px;
-		display:flex;
-		justify-content:center;
-		align-items:center;
-		gap:10px;
-	}
-
-	#start-game{
-		width:100%;
-		max-width:260px;
-		min-width:auto;
 	}
 
 	#hud{

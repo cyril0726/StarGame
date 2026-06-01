@@ -89,23 +89,23 @@
 #arm2,
 #leg1,
 #leg2{
-  opacity:0;
-  transition:
-    opacity .35s ease,
-    transform .35s ease;
-  transform:scale(.8);
+	opacity:0;
+	transition:
+		opacity .35s ease,
+		transform .35s ease;
+	transform:scale(.8);
 }
 
 .shake{
-  animation:shake 0.3s ease;
+	animation:shake 0.3s ease;
 }
 
 @keyframes shake{
-  0%{transform:translateX(0);}
-  25%{transform:translateX(-6px);}
-  50%{transform:translateX(6px);}
-  75%{transform:translateX(-4px);}
-  100%{transform:translateX(0);}
+	0%{transform:translateX(0);}
+	25%{transform:translateX(-6px);}
+	50%{transform:translateX(6px);}
+	75%{transform:translateX(-4px);}
+	100%{transform:translateX(0);}
 }
 
 #lettre,
@@ -128,10 +128,10 @@
 }
 
 #lettre:focus{
-  outline:none;
-  border-color:var(--primary);
-  box-shadow:
-    0 0 20px rgba(139,61,255,0.25);
+	outline:none;
+	border-color:var(--primary);
+	box-shadow:
+		0 0 20px rgba(139,61,255,0.25);
 }
 
 #valider-btn {
@@ -146,35 +146,10 @@
     justify-content: center;
 }
 
-
-#toast{
-  position:fixed;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-  padding:14px 22px;
-  border-radius:14px;
-  background:rgba(20,20,20,0.92);
-  border:1px solid rgba(139,61,255,0.2);
-  color:white;
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s;
-  z-index:9999;
-  backdrop-filter:blur(10px);
-}
-
-#toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(-10px);
-}
-
 /* ==========================================
    TABLETTE
 ========================================== */
-
 @media (max-width:768px){
-
 	.game-shell{
 		padding:20px;
 	}
@@ -203,15 +178,7 @@
 /* ==========================================
    MOBILE
 ========================================== */
-
 @media (max-width:480px){
-
-	.game-page{
-		padding:12px;
-		padding-left:12px;
-		padding-right:12px;
-	}
-
 	.game-shell{
 		padding:18px 14px;
 		border-radius:22px;
