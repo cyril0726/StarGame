@@ -346,6 +346,19 @@
 ========================================== */
 /* MOBILE */
 @media (max-width:768px){
+	
+	.nav-title{
+		font-size:1.6rem;
+	}
+
+	.brand-text{
+		display:none;
+	}
+
+	.back-btn{
+		font-size:0.9rem;
+	}
+	
 	.tables-buttons {
 		grid-template-columns: repeat(3, 1fr);
 		gap: 8px;

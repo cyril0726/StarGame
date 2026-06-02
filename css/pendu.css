@@ -178,6 +178,21 @@
 /* ==========================================
    MOBILE
 ========================================== */
+/* MOBILE */
+@media (max-width: 768px) {
+	.nav-title{
+		font-size:1.6rem;
+	}
+
+	.brand-text{
+		display:none;
+	}
+
+	.back-btn{
+		font-size:0.9rem;
+	}
+}
+
 @media (max-width:480px){
 	.game-shell{
 		padding:18px 14px;
