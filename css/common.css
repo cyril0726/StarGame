@@ -338,6 +338,13 @@ img{
 /* =====================================================
    RESPONSIVE IMPROVEMENTS STARLAB
 ===================================================== */
+/* PC */
+@media (min-width:769px){
+  .hamburger{
+    display:none;
+  }
+}
+
 /* TABLETTE */
 @media (max-width:900px){
 }
@@ -352,15 +359,33 @@ img{
 	}
 
 	.nav-links{
+		display:none;
+		flex-direction:column;
+		gap:12px;
+		background: rgba(20,20,30,0.95);
+		position:absolute;
+		top:100%;
+		left:0;
 		width:100%;
-		justify-content:center;
-		flex-wrap:wrap;
-		gap:8px;
+		padding:12px;
+	  }
+  
+    .nav-links.active{
+		display:flex;
 	}
 
 	.nav-item{
 		font-size:.85rem;
 		padding:8px 12px;
+	}
+	
+	.hamburger{
+		display:block;
+		background:none;
+		border:none;
+		color:white;
+		font-size:1.5rem;
+		cursor:pointer;
 	}
 
 	.footer{
