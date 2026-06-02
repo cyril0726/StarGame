@@ -2,23 +2,22 @@ const Game = {
     state: "menu",
     mode: "normal",
     tables: [],
-
     score: 0,
     errors: 0,
-
     time: 60,
     interval: null,
-
     current: null,
-
     // progression
     maxQuestions: 20,
     questionsAsked: 0,
-
     // streak
     streak: 0,
     bestStreak: 0
 };
+
+// Désactiver les boutons au départ, tant qu'aucune table n'est sélectionnée
+document.getElementById("mode-chrono").disabled = true;
+document.getElementById("mode-zen").disabled = true;
 
 // UI helpers
 function showScreen(id){
@@ -45,8 +44,11 @@ document.querySelectorAll(".table-button").forEach(btn=>{
             btn.classList.add("selected");
         }
         // Enable start buttons
-		document.getElementById("start-game").disabled =
-			Game.tables.length===0;
+		document.getElementById("mode-chrono").disabled =
+			Game.tables.length === 0;
+
+		document.getElementById("mode-zen").disabled =
+			Game.tables.length === 0;
     });
 });
 

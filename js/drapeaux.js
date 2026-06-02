@@ -48,8 +48,20 @@ function toggleContinent(continent, btn) {
         btn.classList.remove("selected");
     }
 
-    document.getElementById("start-quiz-btn").disabled =
-        selectedContinents.length === 0;
+    const startBtn = document.getElementById("start-quiz-btn");
+    const difficultyBtns = document.querySelectorAll(".difficulty-btn");
+
+    const hasSelection = selectedContinents.length > 0;
+
+    // activer/désactiver le bouton "Lancer le quiz"
+    startBtn.disabled = !hasSelection;
+
+    // activer/désactiver les boutons de difficulté
+    difficultyBtns.forEach(b => {
+        b.disabled = !hasSelection;
+        b.style.opacity = hasSelection ? 1 : 0.35; // optionnel: griser visuellement
+        b.style.cursor = hasSelection ? "pointer" : "not-allowed";
+    });
 }
 
 // =========================
@@ -400,3 +412,15 @@ function restartQuiz() {
 	updateProgress();
     startQuiz();
 }
+
+// -------------------------
+// Désactiver les boutons de difficulté au chargement
+// -------------------------
+window.addEventListener("DOMContentLoaded", () => {
+    const difficultyBtns = document.querySelectorAll(".difficulty-btn");
+    difficultyBtns.forEach(b => {
+        b.disabled = true;
+        b.style.opacity = 0.35;
+        b.style.cursor = "not-allowed";
+    });
+});
