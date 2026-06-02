@@ -614,7 +614,7 @@ button {
 
 	.world-map{
 		max-width:100%;
-		aspect-ratio:1/1;
+		aspect-ratio:16/9;
 		min-height:auto;
 	}
 
@@ -634,7 +634,7 @@ button {
 
     .europe{
         width:18%;
-        height:18%;
+        height:20%;
         left:45%;
         top:25%;
     }
