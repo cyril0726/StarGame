@@ -343,6 +343,7 @@ img{
   .hamburger{
     display:none;
   }
+  
 }
 
 /* TABLETTE */
@@ -351,12 +352,14 @@ img{
 
 /* MOBILE */
 @media (max-width:768px){
-	.nav{
-		height:auto;
-		padding:12px;
-		flex-direction:column;
-		gap:12px;
-	}
+    .nav{
+        height:60px;
+        padding:0 16px;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+		position:fixed;
+    }
 
 	.nav-links{
 		display:none;
@@ -374,10 +377,20 @@ img{
 		display:flex;
 	}
 
-	.nav-item{
-		font-size:.85rem;
-		padding:8px 12px;
-	}
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:60px;
+        left:0;
+        width:100%;
+
+        background:rgba(20,20,30,0.95);
+        backdrop-filter:blur(18px);
+
+        flex-direction:column;
+        padding:16px;
+        gap:10px;
+    }
 	
 	.hamburger{
 		display:block;
