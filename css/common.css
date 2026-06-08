@@ -310,6 +310,33 @@ img{
     padding: 12px 0;
 }
 
+.footer-donate{
+  margin-left:8px;
+  font-size:1.2rem;
+  text-decoration:none;
+  color:var(--muted);
+  display:inline-block;
+  animation: twinkle 2.8s infinite ease-in-out;
+  transition: transform 0.25s, color 0.25s;
+}
+
+.footer-donate:hover{
+  color:var(--primary);
+  transform:scale(1.3);
+  text-shadow:0 0 15px rgba(139,61,255,0.4);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.15));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.35));
+  }
+}
+
 /* =====================================================
    TOAST
 ===================================================== */
